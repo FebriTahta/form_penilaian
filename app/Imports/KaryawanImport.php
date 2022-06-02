@@ -39,24 +39,6 @@ class KaryawanImport implements ToCollection, WithStartRow
             $jabatan    = Jabatan::where('nama_jabatan', $row[2])->first();
             $karyawan   = Karyawan::where('nama_karyawan', $row[0])->first();
 
-            if ($user == null) {
-                # user baru code...
-                $dt_user = new User;
-                $dt_user->name = $row[0];
-                $dt_user->pass = 'admin';
-                $dt_user->password = Hash::make('admin');
-                $dt_user->save();
-            }
-
-            if($jabatan == null)
-            {
-                # jabatan baru code...
-                $dt_jab = new Jabatan;
-                $dt_jab->nama_jabatan = $row[2];
-                $dt_jab->slug_jabatan = Str::slug($row[2]);
-                $dt_jab->save();
-            }
-
             if ($karyawan == null) {
                 # karyawan baru code...
                 $dt_kar = new Karyawan;
@@ -96,6 +78,7 @@ class KaryawanImport implements ToCollection, WithStartRow
                 $dt_kar->tempatlahir_karyawan = $row[3];
                 $dt_kar->tanggallahir_karyawan= $tgllahir;
                 $dt_kar->alamat_karyawan      = $row[5];
+                $dt_kar->jenkel        = $row[6]; 
                 $dt_kar->save();
             }
 

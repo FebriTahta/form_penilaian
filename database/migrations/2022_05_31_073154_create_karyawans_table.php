@@ -23,6 +23,7 @@ class CreateKaryawansTable extends Migration
             $table->string('tempatlahir_karyawan')->nullable();
             $table->string('tanggallahir_karyawan')->nullable();
             $table->string('alamat_karyawan')->nullable();
+            $table->string('jenkel')->nullable();
             $table->timestamps();
         });
     }

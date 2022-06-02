@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <hr>
-                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Karyawan Baru</button>
+                    {{-- <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Karyawan Baru</button> --}}
                     <button class="btn btn-success btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modalimport">Import Data Karyawan</button>
                     <div class="card">
                         <div class="row">

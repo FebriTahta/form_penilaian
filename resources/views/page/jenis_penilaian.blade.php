@@ -81,6 +81,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-footer white">
+                                    <a href="/form/{{$item->slug_jenis}}" target="_blank" class="btn btn-xs text-white btn-outline" style="background-color: pink">Link Form</a>
                                     <a href="/kategori-form-penilaian/{{$item->slug_jenis}}" class="btn btn-outline-success btn-xs">Selengkapnya</a>
                                     <a href="#" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-id="{{$item->id}}" data-nama_jenis="{{$item->nama_jenis}}" 
                                         data-img_jenis="{{$item->img_jenis}}" data-img_thumbnail_jenis="{{$item->img_thumbnail_jenis}}"

@@ -24,6 +24,13 @@ Route::get('/', function () {
 });
 
 
+//FrontEnd Form Penilaian
+Route::get('/form/{slug_jenis}',[FormJenisCont::class,'form_penilaian']);
+Route::get('/find-nama-karyawan',[FormJenisCont::class,'find_nama_karyawan'])->name('find_karyawan');
+Route::post('/form-penilaian',[FormJenisCont::class,'form_penilaian_karyawan'])->name('form_penilaian');
+Route::post('/submit-form-penilaian',[FormJenisCont::class,'submit_form'])->name('submit-form-penilaian');
+
+
 //backend jenis
 Route::get('/jenis-form-penilaian',[FormJenisCont::class,'index_jenis'])->name('be_index_jenis');
 Route::post('/jenis-form-store',[FormJenisCont::class,'store_jenis'])->name('be_store_jenis');

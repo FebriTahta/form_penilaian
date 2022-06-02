@@ -10,7 +10,7 @@ class Karyawan extends Model
     use HasFactory;
 
     protected $fillable=[
-        'nama_karyawan','telp_karyawan','slug_karyawan','tempatlahir_karyawan','tanggallahir_karyawan','alamat_karyawan','user_id','jabatan_id'
+        'nama_karyawan','telp_karyawan','slug_karyawan','tempatlahir_karyawan','tanggallahir_karyawan','alamat_karyawan','user_id','jabatan_id','jenkel'
     ];
 
     public function user()
@@ -21,5 +21,10 @@ class Karyawan extends Model
     public function jabatan()
     {
         return $this->belongsTo(Jabatan::class);
+    }
+
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class);
     }
 }

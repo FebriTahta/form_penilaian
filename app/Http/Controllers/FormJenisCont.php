@@ -6,6 +6,11 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Image;
 use File;
+use App\Models\User;
+use App\Models\Kategori;
+use App\Models\Poin;
+use App\Models\Karyawan;
+use App\Models\Penilaian;
 
 class FormJenisCont extends Controller
 {
@@ -125,5 +130,65 @@ class FormJenisCont extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function form_penilaian(Request $request, $slug_jenis)
+    {
+        $jenis = Jenis::where('slug_jenis', $slug_jenis)->first();
+        return view('fe.form_penilaian',compact('jenis'));
+    }
+
+    public function find_nama_karyawan(Request $request)
+    {
+        $data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data = User::select('id','name')
+                    ->where('id','LIKE','%' .$search . '%')
+                    ->orWhere('name', 'LIKE', '%' .$search . '%')
+                    ->get();
+        }else{
+            $data = User::select('id','name')->get();
+        }
+        return response()->json($data);
+    }
+
+    public function form_penilaian_karyawan(Request $request)
+    {
+        $tanggal  = $request->dates;
+        $jenis = Jenis::where('slug_jenis', $request->slug_jenis)->first();
+        $user  = User::where('id',$request->user_id)->first();
+        $karyawan = Karyawan::where('user_id', $user->id)->first();
+        $kategori = Kategori::where('jenis_id', $jenis->id)->get();
+        $penilaian = Penilaian::where('karyawan_id', $karyawan->id)->where('jenis_id', $jenis->id)->where('tanggal', $tanggal)->count();
+        return view('fe.form_penilaian2',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
+    }
+
+    public function submit_form(Request $request)
+    {
+        
+        $poins      = Poin::find(array_values($request->input('poins')));
+        
+        foreach ($poins as $key => $value) {
+            # code...
+            $data = Penilaian::updateOrCreate(['id'=>$request->id],
+            [
+                'karyawan_id' => $request->karyawan_id,
+                'jenis_id'    => $request->jenis_id,
+                'kategori_id' => $value->kategori_id,
+                'poin_id'     => $value->id,
+                'nilai'       => $value->besar_poin,
+                'tanggal'     => $request->tanggal,
+            ]);
+        }
+        $jenis = Jenis::find($request->jenis_id);
+        return view('fe.form_sukses',compact('jenis'));
+    }
+
+    public function sukses_form($jenis_id)
+    {
+        $jenis = Jenis::find($jenis_id);
+        return view('fe.form_sukses',compact('jenis'));
     }
 }
