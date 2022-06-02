@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="white p-5 r-5">
                             <div class="card-title">
@@ -209,7 +209,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 
             </div>
             <!--Today Tab End-->
