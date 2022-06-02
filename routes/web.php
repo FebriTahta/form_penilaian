@@ -6,6 +6,10 @@ use App\Http\Controllers\FormJenisCont;
 use App\Http\Controllers\FormKategoriCont;
 use App\Http\Controllers\FormPoinCont;
 use App\Http\Controllers\FormKaryawanCont;
+use App\Models\Poin;
+use App\Models\Kategori;
+use App\Models\Jenis;
+use App\Models\Karyawan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +24,11 @@ use App\Http\Controllers\FormKaryawanCont;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('page.dashboard');
+    $poin = Poin::count();
+    $kategori = Kategori::count();
+    $jenis = Jenis::count();
+    $karyawan = Karyawan::count();
+    return view('page.dashboard',compact('poin','kategori','jenis','karyawan'));
 });
 
 

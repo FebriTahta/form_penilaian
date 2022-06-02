@@ -41,8 +41,8 @@
                                 <div class="float-right">
                                     <span class="icon icon-note-list text-light-blue s-48"></span>
                                 </div>
-                                <div class="counter-title">Web Projects</div>
-                                <h5 class="sc-counter mt-3">1228</h5>
+                                <div class="counter-title">Karyawan</div>
+                                <h5 class="sc-counter mt-3">{{$karyawan}}</h5>
                             </div>
                             <div class="progress progress-xs r-0">
                                 <div class="progress-bar" role="progressbar" style="width: 25%;"
@@ -56,8 +56,8 @@
                                 <div class="float-right">
                                     <span class="icon icon-mail-envelope-open s-48"></span>
                                 </div>
-                                <div class="counter-title ">Premium Themes</div>
-                                <h5 class="sc-counter mt-3">1228</h5>
+                                <div class="counter-title ">Jenis Form Penilaian</div>
+                                <h5 class="sc-counter mt-3">{{$jenis}}</h5>
                             </div>
                             <div class="progress progress-xs r-0">
                                 <div class="progress-bar" role="progressbar" style="width: 50%;"
@@ -71,8 +71,8 @@
                                 <div class="float-right">
                                     <span class="icon icon-stop-watch3 s-48"></span>
                                 </div>
-                                <div class="counter-title">Support Requests</div>
-                                <h5 class="sc-counter mt-3">1228</h5>
+                                <div class="counter-title">Kategori Penilaian</div>
+                                <h5 class="sc-counter mt-3">{{$kategori}}</h5>
                             </div>
                             <div class="progress progress-xs r-0">
                                 <div class="progress-bar" role="progressbar" style="width: 75%;"
@@ -86,8 +86,8 @@
                                 <div class="float-right">
                                     <span class="icon icon-inbox-document-text s-48"></span>
                                 </div>
-                                <div class="counter-title">Support Requests</div>
-                                <h5 class="sc-counter mt-3">550</h5>
+                                <div class="counter-title">Poin Penilaian</div>
+                                <h5 class="sc-counter mt-3">{{$poin}}</h5>
                             </div>
                             <div class="progress progress-xs r-0">
                                 <div class="progress-bar" role="progressbar" style="width: 25%;"
