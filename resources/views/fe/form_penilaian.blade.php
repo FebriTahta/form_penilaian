@@ -9,8 +9,8 @@
     <meta property="og:title" content="Registrasi"/>
     
     <meta property="og:description" content="Registrasi {{$jenis->nama_jenis}}"/>
-    @if ($jenis->img_jenis !== null)
-		<meta property="og:image" itemprop="image" content="{{$jenis->img_jenis}}">
+    @if ($jenis->img_thumbnail_jenis !== null)
+		<meta property="og:image" itemprop="image" content="{{$jenis->img_thumbnail_jenis}}">
 	@else
 		<meta property="og:image" itemprop="image" content="{{ asset('images/tumbreg.jpeg') }}">
 	@endif
