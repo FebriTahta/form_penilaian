@@ -157,7 +157,7 @@
                         @foreach ($kategori as $item)
                             <div class="step">
                                 <div class="question_title">
-                                    <h3 style="text-transform: capitalize">* {{$item->nama_kategori}} *</h3>
+                                    <h5 style="text-transform: capitalize">* {{$item->nama_kategori}} *</h5>
                                     
                                     <p>- choose -</p>
                                 </div>
