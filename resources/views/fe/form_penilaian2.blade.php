@@ -141,12 +141,12 @@
                         <div class="step">
                             <div class="question_title">
                                 <p>{{ Carbon\Carbon::parse($tanggal)->isoFormat('D MMMM Y') }}</p>
+                                @if ($karyawan->jenkel == 'L')
+                                <p> Ustadz : </p>
+                                @else
+                                <p> Ustadzah : </p>
+                                @endif
                                 <h5 style="text-transform: capitalize"> 
-                                    @if ($karyawan->jenkel == 'L')
-                                        Ustadz :
-                                    @else
-                                        Ustadzah :
-                                    @endif
                                     {{$karyawan->nama_karyawan}}
                                 </h5>
                                 <input type="hidden" name="karyawan_id" value="{{$karyawan->id}}">
@@ -211,7 +211,7 @@
             @else
             <div class="submit step" style="margin-top: 50px">
                 <div class="question_title">
-                    <h5 style="text-transform: capitalize">Anda Sudah Mengisi Form Pada Tanggal Tersebut</h5>
+                    <h5 style="text-transform: capitalize">Anda Sudah Mengisi Form Pada Tanggal Tersebut ({{ Carbon\Carbon::parse($tanggal)->isoFormat('D MMMM Y') }})</h5>
                     <p>- Tekan tombol berikut untuk kembali -</p>
                     <a href="/form/{{$jenis->slug_jenis}}" class="btn btn_1" style="margin-top: 20px">Kembali</a>
                 </div>
