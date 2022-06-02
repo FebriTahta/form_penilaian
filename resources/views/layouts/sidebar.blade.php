@@ -149,7 +149,7 @@
                 </div>
                 <ul class="sidebar-menu">
                     <li class="header"><strong>PENILAIAN PEGAWAI</strong></li>
-                    <li class="treeview"><a href="#">
+                    <li class="treeview"><a href="/">
                             <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span>
                         </a>
 
