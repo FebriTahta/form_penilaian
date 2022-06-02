@@ -65,6 +65,7 @@ class KaryawanImport implements ToCollection, WithStartRow
                     $dt_user = new User;
                     $dt_user->name = $row[0];
                     $dt_user->pass = 'admin';
+                    $dt_user->role = 'admin';
                     $dt_user->password = Hash::make('admin');
                     $dt_user->save();
 
