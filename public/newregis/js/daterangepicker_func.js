@@ -26,31 +26,31 @@
 	  	});
 
         // Date picker range disabled days of the week
-        var pickrange_disabled_day = $("#dates.days-disabled");
-        pickrange_disabled_day.daterangepicker({
-            locale: {
-                separator:' > ',
-                direction: 'ltr',
-                format: 'MM-DD-YY'
-            },
-            isInvalidDate: function (date) {
-                return (date.day() == 0 || date.day() == 6); /*  Sundays(0) and Saturdays(6) disabled */
-            },
-            parentEl: "#inline-calendar",
-            minDate:new Date(),
-            autoUpdateInput: false,
-            linkedCalendars:true,
-            alwaysShowCalendars: true,
-            singleDatePicker: false,
-            autoApply :true,
-            inline: true
-        });
-            pickrange_disabled_day.on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('MM-DD-YY') + ' > ' + picker.endDate.format('MM-DD-YY'));
-        });
-            pickrange_disabled_day.on('cancel.daterangepicker', function(ev, picker) {
-            $(this).val('');
-        });
+        // var pickrange_disabled_day = $("#dates.days-disabled");
+        // pickrange_disabled_day.daterangepicker({
+        //     locale: {
+        //         separator:' > ',
+        //         direction: 'ltr',
+        //         format: 'MM-DD-YY'
+        //     },
+        //     isInvalidDate: function (date) {
+        //         return (date.day() == 0 || date.day() == 6); /*  Sundays(0) and Saturdays(6) disabled */
+        //     },
+        //     parentEl: "#inline-calendar",
+        //     minDate:new Date(),
+        //     autoUpdateInput: false,
+        //     linkedCalendars:true,
+        //     alwaysShowCalendars: true,
+        //     singleDatePicker: false,
+        //     autoApply :true,
+        //     inline: true
+        // });
+        //     pickrange_disabled_day.on('apply.daterangepicker', function(ev, picker) {
+        //     $(this).val(picker.startDate.format('MM-DD-YY') + ' > ' + picker.endDate.format('MM-DD-YY'));
+        // });
+        //     pickrange_disabled_day.on('cancel.daterangepicker', function(ev, picker) {
+        //     $(this).val('');
+        // });
 
         // Date picker range + translation French + european date format
         var pickrange_lang = $("#dates.lang");
@@ -111,7 +111,7 @@
                 format: 'Y-MM-DD'
             },
             parentEl: "#inline-calendar",
-            minDate:new Date(),
+            
             autoUpdateInput: false,
             linkedCalendars:false,
             alwaysShowCalendars: true,

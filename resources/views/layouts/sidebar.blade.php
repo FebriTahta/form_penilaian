@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{asset('assets/img/basic/favicon.ico')}}" type="image/x-icon">
-    <title>Paper</title>
+    <title>Forms Panel</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     <style>
