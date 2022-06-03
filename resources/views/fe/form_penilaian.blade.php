@@ -160,7 +160,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-7">
                                         <div class="clearfix position-relative mb-3" id="inline-calendar">
-                                            <input type="text" name="dates" id="dates" class="single required"
+                                            <input type="text" name="dates" id="dates" value="{{date('Y-m-d')}}" class="single required"
                                                 hidden="hidden">
                                             
                                         </div>

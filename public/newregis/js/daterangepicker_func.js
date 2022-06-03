@@ -111,7 +111,7 @@
                 format: 'Y-MM-DD'
             },
             parentEl: "#inline-calendar",
-            
+            Date:new Date(),
             autoUpdateInput: false,
             linkedCalendars:false,
             alwaysShowCalendars: true,

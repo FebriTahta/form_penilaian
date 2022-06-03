@@ -162,8 +162,20 @@ class FormJenisCont extends Controller
         $karyawan = Karyawan::where('user_id', $user->id)->first();
         $kategori = Kategori::where('jenis_id', $jenis->id)->get();
         $penilaian = Penilaian::where('karyawan_id', $karyawan->id)->where('jenis_id', $jenis->id)->where('tanggal', $tanggal)->count();
-        return view('fe.form_penilaian2',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
+
+        if ($karyawan->jenkel == 'P') {
+            # code...
+            return view('fe.form_berhalangan',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
+        }else {
+            # code...
+            return view('fe.form_penilaian2',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
+        }
     }
+
+    // public function form_penilaian_karyawan_perempuan(Request $request)
+    // {
+        
+    // }
 
     public function submit_form(Request $request)
     {
@@ -184,6 +196,35 @@ class FormJenisCont extends Controller
         }
         $jenis = Jenis::find($request->jenis_id);
         return view('fe.form_sukses',compact('jenis'));
+        
+    }
+
+    public function submit_berhalangan(Request $request)
+    {
+        if ($request->berhalangan == 'berhalangan') {
+            # code...
+            $data = Penilaian::updateOrCreate(['id'=>$request->id],
+            [
+                'karyawan_id' => $request->karyawan_id,
+                'jenis_id'    => $request->jenis_id,
+                'tanggal'     => $request->tanggal,
+                'keterangan'  => $request->berhalangan,
+            ]);
+
+            $jenis = Jenis::find($request->jenis_id);
+            return view('fe.form_sukses',compact('jenis'));
+
+        }else {
+            # code...
+            $tanggal  = $request->tanggal;
+            $jenis = Jenis::where('id', $request->jenis_id)->first();
+            $karyawan = Karyawan::where('id', $request->karyawan_id)->first();
+            $kategori = Kategori::where('jenis_id', $request->jenis_id)->get();
+            $penilaian = Penilaian::where('karyawan_id', $karyawan->id)->where('jenis_id', $jenis->id)->where('tanggal', $tanggal)->count();
+
+            return view('fe.form_penilaian2',compact('jenis','kategori','karyawan','tanggal','penilaian'));
+            
+        }
     }
 
     public function sukses_form($jenis_id)

@@ -37,6 +37,7 @@ Route::get('/form/{slug_jenis}',[FormJenisCont::class,'form_penilaian']);
 Route::get('/find-nama-karyawan',[FormJenisCont::class,'find_nama_karyawan'])->name('find_karyawan');
 Route::post('/form-penilaian',[FormJenisCont::class,'form_penilaian_karyawan'])->name('form_penilaian');
 Route::post('/submit-form-penilaian',[FormJenisCont::class,'submit_form'])->name('submit-form-penilaian');
+Route::post('/submit-form-berhalangan',[FormJenisCont::class,'submit_berhalangan'])->name('submit-form-berhalangan');
 
 
 //backend jenis
@@ -57,7 +58,7 @@ Route::post('/poin-form-store',[FormPoinCont::class,'store_poin'])->name('be_sto
 Route::get('/karyawan-form-penilain',[FormKaryawanCont::class,'index_karyawan'])->name('be_index_karyawan');
 Route::post('/karyawan-form-import',[FormKaryawanCont::class,'import_karyawan'])->name('be_import_karyawan');
 
-
+//backend laporan
 
 Auth::routes();
 
