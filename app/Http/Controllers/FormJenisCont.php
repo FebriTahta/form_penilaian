@@ -164,7 +164,7 @@ class FormJenisCont extends Controller
         $kategori = Kategori::where('jenis_id', $jenis->id)->get();
         $penilaian = Penilaian::where('karyawan_id', $karyawan->id)->where('jenis_id', $jenis->id)->where('tanggal', $tanggal)->count();
 
-        if ($karyawan->jenkel == 'P' && $jenis->nama_jenis == 'Penilaian Kinerja SDM Nurul Falah') {
+        if ($karyawan->jenkel == 'P' && $jenis->nama_jenis !== 'Penilaian Kinerja SDM Nurul Falah') {
             # code...
             return view('fe.form_berhalangan',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
         }else {
