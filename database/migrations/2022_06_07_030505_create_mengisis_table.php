@@ -19,6 +19,7 @@ class CreateMengisisTable extends Migration
             $table->unsignedBigInteger('jenis_id')->nullable();
             $table->string('tanggal')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
         });
     }
