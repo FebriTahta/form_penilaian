@@ -9,7 +9,7 @@ class Mengisi extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'karyawan_id','jenis_id','tanggal','keterangan'
+        'karyawan_id','jenis_id','tanggal','keterangan','total'
     ];
 
     public function karyawan()

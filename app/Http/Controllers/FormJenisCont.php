@@ -176,8 +176,6 @@ class FormJenisCont extends Controller
     public function submit_form(Request $request)
     {
 
-        
-
         $jenis   = Jenis::find($request->jenis_id);
 
         $poins      = Poin::find(array_values($request->input('poins')));
@@ -198,7 +196,7 @@ class FormJenisCont extends Controller
         [
             'karyawan_id' => $request->karyawan_id,
             'jenis_id'    => $request->jenis_id,
-            'keterangan'  => $value->kategori_id,
+            'keterangan'  => 'normal',
             'tanggal'     => $request->tanggal,
             'total'       => $data->sum('nilai'),
         ]);
