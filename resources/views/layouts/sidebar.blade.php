@@ -158,14 +158,14 @@
                     <li class="header light mt-3"><strong>DATA MASTER</strong></li>
                     <li class="treeview"><a href="#">
                             <i class="icon icon-dialpad blue-text  s-18"></i>
-                            <span>Bidang & Karyawan</span>
+                            <span>Group & Karyawan</span>
                             <i class="icon icon-angle-left s-18 pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="panel-element-letters.html">
+                                <a href="{{route('be_index_group')}}">
                                     <i class="icon icon-group light-blue-text s-14"></i>
-                                    <span>Bidang</span>
+                                    <span>Group</span>
                                 </a>
                             </li>
                             <li>
@@ -208,7 +208,7 @@
                                         class="icon icon-area-chart pink-text s-14"></i><span>Keseluruhan</span></a>
                             </li>
                             <li>
-                                <a href="#"><i
+                                <a href="{{route('be_laporan_detail')}}"><i
                                         class="icon icon-bubble_chart pink-text s-14"></i>Per Bulan / Waktu Tertentu</a>
                             </li>
                         </ul>

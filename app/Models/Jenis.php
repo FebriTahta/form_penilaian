@@ -18,6 +18,16 @@ class Jenis extends Model
         return $this->hasMany(Kategori::class);
     }
 
+    public function group()
+    {
+        return $this->hasMany(Group::class,'id');
+    }
+
+    public function mengisi()
+    {
+        return $this->hasMany(Mengisi::class,'id');
+    }
+
     // public function getImgJenisAttribute($value)
     // {
     //     return asset('img_jenis/'.$value);

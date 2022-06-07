@@ -146,7 +146,7 @@
                             </div>
 
                             <div class="question_title">
-                                <h5 style="text-transform: capitalize"> 
+                                <h5 style="text-transform: capitalize">
                                     {{$karyawan->nama_karyawan}}
                                 </h5>
                                 <p> {{ Carbon\Carbon::parse($tanggal)->isoFormat('D MMMM Y') }} </p>

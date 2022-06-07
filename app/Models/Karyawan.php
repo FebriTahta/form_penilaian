@@ -27,4 +27,9 @@ class Karyawan extends Model
     {
         return $this->hasMany(Penilaian::class);
     }
+
+    public function mengisi()
+    {
+        return $this->hasMany(Mengisi::class);
+    }
 }

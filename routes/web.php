@@ -5,6 +5,8 @@ use App\Http\Controllers\FormPenilaianCont;
 use App\Http\Controllers\FormJenisCont;
 use App\Http\Controllers\FormKategoriCont;
 use App\Http\Controllers\FormPoinCont;
+use App\Http\Controllers\LaporanCont;
+use App\Http\Controllers\GroupCont;
 use App\Http\Controllers\FormKaryawanCont;
 use App\Models\Poin;
 use App\Models\Kategori;
@@ -59,7 +61,11 @@ Route::get('/karyawan-form-penilain',[FormKaryawanCont::class,'index_karyawan'])
 Route::post('/karyawan-form-import',[FormKaryawanCont::class,'import_karyawan'])->name('be_import_karyawan');
 
 //backend laporan
+Route::get('/karyawan-form-laporan',[LaporanCont::class,'laporan_detail'])->name('be_laporan_detail');
+
+//backend group
+Route::get('/group-karyawan',[GroupCont::class,'index_group'])->name('be_index_group');
+Route::post('/group-karyawan-store',[GroupCont::class,'store_group'])->name('be_store_group');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

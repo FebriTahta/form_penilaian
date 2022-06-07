@@ -119,7 +119,7 @@
                 <div class="col-12 text-center">
                     <a href="index.html"><img src="{{asset('nf_logo.png')}}" alt="" class="img-fluid" style="max-width: 120px"></a>
                 </div>
-                
+
             </div>
         </div>
         <!-- /container -->
@@ -141,11 +141,7 @@
                         <div class="step">
                             <div class="question_title">
                                 <p>{{ Carbon\Carbon::parse($tanggal)->isoFormat('D MMMM Y') }}</p>
-                                {{-- @if ($karyawan->jenkel == 'L')
-                                <p> Ustadz : </p>
-                                @else
-                                <p> Ustadzah : </p>
-                                @endif --}}
+                                
                                 <p>Mengisi {{$jenis->nama_jenis}} sebagai 
                                     @if ($karyawan->jenkel == 'L') Ustadz @else  Ustadzah @endif</p>
                                 <h5 style="text-transform: capitalize"> 
@@ -157,71 +153,72 @@
                             </div>
                         </div>
                         <input type="hidden" id="jenkel" value="{{$karyawan->jenkel}}">
-                        {{-- @if ($karyawan->jenkel == 'P')
-                            <div class="step">
-                                <div class="question_title">
-                                    <h5 style="text-transform: capitalize">* Berhalangan *</h5>
-                                    
-                                    <p>- choose -</p>
-                                </div>
-                                <div class="row justify-content-center">
+                        @if ($jenis->nama_jenis == 'Penilaian Kinerja SDM Nurul Falah')
+                            @foreach ($kategori as $item)
+                                <div class="step proses">
+                                    <div class="question_title">
+                                        <h5 style="text-transform: capitalize">* {{$item->nama_kategori}} *</h5>
+                                        
+                                        <p>- choose -</p>
+                                    </div>
                                     <div class="row justify-content-center">
-                                        <div class="col-md-7">
-                                            <div class="list_block">
-                                                <ul>
-                                                    <li>
-                                                        <div class="checkbox_radio_container">
-                                                            <input type="radio" id="no1" name="berhalangan" class="required m" value="berhalangan">
-                                                            <label class="radio" for="no1"></label>
-                                                            <label for="no1" class="wrapper">Berhalangan</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="checkbox_radio_container">
-                                                            <input type="radio" id="no2" name="berhalangan" class="required m" value="-">
-                                                            <label class="radio" for="no2"></label>
-                                                            <label for="no2" class="wrapper">Tidak</label>
-                                                        </div>
-                                                    </li>
-                                                    <input type="hidden" id="stat" name="keterangan" class="form-control">
-                                                </ul>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-7">
+                                                <div class="list_block">
+                                                    <ul>
+                                                        @foreach ($item->poin as $key=>$poins)
+                                                        <li>
+                                                            <div class="checkbox_radio_container">
+                                                                <input type="checkbox" id="no{{$key}}{{$poins->id}}" name="poins[{{$poins->id}}]" class="" value="{{$poins->id}}">
+                                                                <label class="radio" for="no{{$key}}{{$poins->id}}"></label>
+                                                                
+                                                                <label for="no{{$key}}{{$poins->id}}" class="wrapper">{{$poins->nama_poin}}</label>
+                                                                
+                                                            </div>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <!-- /review_block-->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif --}}
-                        @foreach ($kategori as $item)
-                            <div class="step proses">
-                                <div class="question_title">
-                                    <h5 style="text-transform: capitalize">* {{$item->nama_kategori}} *</h5>
-                                    
-                                    <p>- choose -</p>
-                                </div>
-                                <div class="row justify-content-center">
+                            @endforeach
+                        @else
+                            @foreach ($kategori as $item)
+                                <div class="step proses">
+                                    <div class="question_title">
+                                        <h5 style="text-transform: capitalize">* {{$item->nama_kategori}} *</h5>
+                                        
+                                        <p>- choose -</p>
+                                    </div>
                                     <div class="row justify-content-center">
-                                        <div class="col-md-7">
-                                            <div class="list_block">
-                                                <ul>
-                                                    @foreach ($item->poin as $key=>$poins)
-                                                    <li>
-                                                        <div class="checkbox_radio_container">
-                                                            <input type="radio" id="no{{$key}}{{$poins->id}}" name="poins[{{$item->id}}]" class="required" value="{{$poins->id}}">
-                                                            <label class="radio" for="no{{$key}}{{$poins->id}}"></label>
-                                                            
-                                                            <label for="no{{$key}}{{$poins->id}}" class="wrapper">{{$poins->nama_poin}}</label>
-                                                            
-                                                        </div>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-7">
+                                                <div class="list_block">
+                                                    <ul>
+                                                        @foreach ($item->poin as $key=>$poins)
+                                                        <li>
+                                                            <div class="checkbox_radio_container">
+                                                                <input type="radio" id="no{{$key}}{{$poins->id}}" name="poins[{{$item->id}}]" class="required" value="{{$poins->id}}">
+                                                                <label class="radio" for="no{{$key}}{{$poins->id}}"></label>
+                                                                
+                                                                <label for="no{{$key}}{{$poins->id}}" class="wrapper">{{$poins->nama_poin}}</label>
+                                                                
+                                                            </div>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <!-- /review_block-->
                                             </div>
-                                            <!-- /review_block-->
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
+                        
                         
                         <!-- /Step -->
 
@@ -240,7 +237,6 @@
                     <div id="bottom-wizard">
                         <button type="button" name="backward" class="backward btn_1">Kembali</button>
                         <button type="button" name="forward" id="next" class="forward btn_2">Lanjutkan</button>
-                        {{-- <button type="submit" class="btn_1" id="btnberhalangan" style="background-color: danger">Submit</button> --}}
                         <button type="submit" class="submit btn_1">Submit</button>
                     </div>
                     <!-- /bottom-wizard -->
@@ -289,27 +285,6 @@
 
 
 <script>
-    var jenkel = document.getElementById("jenkel").value;
-
-    if (jenkel == 'P') {
-
-        // document.getElementById("no1").onchange = function(){
-        //     console.log("status : ",document.getElementById("no1").value);
-        //     var stat = $('#stat').val(document.getElementById("no1").value);
-        //     document.getElementById("next").style.display = "none";
-        //     document.getElementById("btnberhalangan").style = "";
-        //     document.getElementsByClassName("proses").style.display = "none";
-        // };
-
-        // document.getElementById("no2").onchange = function(){
-        //     console.log("status : ",document.getElementById("no2").value);
-        //     var stat = $('#stat').val(document.getElementById("no2").value);
-        //     document.getElementById("next").style.display = "";
-        //     document.getElementById("btnberhalangan").style.display = "none";
-        //     document.getElementsByClassName("proses").style.display = "";
-        // };
-    }
-    
 
 </script>
 </body>

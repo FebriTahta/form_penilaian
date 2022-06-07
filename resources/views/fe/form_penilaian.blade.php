@@ -153,20 +153,17 @@
                     <div id="middle-wizard">
 
                         <div class="submit step">
-                            {{-- <div class="question_title" style="text-align: left;">
-                            <p>Tanggal & Nama Karyawan</p>
-                        </div> --}}
                             <div class="row justify-content-center">
-                                <div class="col-md-10">
-                                    <div class="mb-4 form-floating">
-                                        <select name="user_id" data-width="100%" id="user_id"
-                                            class="form-control required" style="font-size: 12px">
-                                            <option value=""></option>
-                                        </select>
-                                        <label for="user_id"><small>YOUR NAME</small></label>
-                                    </div>
-                                </div>
                                 <div class="row justify-content-center">
+                                    <div class="col-md-10">
+                                        <div class="mb-4 form-floating">
+                                            <select name="user_id" data-width="100%" id="user_id"
+                                                class="form-control required" style="font-size: 12px">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="user_id"><small>YOUR NAME</small></label>
+                                        </div>
+                                    </div>
                                     <div class="col-md-7">
                                         <div class="clearfix position-relative mb-3" id="inline-calendar">
                                             <input type="text" name="dates" id="dates" value="{{date('Y-m-d')}}" class="single required"
@@ -175,6 +172,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             <!-- /row -->
                         </div>

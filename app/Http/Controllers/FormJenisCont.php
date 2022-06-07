@@ -8,6 +8,7 @@ use Image;
 use File;
 use App\Models\User;
 use App\Models\Kategori;
+use App\Models\Mengisi;
 use App\Models\Poin;
 use App\Models\Karyawan;
 use App\Models\Penilaian;
@@ -163,7 +164,7 @@ class FormJenisCont extends Controller
         $kategori = Kategori::where('jenis_id', $jenis->id)->get();
         $penilaian = Penilaian::where('karyawan_id', $karyawan->id)->where('jenis_id', $jenis->id)->where('tanggal', $tanggal)->count();
 
-        if ($karyawan->jenkel == 'P') {
+        if ($karyawan->jenkel == 'P' && $jenis->nama_jenis == 'Penilaian Kinerja SDM Nurul Falah') {
             # code...
             return view('fe.form_berhalangan',compact('jenis','user','kategori','karyawan','tanggal','penilaian'));
         }else {
@@ -172,16 +173,20 @@ class FormJenisCont extends Controller
         }
     }
 
-    // public function form_penilaian_karyawan_perempuan(Request $request)
-    // {
-        
-    // }
-
     public function submit_form(Request $request)
     {
-        
+
+        $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
+        [
+            'karyawan_id' => $request->karyawan_id,
+            'jenis_id'    => $request->jenis_id,
+            'keterangan'  => $value->kategori_id,
+            'tanggal'     => $request->tanggal,
+        ]);
+
+        $jenis   = Jenis::find($request->jenis_id);
+
         $poins      = Poin::find(array_values($request->input('poins')));
-        
         foreach ($poins as $key => $value) {
             # code...
             $data = Penilaian::updateOrCreate(['id'=>$request->id],
@@ -194,13 +199,21 @@ class FormJenisCont extends Controller
                 'tanggal'     => $request->tanggal,
             ]);
         }
-        $jenis = Jenis::find($request->jenis_id);
+        
         return view('fe.form_sukses',compact('jenis'));
         
     }
 
     public function submit_berhalangan(Request $request)
     {
+        $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
+        [
+            'karyawan_id' => $request->karyawan_id,
+            'jenis_id'    => $request->jenis_id,
+            'tanggal'     => $request->tanggal,
+            'keterangan'  => $request->berhalangan,
+        ]);
+
         if ($request->berhalangan == 'berhalangan') {
             # code...
             $data = Penilaian::updateOrCreate(['id'=>$request->id],
