@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Group;
 use App\Models\Jenis;
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use DataTables;
 use Validator;
@@ -73,5 +74,11 @@ class GroupCont extends Controller
                 ]
             );
         }
+    }
+
+    public function karyawan_non_group()
+    {
+        $karyawan_group     = Karyawan::whereHas('group');
+        $karyawan_non_group = Karyawan::all();
     }
 }

@@ -16,4 +16,9 @@ class Group extends Model
     {
         return $this->belongsTo(Jenis::class,'jenis_id','id');
     }
+
+    public function karyawan()
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

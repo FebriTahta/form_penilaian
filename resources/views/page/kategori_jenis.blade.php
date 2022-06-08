@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <hr>
-                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Jenis Penilaian Baru</button>
+                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Kategori Penilaian Baru</button>
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">

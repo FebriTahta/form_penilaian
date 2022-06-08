@@ -156,19 +156,25 @@
                             <div class="row justify-content-center">
                                 <div class="row justify-content-center">
                                     <div class="col-md-10">
+                                        
+                                        
                                         <div class="mb-4 form-floating">
                                             <select name="user_id" data-width="100%" id="user_id"
                                                 class="form-control required" style="font-size: 12px">
                                                 <option value=""></option>
                                             </select>
-                                            <label for="user_id"><small>YOUR NAME</small></label>
+                                            <label for="user_id"><small>Nama Karyawan * (Wajib Diisi)</small></label>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-7">
                                         <div class="clearfix position-relative mb-3" id="inline-calendar">
-                                            <input type="text" name="dates" id="dates" value="{{date('Y-m-d')}}" class="single required"
+                                            @if ($jenis->slug_jenis !== 'penilaian-kinerja-sdm-nurul-falah')
+                                                <input type="text" name="dates" id="dates" value="{{date('Y-m-d')}}" class="single required"
                                                 hidden="hidden">
-                                            
+                                            @else
+                                                <input type="hidden" name="dates" value="{{date('Y-m-d')}}">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

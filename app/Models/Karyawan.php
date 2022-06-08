@@ -32,4 +32,9 @@ class Karyawan extends Model
     {
         return $this->hasMany(Mengisi::class);
     }
+
+    public function group()
+    {
+        return $this->belongsToMany(Karyawan::class);
+    }
 }
