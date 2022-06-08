@@ -62,6 +62,7 @@ Route::post('/karyawan-form-import',[FormKaryawanCont::class,'import_karyawan'])
 
 //backend laporan
 Route::get('/karyawan-form-laporan',[LaporanCont::class,'laporan_detail'])->name('be_laporan_detail');
+Route::get('/karyawan-form-laporan/{slug_jenis}',[LaporanCont::class,'laporan_detail2']);
 
 //backend group
 Route::get('/group-karyawan',[GroupCont::class,'index_group'])->name('be_index_group');

@@ -28,6 +28,11 @@ class Jenis extends Model
         return $this->hasMany(Mengisi::class,'id');
     }
 
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class,'id');
+    }
+
     // public function getImgJenisAttribute($value)
     // {
     //     return asset('img_jenis/'.$value);

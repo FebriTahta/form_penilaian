@@ -14,11 +14,11 @@ class Mengisi extends Model
 
     public function karyawan()
     {
-        return $this->belognsTo(Karyawan::class);
+        return $this->belongsTo(Karyawan::class);
     }
 
     public function jenis()
     {
-        return $this->belognsTo(Jenis::class);
+        return $this->belongsTo(Jenis::class);
     }
 }

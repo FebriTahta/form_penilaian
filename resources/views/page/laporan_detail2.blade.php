@@ -41,51 +41,56 @@
                                 <div class="float-right">
                                     <span class="icon icon-note-list text-light-blue s-48"></span>
                                 </div>
-                                <div class="counter-title">Jenis Laporan </div>
-                                <h5 class="sc-counter mt-3">{{$total_jenis}}</h5>
+                                <div class="counter-title">Total Laporan </div>
+                                <h5 class="sc-counter mt-3">{{$total_laporan}}</h5>
+                                <input type="hidden" id="slug_jenis" value="{{$jenis->slug_jenis}}">
                             </div>
                             <div class="progress progress-xs r-0">
                                 <div class="progress-bar" role="progressbar" style="width: 25%;"
                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div>
-                    <div class="row">
-                        @foreach ($jenis as $item)
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header  white">
-                                    <strong class="text-capitalize"> {{$item->nama_jenis}} </strong>
-                                    <p><strong>Thumbnail : 
-                                    @if ($item->img_thumbnail_jenis !== null)
-                                        <span class="text-success">Ok</span>
-                                    @else
-                                        <span class="text-danger">Kosong</span>
-                                    @endif    
-                                    </strong></p>
-                                </div>
-                                <div class="card-body p-0">
-                                    <!-- Big Heading -->
-                                    <div class="text-center bg-light b-b p-3">
-                                        <img src="{{$item->img_jenis}}" style="max-width: 100%" alt="">                                        
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <div class="table table-responsive">
+                                    <div class="card-title">Tabel Laporan {{$jenis->nama_jenis}}</div>
+                                    <table id="table-data" class="table table-bordered table-hover data-tables">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Karyawan</th>
+                                                <th>Jabatan</th>
+                                                <th>Score</th>
+                                                {{-- <th>Jabatan</th>
+                                                <th>Phone Number</th>
+                                                <th>Option</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Karyawan</th>
+                                                <th>Jabatan</th>
+                                                <th>Score</th>
+                                                {{-- <th>Jabatan</th>
+                                                <th>Phone Number</th>
+                                                <th>Option</th> --}}
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                     </div>
-                                    <ul class="list-group list-group-flush no-b">
-                                        <li class="list-group-item">
-                                            <code> <i class="icon-folder text-blue"></i> {{$item->mengisi->count()}} Total Penilaian</code>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-footer white">
-                                    <a href="/form/{{$item->slug_jenis}}" target="_blank" class="btn btn-xs text-white btn-outline" style="background-color: pink">Link Form</a>
-                                    <a href="/karyawan-form-laporan/{{$item->slug_jenis}}" class="btn btn-outline-primary btn-xs">Laporan</a>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </div>
                 
@@ -135,54 +140,46 @@
 
 @section('script')
     <script>
-        $('#img_jenis').change(function(e) {
-            var fileName = e.target.files[0].name;
-            // $("#img_thumbnail_jenis").val(fileName);
+      $(document).ready(function() {
+            var slug = $('#slug_jenis').val();
 
-            var reader = new FileReader();
-            reader.onload = function(e) {   
-            // get loaded data and render thumbnail.
-            document.getElementById("preview").src = e.target.result;
-            };
-            // read the image file as a data URL.
-            reader.readAsDataURL(this.files[0]);
-        });
-        $('#img_thumbnail_jenis').change(function(e) {
-            var fileName = e.target.files[0].name;
-            // $("#img_thumbnail_jenis").val(fileName);
+            $('#table-data').DataTable({
+                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '/karyawan-form-laporan/'+slug,
+                    // data: {
+                    //     dari: dari,
+                    //     sampai: sampai
+                    // }
+                },
+                columns: [
+                    {
+                        "width": 10,
+                        "data": null,
+                        "sortable": false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        data: 'karyawan',
+                        name: 'karyawan'
+                    },
+                    {
+                        data: 'jabatan',
+                        name: 'jabatan'
+                    },
+                    {
+                        data: 'score',
+                        name: 'score'
+                    },
+                    
 
-            var reader = new FileReader();
-            reader.onload = function(e) {   
-            // get loaded data and render thumbnail.
-            document.getElementById("preview2").src = e.target.result;
-            };
-            // read the image file as a data URL.
-            reader.readAsDataURL(this.files[0]);
-        });
-
-        $('#img_jenis2').change(function(e) {
-            var fileName = e.target.files[0].name;
-            // $("#img_thumbnail_jenis").val(fileName);
-
-            var reader = new FileReader();
-            reader.onload = function(e) {   
-            // get loaded data and render thumbnail.
-            document.getElementById("preview_e").src = e.target.result;
-            };
-            // read the image file as a data URL.
-            reader.readAsDataURL(this.files[0]);
-        });
-        $('#img_thumbnail_jenis2').change(function(e) {
-            var fileName = e.target.files[0].name;
-            // $("#img_thumbnail_jenis").val(fileName);
-
-            var reader = new FileReader();
-            reader.onload = function(e) {   
-            // get loaded data and render thumbnail.
-            document.getElementById("preview2_e").src = e.target.result;
-            };
-            // read the image file as a data URL.
-            reader.readAsDataURL(this.files[0]);
-        });
+                ]
+            });
+        })
     </script>
 @endsection

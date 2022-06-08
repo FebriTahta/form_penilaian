@@ -192,13 +192,15 @@ class FormJenisCont extends Controller
             ]);
         }
 
+        $nilai = Penilaian::where('karyawan_id', $request->karyawan_id)->where('jenis_id', $request->jenis_id)->sum('nilai');
+
         $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
         [
             'karyawan_id' => $request->karyawan_id,
             'jenis_id'    => $request->jenis_id,
             'keterangan'  => 'normal',
             'tanggal'     => $request->tanggal,
-            'total'       => $data->sum('nilai'),
+            'total'       => $nilai,
         ]);
         
         return view('fe.form_sukses',compact('jenis'));
@@ -207,14 +209,6 @@ class FormJenisCont extends Controller
 
     public function submit_berhalangan(Request $request)
     {
-        $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
-        [
-            'karyawan_id' => $request->karyawan_id,
-            'jenis_id'    => $request->jenis_id,
-            'tanggal'     => $request->tanggal,
-            'keterangan'  => $request->berhalangan,
-            'total'       => 0,
-        ]);
 
         if ($request->berhalangan == 'berhalangan') {
             # code...
@@ -224,6 +218,15 @@ class FormJenisCont extends Controller
                 'jenis_id'    => $request->jenis_id,
                 'tanggal'     => $request->tanggal,
                 'keterangan'  => $request->berhalangan,
+            ]);
+            
+            $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
+            [
+                'karyawan_id' => $request->karyawan_id,
+                'jenis_id'    => $request->jenis_id,
+                'tanggal'     => $request->tanggal,
+                'keterangan'  => $request->berhalangan,
+                'total'       => 0,
             ]);
 
             $jenis = Jenis::find($request->jenis_id);
