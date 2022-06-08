@@ -64,12 +64,11 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Karyawan</th>
                                                 <th>Jabatan</th>
-                                                <th>Score</th>
-                                                {{-- <th>Jabatan</th>
-                                                <th>Phone Number</th>
-                                                <th>Option</th> --}}
+                                                <th>Karyawan</th>
+                                                <th>Pengisian</th>
+                                                <th>Option</th>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -78,12 +77,11 @@
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Karyawan</th>
                                                 <th>Jabatan</th>
-                                                <th>Score</th>
-                                                {{-- <th>Jabatan</th>
-                                                <th>Phone Number</th>
-                                                <th>Option</th> --}}
+                                                <th>Karyawan</th>
+                                                <th>Pengisian</th>
+                                                <th>Option</th>
+                                                
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -165,16 +163,21 @@
                         }
                     },
                     {
-                        data: 'karyawan',
-                        name: 'karyawan'
-                    },
-                    {
                         data: 'jabatan',
                         name: 'jabatan'
                     },
                     {
-                        data: 'score',
-                        name: 'score'
+                        data: 'karyawan',
+                        name: 'karyawan'
+                    },
+                    {
+                        data: 'pengisian',
+                        name: 'pengisian'
+                    },
+                    
+                    {
+                        data: 'option',
+                        name: 'option'
                     },
                     
 
