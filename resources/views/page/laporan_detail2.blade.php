@@ -70,8 +70,9 @@
                                                 <th>No</th>
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
-                                                <th>Pengisian</th>
                                                 <th>Total Score</th>
+                                                <th>Pengisian</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -82,8 +83,9 @@
                                                 <th>No</th>
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
-                                                <th>Pengisian</th>
                                                 <th>Total Score</th>
+                                                <th>Pengisian</th>
+                                                <th>Status</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -133,12 +135,47 @@
 <!-- Right Sidebar -->
 
 {{-- modal --}}
-
+<div class="modal fade" id="modal_kurang_mengisi" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content b-0">
+            <div class="modal-header r-0 bg-danger">
+                <h6 class="modal-title text-white" id="exampleModalLabel">TANGGAL TIDAK MENGISI FORM</h6>
+                <a href="#" data-dismiss="modal" aria-label="Close"
+                   class="paper-nav-toggle paper-nav-white active"><i></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div id="errList" class="text-uppercase">
+                        {{-- ERROR MESSAGE VALIDATION --}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h4 id="nama"></h4>
+                    <h5 for="tanggal_kosong">Belum Mengisi Pada Tanggal : </h5>
+                    <h5 style="color: red" id="tanggal_kosong"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection
 
 @section('script')
+
+    <script>
+        $('#modal_kurang_mengisi').on('show.bs.modal', function(event) {
+            var button  = $(event.relatedTarget)
+            var nama    = button.data('nama')
+            var jenis   = button.data('jenis')
+            var tanggal = button.data('tanggal_kosong')
+            var modal   = $(this)
+            modal.find('.modal-body #nama').html(nama);
+            modal.find('.modal-body #tanggal_kosong').html(tanggal);
+        })
+    </script>
+
     <script>
       $(document).ready(function() {
             var slug = $('#slug_jenis').val();
@@ -172,14 +209,20 @@
                         data: 'karyawan',
                         name: 'karyawan'
                     },
+
+                    {
+                        data: 'score',
+                        name: 'score'
+                    },
+
                     {
                         data: 'pengisian',
                         name: 'pengisian'
                     },
-                    
+                   
                     {
-                        data: 'score',
-                        name: 'score'
+                        data: 'status',
+                        name: 'status'
                     },
                     
                 ]
@@ -217,16 +260,21 @@
                             data: 'karyawan',
                             name: 'karyawan'
                         },
-                        {
-                            data: 'pengisian',
-                            name: 'pengisian'
-                        },
-                        
+
                         {
                             data: 'score',
                             name: 'score'
                         },
-                        
+
+                        {
+                            data: 'pengisian',
+                            name: 'pengisian'
+                        },
+                       
+                        {
+                        data: 'status',
+                        name: 'status'
+                        },
                     ]
                 });
             }else{
@@ -261,14 +309,20 @@
                             data: 'karyawan',
                             name: 'karyawan'
                         },
+
+                        {
+                            data: 'score',
+                            name: 'score'
+                        },
+
                         {
                             data: 'pengisian',
                             name: 'pengisian'
                         },
-                        
+
                         {
-                            data: 'score',
-                            name: 'score'
+                        data: 'status',
+                        name: 'status'
                         },
                         
                     ]
