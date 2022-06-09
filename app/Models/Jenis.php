@@ -20,17 +20,17 @@ class Jenis extends Model
 
     public function group()
     {
-        return $this->hasMany(Group::class,'id');
+        return $this->hasMany(Group::class);
     }
 
     public function mengisi()
     {
-        return $this->hasMany(Mengisi::class,'id');
+        return $this->hasMany(Mengisi::class);
     }
 
     public function penilaian()
     {
-        return $this->hasMany(Penilaian::class,'id');
+        return $this->hasMany(Penilaian::class);
     }
 
     // public function getImgJenisAttribute($value)

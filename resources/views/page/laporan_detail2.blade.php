@@ -57,9 +57,13 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
+                                
+                            </div>
+                            <div class="col-md-12">
                                 <div class="card-body">
                                     <div class="table table-responsive">
-                                    <div class="card-title">Tabel Laporan {{$jenis->nama_jenis}}</div>
+                                    <div class="card-title" style="margin-left: 15px">Tabel Laporan {{$jenis->nama_jenis}}</div>
+                                    <div class="card-title" style="margin-left: 15px; margin-right: 15px;"><input type="month" id="bulan" value="{{date('Y-m')}}" class="form-control"></div>
                                     <table id="table-data" class="table table-bordered table-hover data-tables">
                                         <thead>
                                             <tr>
@@ -67,7 +71,7 @@
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
                                                 <th>Pengisian</th>
-                                                <th>Option</th>
+                                                <th>Score</th>
                                                
                                             </tr>
                                         </thead>
@@ -80,7 +84,7 @@
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
                                                 <th>Pengisian</th>
-                                                <th>Option</th>
+                                                <th>Score</th>
                                                 
                                             </tr>
                                         </tfoot>
@@ -140,7 +144,8 @@
     <script>
       $(document).ready(function() {
             var slug = $('#slug_jenis').val();
-
+            var bulan= $('#bulan').val();
+            console.log(bulan);
             $('#table-data').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
                 destroy: true,
@@ -148,10 +153,9 @@
                 serverSide: true,
                 ajax: {
                     url: '/karyawan-form-laporan/'+slug,
-                    // data: {
-                    //     dari: dari,
-                    //     sampai: sampai
-                    // }
+                    data: {
+                        bulan: bulan
+                    }
                 },
                 columns: [
                     {
@@ -176,13 +180,103 @@
                     },
                     
                     {
-                        data: 'option',
-                        name: 'option'
+                        data: 'score',
+                        name: 'score'
                     },
                     
-
                 ]
             });
         })
+
+        $('#bulan').on('change', function() {
+            var bulan = this.value;
+            if (bulan == '') {
+                var slug = $('#slug_jenis').val();
+                var bulan= $('#bulan').val();
+                console.log(bulan);
+                $('#table-data').DataTable({
+                    //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                    destroy: true,
+                    processing: true,
+                    serverSide: true,
+                    ajax: {
+                        url: '/karyawan-form-laporan/'+slug,
+                    },
+                    columns: [
+                        {
+                            "width": 10,
+                            "data": null,
+                            "sortable": false,
+                            render: function(data, type, row, meta) {
+                                return meta.row + meta.settings._iDisplayStart + 1;
+                            }
+                        },
+                        {
+                            data: 'jabatan',
+                            name: 'jabatan'
+                        },
+                        {
+                            data: 'karyawan',
+                            name: 'karyawan'
+                        },
+                        {
+                            data: 'pengisian',
+                            name: 'pengisian'
+                        },
+                        
+                        {
+                            data: 'score',
+                            name: 'score'
+                        },
+                        
+                    ]
+                });
+            }else{
+                var slug = $('#slug_jenis').val();
+                var bulan= $('#bulan').val();
+                console.log(bulan);
+                $('#table-data').DataTable({
+                    //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                    destroy: true,
+                    processing: true,
+                    serverSide: true,
+                    ajax: {
+                        url: '/karyawan-form-laporan/'+slug,
+                        data: {
+                            bulan: bulan
+                        }
+                    },
+                    columns: [
+                        {
+                            "width": 10,
+                            "data": null,
+                            "sortable": false,
+                            render: function(data, type, row, meta) {
+                                return meta.row + meta.settings._iDisplayStart + 1;
+                            }
+                        },
+                        {
+                            data: 'jabatan',
+                            name: 'jabatan'
+                        },
+                        {
+                            data: 'karyawan',
+                            name: 'karyawan'
+                        },
+                        {
+                            data: 'pengisian',
+                            name: 'pengisian'
+                        },
+                        
+                        {
+                            data: 'score',
+                            name: 'score'
+                        },
+                        
+                    ]
+                });
+            }
+            
+        });
     </script>
 @endsection

@@ -75,7 +75,7 @@
                                     </div>
                                     <ul class="list-group list-group-flush no-b">
                                         <li class="list-group-item">
-                                            <code> <i class="icon-folder text-blue"></i> {{$item->mengisi->count()}} Total Penilaian</code>
+                                            <code> <i class="icon-folder text-blue"></i> Diisi sebanyak {{$item->mengisi->count()}}x</code>
                                         </li>
                                     </ul>
                                 </div>

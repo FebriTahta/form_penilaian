@@ -179,6 +179,7 @@ class FormJenisCont extends Controller
         $jenis   = Jenis::find($request->jenis_id);
 
         $poins      = Poin::find(array_values($request->input('poins')));
+
         foreach ($poins as $key => $value) {
             # code...
             $data = Penilaian::updateOrCreate(['id'=>$request->id],
@@ -192,7 +193,7 @@ class FormJenisCont extends Controller
             ]);
         }
 
-        $nilai = Penilaian::where('karyawan_id', $request->karyawan_id)->where('jenis_id', $request->jenis_id)->sum('nilai');
+        $nilai = Penilaian::where('karyawan_id', $request->karyawan_id)->where('jenis_id', $request->jenis_id)->where('tanggal', $request->tanggal)->sum('nilai');
 
         $mengisi = Mengisi::updateOrCreate(['id'=>$request->id],
         [
