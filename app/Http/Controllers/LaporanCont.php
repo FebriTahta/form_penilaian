@@ -51,9 +51,12 @@ class LaporanCont extends Controller
 
                             if ($berhalangan > 0) {
                                 # code...
-                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form & '. $berhalangan .' Hari Berhalangan';
+                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form & '. $berhalangan .' Hari Berhalangan';
                             }else {
                                 # code...
+                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form &';
                             }
                             
                         })
@@ -84,7 +87,19 @@ class LaporanCont extends Controller
                             return $data->karyawan->nama_karyawan;
                         })
                         ->addColumn('pengisian', function($data) use ($jenis) {
-                            return $pengisian = Mengisi::where('jenis_id', $jenis->id)->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form';
+                            $berhalangan = Mengisi::where('jenis_id', $jenis->id)
+                                         ->where('karyawan_id', $data->karyawan->id)
+                                         ->where('keterangan','berhalangan')->count();
+
+                            if ($berhalangan > 0) {
+                                # code...
+                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form & '. $berhalangan .' Hari Berhalangan';
+                            }else {
+                                # code...
+                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form &';
+                            }
                         })
                         ->addColumn('jabatan', function($data){
                             return $data->karyawan->jabatan->nama_jabatan;
