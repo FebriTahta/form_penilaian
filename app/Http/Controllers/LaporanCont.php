@@ -56,7 +56,7 @@ class LaporanCont extends Controller
                             }else {
                                 # code...
                                 return $pengisian = Mengisi::where('jenis_id', $jenis->id)
-                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form &';
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form';
                             }
                             
                         })
@@ -98,7 +98,7 @@ class LaporanCont extends Controller
                             }else {
                                 # code...
                                 return $pengisian = Mengisi::where('jenis_id', $jenis->id)
-                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form &';
+                                ->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form';
                             }
                         })
                         ->addColumn('jabatan', function($data){
