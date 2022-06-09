@@ -71,8 +71,7 @@
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
                                                 <th>Pengisian</th>
-                                                <th>Score</th>
-                                               
+                                                <th>Total Score</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,8 +83,7 @@
                                                 <th>Jabatan</th>
                                                 <th>Karyawan</th>
                                                 <th>Pengisian</th>
-                                                <th>Score</th>
-                                                
+                                                <th>Total Score</th>
                                             </tr>
                                         </tfoot>
                                     </table>

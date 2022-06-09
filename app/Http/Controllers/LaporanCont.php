@@ -44,8 +44,18 @@ class LaporanCont extends Controller
                         ->addColumn('karyawan', function($data){
                             return $data->karyawan->nama_karyawan;
                         })
-                        ->addColumn('pengisian', function($data) use ($jenis) {
-                            return $pengisian = Mengisi::where('jenis_id', $jenis->id)->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form';
+                        ->addColumn('pengisian', function($data) use ($jenis, $bln){
+                            $berhalangan = Mengisi::where('jenis_id', $jenis->id)
+                                         ->whereMonth('tanggal',$bln)
+                                         ->where('karyawan_id', $data->karyawan->id)->where('keterangan','berhalangan')->count();
+
+                            if ($berhalangan > 0) {
+                                # code...
+                                return $pengisian = Mengisi::where('jenis_id', $jenis->id)->where('karyawan_id', $data->karyawan->id)->count().' Pengisian Form & '. $berhalangan .' Hari Berhalangan';
+                            }else {
+                                # code...
+                            }
+                            
                         })
                         ->addColumn('jabatan', function($data){
                             return $data->karyawan->jabatan->nama_jabatan;
@@ -79,8 +89,10 @@ class LaporanCont extends Controller
                         ->addColumn('jabatan', function($data){
                             return $data->karyawan->jabatan->nama_jabatan;
                         })
-                        ->addColumn('score', function($data){
-                            return $data->total;
+                        ->addColumn('score', function($data) use ($jenis) {
+                            return $score     = Mengisi::where('jenis_id', $jenis->id)
+                            ->where('karyawan_id', $data->karyawan->id)
+                            ->sum('total');
                         })
                         
                 ->rawColumns(['option','karyawan','jabatan','score','pengisian'])
