@@ -88,35 +88,43 @@ class LaporanCont extends Controller
                                 $terhitung  = $pengisian;
                             }
 
-                            $total          = $score / $terhitung;
-                            $v_val          = $total * 5;
-                            
-                            if ($v_val > 90) {
+                            if ($score !== 0) {
                                 # code...
-                                $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-success;">( ISTIMEWA )</span>';
+                                $total          = $score / $terhitung;
+                                $v_val          = $total * 5;
+                                
+                                if ($v_val > 90) {
+                                    # code...
+                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-success;">( ISTIMEWA )</span>';
 
-                            }elseif($v_val > 80 && $v_val < 90)
-                            {
-                                # code...
-                                $value          = $score .' Poin '. '<span class="text-primary">( SANGAT BAIK)</span>';
+                                }elseif($v_val > 80 && $v_val < 90)
+                                {
+                                    # code...
+                                    $value          = $score .' Poin '. '<span class="text-primary">( SANGAT BAIK)</span>';
 
-                            }elseif($v_val > 70 && $v_val < 79)
-                            {
-                                # code...
-                                $value          = $score .' Poin '. '<span class="text-info">( BAIK )</span>';
+                                }elseif($v_val > 70 && $v_val < 79)
+                                {
+                                    # code...
+                                    $value          = $score .' Poin '. '<span class="text-info">( BAIK )</span>';
 
-                            }elseif($v_val > 60 && $v_val < 69)
-                            {
-                                # code...
-                                $value          = $score .' Poin '. '<span class="text-warning">( CUKUP )</span>';
+                                }elseif($v_val > 60 && $v_val < 69)
+                                {
+                                    # code...
+                                    $value          = $score .' Poin '. '<span class="text-warning">( CUKUP )</span>';
 
+                                }else {
+                                    # code...
+                                    $value          = $score .' Poin '. '<span class="text-danger">( KURANG )</span>';
+
+                                }
+
+                                return $value;
                             }else {
                                 # code...
-                                $value          = $score .' Poin '. '<span class="text-danger">( KURANG )</span>';
-
+                                return '-';
                             }
 
-                            return $value;
+                            
                             
                         })
                         ->addColumn('status', function($data) use ($jenis,$bln,$thn){
