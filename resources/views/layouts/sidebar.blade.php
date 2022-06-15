@@ -204,13 +204,13 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="#"><i
-                                        class="icon icon-area-chart pink-text s-14"></i><span>Keseluruhan</span></a>
-                            </li>
-                            <li>
                                 <a href="{{route('be_laporan_detail')}}"><i
-                                        class="icon icon-bubble_chart pink-text s-14"></i>Per Bulan / Waktu Tertentu</a>
+                                        class="icon icon-area-chart pink-text s-14"></i><span>Laporan Pegawai</span></a>
                             </li>
+                            {{-- <li>
+                                <a href=""><i
+                                        class="icon icon-bubble_chart pink-text s-14"></i>Per Bulan / Waktu Tertentu</a>
+                            </li> --}}
                         </ul>
                     </li>
 
