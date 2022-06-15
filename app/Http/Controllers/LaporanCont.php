@@ -100,21 +100,21 @@ class LaporanCont extends Controller
                                 }elseif($v_val > 80 && $v_val < 90)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '. '<span class="text-primary">( SANGAT BAIK)</span>';
+                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-primary">( SANGAT BAIK)</span>';
 
                                 }elseif($v_val > 70 && $v_val < 79)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '. '<span class="text-info">( BAIK )</span>';
+                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-info">( BAIK )</span>';
 
                                 }elseif($v_val > 60 && $v_val < 69)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '. '<span class="text-warning">( CUKUP )</span>';
+                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-warning">( CUKUP )</span>';
 
                                 }else {
                                     # code...
-                                    $value          = $score .' Poin '. '<span class="text-danger">( KURANG )</span>';
+                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-danger">( KURANG )</span>';
 
                                 }
 
