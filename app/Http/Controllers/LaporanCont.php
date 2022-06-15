@@ -95,7 +95,7 @@ class LaporanCont extends Controller
                                 
                                 if ($v_val > 90) {
                                     # code...
-                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-success;">( ISTIMEWA )</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right; color:green;" class="text-success;">( ISTIMEWA )</span>';
 
                                 }elseif($v_val > 80 && $v_val < 90)
                                 {
