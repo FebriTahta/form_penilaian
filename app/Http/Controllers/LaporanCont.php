@@ -95,26 +95,26 @@ class LaporanCont extends Controller
                                 
                                 if ($v_val > 90) {
                                     # code...
-                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-success;">( ISTIMEWA )</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-success;">( ISTIMEWA )</span>';
 
                                 }elseif($v_val > 80 && $v_val < 90)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-primary">( SANGAT BAIK)</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-primary">( SANGAT BAIK)</span>';
 
                                 }elseif($v_val > 70 && $v_val < 79)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-info">( BAIK )</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-info">( BAIK )</span>';
 
                                 }elseif($v_val > 60 && $v_val < 69)
                                 {
                                     # code...
-                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-warning">( CUKUP )</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-warning">( CUKUP )</span>';
 
                                 }else {
                                     # code...
-                                    $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-danger">( KURANG )</span>';
+                                    $value          = '<span style="float:left"> '.$score .' Poin '.'& Nilai : '.round($v_val) .'</span>' .'<span style="float:right" class="text-danger">( KURANG )</span>';
 
                                 }
 
