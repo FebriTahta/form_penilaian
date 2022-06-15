@@ -66,10 +66,57 @@ class LaporanCont extends Controller
                             return $data->karyawan->jabatan->nama_jabatan;
                         })
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
-                            return $score     = Mengisi::where('jenis_id', $jenis->id)
+                            $score          = Mengisi::where('jenis_id', $jenis->id)
                                                     ->whereMonth('tanggal',$bln)
                                                     ->where('karyawan_id', $data->karyawan->id)
-                                                    ->sum('total').' Poin';
+                                                    ->sum('total');
+                            $pengisian      = Mengisi::where('jenis_id', $jenis->id)
+                                                    ->whereMonth('tanggal',$bln)
+                                                    ->where('karyawan_id', $data->karyawan->id)
+                                                    ->count();
+                            $berhalangan    = Mengisi::where('jenis_id', $jenis->id)
+                                                    ->whereMonth('tanggal',$bln)
+                                                    ->where('karyawan_id', $data->karyawan->id)
+                                                    ->where('keterangan','berhalangan')
+                                                    ->count();
+                            
+                            if ($berhalangan !== 0) {
+                                # code...
+                                $terhitung  = $pengisian - $berhalangan;
+                            }else {
+                                # code...
+                                $terhitung  = $pengisian;
+                            }
+
+                            $total          = $score / $terhitung;
+                            $v_val          = $total * 5;
+                            
+                            if ($v_val > 90) {
+                                # code...
+                                $value          = $score .' Poin '.'& Nilai : '.round($v_val) .'<span class="text-success;">( ISTIMEWA )</span>';
+
+                            }elseif($v_val > 80 && $v_val < 90)
+                            {
+                                # code...
+                                $value          = $score .' Poin '. '<span class="text-primary">( SANGAT BAIK)</span>';
+
+                            }elseif($v_val > 70 && $v_val < 79)
+                            {
+                                # code...
+                                $value          = $score .' Poin '. '<span class="text-info">( BAIK )</span>';
+
+                            }elseif($v_val > 60 && $v_val < 69)
+                            {
+                                # code...
+                                $value          = $score .' Poin '. '<span class="text-warning">( CUKUP )</span>';
+
+                            }else {
+                                # code...
+                                $value          = $score .' Poin '. '<span class="text-danger">( KURANG )</span>';
+
+                            }
+
+                            return $value;
                             
                         })
                         ->addColumn('status', function($data) use ($jenis,$bln,$thn){

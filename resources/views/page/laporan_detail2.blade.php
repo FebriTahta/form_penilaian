@@ -51,6 +51,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="counter-box white r-5 p-3">
+                            <div class="p-4">
+                                <div class="float-right">
+                                    <span class="icon icon-note-list text-light-blue s-48"></span>
+                                </div>
+                                <div class="counter-title">
+                                    
+                               
+                                
+                                </div>
+                                <h5 class="sc-counter mt-3"> 1000 </h5>
+                                
+                            </div>
+                            <div class="progress progress-xs r-0">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="128"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div>
