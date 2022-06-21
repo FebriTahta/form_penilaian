@@ -144,6 +144,7 @@
                 <div id="top-wizard">
                     <div id="progressbar"></div>
                 </div>
+                <input type="hidden" id="tipe" value="{{$jenis->tipe}}">
                 @if ($jenis->tipe !== 'kuisioner')
                     <form action="{{ route('form_penilaian') }}" id="wrapped" method="POST">@csrf
                         <input id="website" name="website" type="text" value="">
@@ -379,41 +380,88 @@
     <script src="{{ asset('newregis/js/daterangepicker_func.js') }}"></script>
     <script src="{{ asset('date2/dist/mc-calendar.min.js') }}"></script>
     <script>
-        
-
-        $('#cabang_id').select2({
-            ajax: {
-                url: "{{ route('find_cabang') }}",
-                dataType: 'json',
-                delay: 250,
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                text: item.name,
-                                id: item.id,
-                            }
-                        })
-                    };
-                },
-                cache: true
-            }
-        });
-
-        $('#cabang_id').on('change',function(){
-            var cabang_id = this.value;
-            $.ajax
-            ({ 
-                url: "/find-nama-cabang/"+cabang_id,
-                dataType: 'json',
-                delay: 250,
-                success: function(data) {
-                    console.log(data);
-                    $('#txt_namacabang').html(data)
-                },
-                cache: true
+        $(document).ready(function(){
+            var tipes = document.getElementById('tipe');
+            if (tipes.value == 'kuisioner') {
+                    $('#cabang_id').select2({
+                ajax: {
+                    url: "{{ route('find_cabang') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.name,
+                                    id: item.id,
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
             });
-        });
+
+            $('#cabang_id').on('change',function(){
+                var cabang_id = this.value;
+                $.ajax
+                ({ 
+                    url: "/find-nama-cabang/"+cabang_id,
+                    dataType: 'json',
+                    delay: 250,
+                    success: function(data) {
+                        console.log(data);
+                        $('#txt_namacabang').html(data)
+                    },
+                    cache: true
+                });
+            });
+
+            $('#tempat_lahir_santri').select2({
+                ajax: {
+                    url: "{{ route('find_kabupaten') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id,
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+
+
+            } else {
+
+                $('#user_id').select2({
+                ajax: {
+                    url: "{{ route('find_karyawan') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.name,
+                                    id: item.id,
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+                
+            }
+        })
+
+       
 
         // $('#nama_lembaga').on('change',function(){
         //     var nama_lembaga = this.value;
@@ -470,24 +518,7 @@
         //     $('#txt_hpibu').html(hp_ibu);
         // });
 
-        $('#tempat_lahir_santri').select2({
-            ajax: {
-                url: "{{ route('find_kabupaten') }}",
-                dataType: 'json',
-                delay: 250,
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                text: item.nama,
-                                id: item.id,
-                            }
-                        })
-                    };
-                },
-                cache: true
-            }
-        });
+        
 
     </script>
 
