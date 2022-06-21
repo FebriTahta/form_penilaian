@@ -10,6 +10,7 @@
     <title>Forms Panel</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+    <link href="{{ asset('select2-develop/dist/css/select2.css') }}" rel="stylesheet" />
     <style>
         .loader {
             position: fixed;
@@ -59,6 +60,7 @@
             }
         })(window, document)
     </script>
+    
 </head>
 
 <body class="light">

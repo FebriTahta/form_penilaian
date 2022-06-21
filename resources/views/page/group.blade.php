@@ -36,7 +36,7 @@
                 <!--Today Tab Start-->
                 <div class="tab-pane animated fadeInUpShort show active" id="v-pills-1">
                     <div class="row my-3">
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="margin-bottom: 10px">
                             <div class="counter-box white r-5 p-3">
                                 <div class="p-4">
                                     <div class="float-right">
@@ -50,6 +50,29 @@
                                         aria-valuemin="0" aria-valuemax="128"></div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <form id="formaddgroup">@csrf
+                                <div class="counter-box white r-5 p-3">
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin-bottom: 10px">
+                                            <label for="select_karyawan">PILIH NAMA KARYAWAN</label>
+                                            <select name="select_karyawan" id="select_karyawan" class="form-control"></select>
+                                        </div>
+
+                                        <div class="col-md-6" style="margin-bottom: 10px">
+                                            <label for="select_group">PILIH GROUP</label>
+                                            <select name="select_group" id="select_group" class="form-control"></select>
+                                        </div>
+                                        <div class="col-md-6" style="margin-bottom: 10px">
+                                        </div>
+                                        <div class="col-md-6" style="margin-bottom: 10px; ">
+                                            <input type="submit" id="btnaddgroup" style="float:right" class="btn btn-success" value="Tambahkan Karyawan Ke Group"> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <hr>
@@ -66,6 +89,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Group</th>
+                                                <th>Anggota</th>
                                                 <th>Jenis Penilaian</th>
                                                 <th>Option</th>
                                             </tr>
@@ -77,6 +101,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Group</th>
+                                                <th>Anggota</th>
                                                 <th>Jenis Penilaian</th>
                                                 <th>Option</th>
                                             </tr>
@@ -189,7 +214,7 @@
     </div>
 
     <div class="modal fade" id="modaladd2" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content b-0">
                 <div class="modal-header r-0 bg-success">
                     <h6 class="modal-title text-white" id="namagrup">TAMBAHKAN KARYAWAN KE GROUP</h6>
@@ -197,7 +222,18 @@
                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
                 <div class="modal-body">
-                    <table id="table-karyawan" class="table table-bordered table-hover data-tables">
+                    {{-- <form id="formaddgroup">
+                        <div class="form-group">
+                            <label for="select_karyawan">PILIH NAMA KARYAWAN</label>
+                            <select name="select_karyawan" id="select_karyawan">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btnaddgroup" class="btn btn-success text-white" value="Tambahkan Ke Group">
+                        </div>
+                    </form> --}}
+                    {{-- <table id="table-karyawan" class="table table-bordered table-hover data-tables" style="width: 100%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -217,7 +253,7 @@
                                 <th>Option</th>
                             </tr>
                         </tfoot>
-                    </table>
+                    </table> --}}
                 </div>
             </div>
         </div>
@@ -228,6 +264,37 @@
             <div class="modal-content b-0">
                 <div class="modal-header r-0 bg-danger">
                     <h6 class="modal-title text-white" id="exampleModalLabel">HAPUS DATA</h6>
+                    <a href="#" data-dismiss="modal" aria-label="Close"
+                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                </div>
+                <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div id="errList" class="text-uppercase">
+                                {{-- ERROR MESSAGE VALIDATION --}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="id" name="id" >
+                            <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
+                        </div>
+                        <div class="form-group">
+                            <code>Yakin menghapus kategori penilaian tersebut dari database ?</code>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase" value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modaladdgroup" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content b-0">
+                <div class="modal-header r-0 bg-success">
+                    <h6 class="modal-title text-white" id="exampleModalLabel">Tambahkan Karyawan Ini Ke Group ?</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
@@ -318,6 +385,10 @@
                         name: 'nama_group'
                     },
                     {
+                        data: 'anggota',
+                        name: 'anggota'
+                    },
+                    {
                         data: 'jenis',
                         name: 'jenis'
                     },
@@ -328,6 +399,8 @@
 
                 ]
             });
+
+            
         })
 
         $('#formadd').submit(function(e) {
@@ -358,47 +431,6 @@
                         $("#formadd")[0].reset();
                         $('#btnadd').val('Add Product');
                         $('#btnadd').attr('disabled', false);
-                        toastr.error(response.message);
-                        $('#errList').html("");
-                        $('#errList').addClass('alert alert-danger');
-                        $.each(response.errors, function(key, err_values) {
-                            $('#errList').append('<div>' + err_values + '</div>');
-                        });
-                    }
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
-        });
-
-        $('#formadd2').submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('be_store_poin') }}",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                beforeSend: function() {
-                    $('#btnadd2').attr('disabled', 'disabled');
-                    $('#btnadd2').val('Processing');
-                },
-                success: function(response) {
-                    if (response.status == 200) {
-                        $("#formadd2")[0].reset();
-                        var oTable = $('#table-data').dataTable();
-                        oTable.fnDraw(false);
-                        $('#btnadd2').val('TAMBAH POIN PENILAIAN');
-                        $('#btnadd2').attr('disabled', false);
-                        $('#modaladd2').modal('hide');
-                        toastr.success(response.message);
-                    } else {
-                        $("#formadd2")[0].reset();
-                        $('#btnadd2').val('TAMBAH POIN PENILAIAN');
-                        $('#btnadd2').attr('disabled', false);
                         toastr.error(response.message);
                         $('#errList').html("");
                         $('#errList').addClass('alert alert-danger');
@@ -523,9 +555,130 @@
             var id = button.data('id')
             var nama_group = button.data('nama_group')
             var modal = $(this)
-            // modal.find('.modal-header #exampleModalLabel').hr('TAMBAHKAN KARYAWAN KE GROUP' + nama_group);
+            
             modal.find('.modal-header #namagrup').html('TAMBAHKAN KARYAWAN KE GROUP ' + nama_group);
-            // console.log(nama_kategori);
+            $('#table-karyawan').DataTable({
+                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '{{ route('be_data_karyawan2') }}',
+                    data: {
+                        id: id,
+                    }
+                },
+                columns: [
+                    {
+                        "width": 10,
+                        "data": null,
+                        "sortable": false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        data: 'nama_karyawan',
+                        name: 'nama_karyawan'
+                    },
+                    {
+                        data: 'jabatan',
+                        name: 'jabatan'
+                    },
+                    {
+                        data: 'option',
+                        name: 'option'
+                    },
+
+                ]
+            });
         })
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+            }
+        });
+
+        $('#formaddgroup').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $('#btnaddgroup').val('Proses Menambah Anggota');
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('be_store_karyawan_group') }}",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $('#btnaddgroup').attr('disabled', 'disabled');
+                    $('#btnaddgroup').val('Proses Menambah Anggota');
+                },
+                success: function(response) {
+                    if (response.status == 200) {
+                        $("#formaddgroup")[0].reset();
+                        var oTable = $('#table-data').dataTable();
+                        oTable.fnDraw(false);
+                        $('#btnaddgroup').val('Tambah Ke Group');
+                        $('#btnaddgroup').attr('disabled', false);
+                        toastr.success(response.message);
+                    } else {
+                        $("#formaddgroup")[0].reset();
+                        $('#btnaddgroup').val('Tambah Ke Group');
+                        $('#btnaddgroup').attr('disabled', false);
+                        toastr.error(response.message);
+                        $('#errList').html("");
+                        $('#errList').addClass('alert alert-danger');
+                        $.each(response.errors, function(key, err_values) {
+                            $('#errList').append('<div>' + err_values + '</div>');
+                        });
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $('#select_karyawan').select2({
+            ajax: {
+                url: "{{ route('find_karyawan') }}",
+                dataType: 'json',
+                delay: 250,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                text: item.name,
+                                id: item.id,
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+
+        $('#select_group').select2({
+            ajax: {
+                url: "{{ route('find_group') }}",
+                dataType: 'json',
+                delay: 250,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                text: item.nama_group,
+                                id: item.id,
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
     </script>
 @endsection

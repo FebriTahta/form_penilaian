@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Image;
 use File;
 use App\Models\User;
+use App\Models\Group;
 use App\Models\Kategori;
 use App\Models\Mengisi;
 use App\Models\Poin;
@@ -151,6 +152,22 @@ class FormJenisCont extends Controller
                     ->get();
         }else{
             $data = User::select('id','name')->get();
+        }
+        return response()->json($data);
+    }
+
+    public function find_nama_group(Request $request)
+    {
+        $data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data = Group::select('id','nama_group')
+                    ->where('id','LIKE','%' .$search . '%')
+                    ->orWhere('nama_group', 'LIKE', '%' .$search . '%')
+                    ->get();
+        }else{
+            $data = Group::select('id','nama_group')->get();
         }
         return response()->json($data);
     }

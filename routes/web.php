@@ -8,6 +8,7 @@ use App\Http\Controllers\FormPoinCont;
 use App\Http\Controllers\LaporanCont;
 use App\Http\Controllers\GroupCont;
 use App\Http\Controllers\FormKaryawanCont;
+use App\Http\Controllers\SurveyController;
 use App\Models\Poin;
 use App\Models\Kategori;
 use App\Models\Jenis;
@@ -37,6 +38,11 @@ Route::get('/', function () {
 //FrontEnd Form Penilaian
 Route::get('/form/{slug_jenis}',[FormJenisCont::class,'form_penilaian']);
 Route::get('/find-nama-karyawan',[FormJenisCont::class,'find_nama_karyawan'])->name('find_karyawan');
+Route::get('/find-cabang',[SurveyController::class,'find_cabang'])->name('find_cabang');
+Route::get('/find-kecamatan',[SurveyController::class,'find_kecamatan'])->name('find_kecamatan');
+Route::get('/find-daerah/{kecamatan_id}',[SurveyController::class,'find_daerah'])->name('find_daerah');
+Route::get('/find-kabupaten',[SurveyController::class,'find_kabupaten'])->name('find_kabupaten');
+Route::get('/find-nama-group',[FormJenisCont::class,'find_nama_group'])->name('find_group');
 Route::post('/form-penilaian',[FormJenisCont::class,'form_penilaian_karyawan'])->name('form_penilaian');
 Route::post('/submit-form-penilaian',[FormJenisCont::class,'submit_form'])->name('submit-form-penilaian');
 Route::post('/submit-form-berhalangan',[FormJenisCont::class,'submit_berhalangan'])->name('submit-form-berhalangan');
@@ -67,6 +73,14 @@ Route::get('/karyawan-form-laporan/{slug_jenis}',[LaporanCont::class,'laporan_de
 //backend group
 Route::get('/group-karyawan',[GroupCont::class,'index_group'])->name('be_index_group');
 Route::post('/group-karyawan-store',[GroupCont::class,'store_group'])->name('be_store_group');
+Route::get('/group-list-karyawan',[GroupCont::class,'data_karyawan2'])->name('be_data_karyawan2');
+Route::post('/group-add-karyawan',[GroupCont::class,'add_karyawan_group'])->name('be_store_karyawan_group');
+
+
+
+// SURVEY DB 2 FE
+Route::get('/survey-lembaga',[SurveyController::class,'index_survey'])->name('fe_index_survey');
+Route::post('/form-survey',[SurveyController::class,'form_survey'])->name('form_survey');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

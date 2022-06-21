@@ -35,6 +35,6 @@ class Karyawan extends Model
 
     public function group()
     {
-        return $this->belongsToMany(Karyawan::class);
+        return $this->belongsToMany(Karyawan::class,'group_karyawan','karyawan_id','group_id');
     }
 }
