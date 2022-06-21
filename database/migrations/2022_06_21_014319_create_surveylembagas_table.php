@@ -17,9 +17,8 @@ class CreateSurveylembagasTable extends Migration
             $table->id();
             $table->longText('nama_lembaga')->nullable();
             $table->unsignedBigInteger('cabang_id')->nullable();
-            $table->unsignedBigInteger('kecamatan_id')->nullable();
-            $table->longText('dusun')->nullable();
-            $table->longText('desa')->nullable();
+            // $table->unsignedBigInteger('kecamatan_id')->nullable();
+            $table->longText('alamat_lembaga')->nullable();
             $table->timestamps();
         });
     }

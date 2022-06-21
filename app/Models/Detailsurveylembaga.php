@@ -13,7 +13,7 @@ class Detailsurveylembaga extends Model
     protected $fillable=[
         'surveylembaga_id',
         'nama_santri',
-        'kabupaten_id',
+        'tempatlahir_santri',
         'tanggallahir_santri',
         'nama_ayah',
         'nama_ibu',

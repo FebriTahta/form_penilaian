@@ -86,11 +86,21 @@ class SurveyController extends Controller
             [
                 'nama_lembaga'  => $request->nama_lembaga,
                 'cabang_id'     => $request->cabang_id,
-                'kecamatan_id'  => $request->kecamatan_id,
-                'dusun'         => $request->dusun,
-                'desa'          => $request->desa
+                'alamat_lembaga'=> $request->alamat_lembaga,
             ]
         );
+
+        if (strlen($request->tgl) == '1') {
+            # code...
+            $tanggal    = '0'.$request->tgl;
+        }else {
+            # code...
+            $tanggal    = $request->tgl;
+        }
+
+        $tanggallahir   = $tanggal.'-'.$request->bln.'-'.$request->thn;
+        $kab            = Kabupaten::find($request->tempat_lahir_santri);
+        $kabupaten      = $kab->nama;
 
         $data2 = Detailsurveylembaga::updateOrCreate(
             [
@@ -99,8 +109,8 @@ class SurveyController extends Controller
             [
                 'surveylembaga_id'  => $data1->id,
                 'nama_santri'       => $request->nama_santri,
-                'kabupaten_id'      => $request->tempat_lahir_santri,
-                'tanggallahir_santri' => $request->tanggallahir_santri,
+                'tempatlahir_santri'=> $kabupaten,
+                'tanggallahir_santri' => $tanggallahir,
                 'nama_ayah'         => $request->nama_ayah,
                 'hp_ayah'           => $request->hp_ayah,
                 'nama_ibu'          => $request->nama_ibu,
@@ -111,5 +121,12 @@ class SurveyController extends Controller
         $jenis = Jenis::where('slug_jenis',$request->slug_jenis)->first();
         return view('fe.form_sukses',compact('jenis'));
         
+    }
+
+    public function find_nama_cabang(Request $request, $cabang_id)
+    {
+        $cabang = Cabang::find($cabang_id);
+        $data   = $cabang->name;
+        return response()->json($data);
     }
 }

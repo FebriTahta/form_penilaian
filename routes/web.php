@@ -34,15 +34,17 @@ Route::get('/', function () {
     return view('page.dashboard',compact('poin','kategori','jenis','karyawan'));
 });
 
-
-//FrontEnd Form Penilaian
-Route::get('/form/{slug_jenis}',[FormJenisCont::class,'form_penilaian']);
 Route::get('/find-nama-karyawan',[FormJenisCont::class,'find_nama_karyawan'])->name('find_karyawan');
 Route::get('/find-cabang',[SurveyController::class,'find_cabang'])->name('find_cabang');
 Route::get('/find-kecamatan',[SurveyController::class,'find_kecamatan'])->name('find_kecamatan');
 Route::get('/find-daerah/{kecamatan_id}',[SurveyController::class,'find_daerah'])->name('find_daerah');
 Route::get('/find-kabupaten',[SurveyController::class,'find_kabupaten'])->name('find_kabupaten');
 Route::get('/find-nama-group',[FormJenisCont::class,'find_nama_group'])->name('find_group');
+Route::get('/find-nama-cabang/{cabang_id}',[SurveyController::class,'find_nama_cabang'])->name('find_nama_cabang');
+
+//FrontEnd Form Penilaian
+Route::get('/form/{slug_jenis}',[FormJenisCont::class,'form_penilaian']);
+
 Route::post('/form-penilaian',[FormJenisCont::class,'form_penilaian_karyawan'])->name('form_penilaian');
 Route::post('/submit-form-penilaian',[FormJenisCont::class,'submit_form'])->name('submit-form-penilaian');
 Route::post('/submit-form-berhalangan',[FormJenisCont::class,'submit_berhalangan'])->name('submit-form-berhalangan');

@@ -17,7 +17,7 @@ class CreateDetailsurveylembagasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('surveylembaga_id')->nullable();
             $table->string('nama_santri')->nullable();
-            $table->unsignedBigInteger('kabupaten_id')->nullable();
+            $table->string('tempatlahir_santri')->nullable();
             $table->string('tanggallahir_santri')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();

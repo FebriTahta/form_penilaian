@@ -216,20 +216,14 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-7">
                                             <div class="clearfix position-relative mb-3" >
-                                                <label for="nama_lembaga" style="margin-bottom: 10px;"><small>Nama Lembaga (* Wajib Diisi)</small></label>
-                                                <input type="text" name="nama_lembaga" class="form-control required" required>
+                                                <label for="nama_lembaga" style="margin-bottom: 10px;"><small>Nama Lembaga </small> <i class="text-danger">*</i></label>
+                                                <input type="text" name="nama_lembaga" id="nama_lembaga" class="form-control required" required>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
                                             <div class="clearfix position-relative mb-3">
-                                                <label for="dusun" style="margin-bottom: 10px;"><small>Dusun </small></label>
-                                                <input type="text" name="dusun" class="form-control " >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="clearfix position-relative mb-3">
-                                                <label for="desa" style="margin-bottom: 10px;"><small>Desa </small></label>
-                                                <input type="text" name="desa" class="form-control " >
+                                                <label for="alamat_lembaga" style="margin-bottom: 10px;"><small>Alamat Lembaga <i class="text-danger">*</i> (Kel/Kec/Kab/Kota)</small></label>
+                                                <textarea name="alamat_lembaga" id="alamat_lembaga"  class="form-control" cols="30" rows="2"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -242,38 +236,42 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-7">
                                             <div class="clearfix position-relative mb-3" >
-                                                <label for="kecamatan_id" style="margin-bottom: 10px;"><small>Kecamatan (* Wajib Diisi)</small></label>
-                                                <select name="kecamatan_id" data-width="100%" id="kecamatan_id"
-                                                    class="form-control required" style="font-size: 12px" required>
-                                                    <option value=""></option>
-                                                </select>
-                                            </div>
-                                            <div class="clearfix position-relative mb-3" >
-                                                <p id="detail_daerah"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /row -->
-                            </div>
-                            <div class="step proses">
-                                <div class="row justify-content-center">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-7">
-                                            <div class="clearfix position-relative mb-3" >
-                                                <label for="nama_santri" style="margin-bottom: 10px">Nama Santri (* Wajib Diisi)</label>
+                                                <label for="nama_santri" style="margin-bottom: 10px">Nama Santri <i class="text-danger">*</i></label>
                                                 <input type="text" class="form-control required" id="nama_santri" name="nama_santri" required>
                                             </div>
                                             <div class="clearfix position-relative mb-3" >
-                                                <label for="tempat_lahir_santri" style="margin-bottom: 10px">Tempat Lahir Santri (* Wajib Diisi)</label>
+                                                <label for="tempat_lahir_santri" style="margin-bottom: 10px">Tempat Lahir Santri <i class="text-danger">*</i> (Kota / Kabupaten)</label>
                                                 <select name="tempat_lahir_santri" data-width="100%" id="tempat_lahir_santri"
                                                     class="form-control required" style="font-size: 12px" required>
                                                     <option value=""></option>
                                                 </select>
                                             </div>
                                             <div class="clearfix position-relative mb-3" >
-                                                <label for="tanggallahir_santri" style="margin-bottom: 10px">Tanggal Lahir Santri (* Wajib Diisi)</label>
-                                                <input type="date" class="form-control required" name="tanggallahir_santri" id="tanggallahir_santri" required>
+                                                <label for="tanggallahir_santri" style="margin-bottom: 10px">Tanggal Lahir Santri <i class="text-danger">*</i> </label>
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-4">
+                                                        <input type="number" class="form-control required" name="tgl" placeholder="Tanggal" id="tgl" min="1" max="31" required>
+                                                    </div>
+                                                    <div class="col-sm-4 col-4">
+                                                        <select name="bln" class="form-control required" id="bln">
+                                                            <option value="01">Januari</option>
+                                                            <option value="02">Februari</option>
+                                                            <option value="03">Maret</option>
+                                                            <option value="04">April</option>
+                                                            <option value="05">Mei</option>
+                                                            <option value="06">Juni</option>
+                                                            <option value="07">Juli</option>
+                                                            <option value="08">Agustus</option>
+                                                            <option value="09">September</option>
+                                                            <option value="10">Oktober</option>
+                                                            <option value="11">November</option>
+                                                            <option value="12">Desember</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-4 col-4">
+                                                        <input type="number" class="form-control required" name="thn" placeholder="Tahun" id="thn" min="1970" required>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -310,6 +308,23 @@
                                         <div class="col-md-7">
                                             <h5>Pastikan Semua Data Anda Benar Sebelum Menekan Tombol Submit</h5>
                                         </div>
+                                        {{-- <div class="col-md-7">
+                                            <p>Asal Cabang : <span id="txt_namacabang"></span></p>
+                                            <p>Nama Lembaga : <span id="txt_namalembaga"></span></p>
+                                            <p>Alamat Lembaga : <span id="txt_alamatlembaga"></span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-7">
+                                            <p>Nama Santri : <span id="txt_namasantri"></span></p>
+                                            <p>Tempat Lahir : <span id="txt_tempatlahirsantri"></span></p>
+                                            <p>Tanggal Lahir : <span id="txt_tgl"></span> <span id="txt_bln"></span> <span id="txt_thn"></span></p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <p>Nama Ayah : <span id="txt_namaayah"></span></p>
+                                            <p>No Hp Ayah : <span id="txt_hpayah"></span></p>
+                                            <p>Nama Ibu : <span id="txt_namaibu"></span></p>
+                                            <p>No Hp Ibu : <span id="txt_hpibu"></span></p>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -384,39 +399,75 @@
             }
         });
 
-        $('#kecamatan_id').select2({
-            ajax: {
-                url: "{{ route('find_kecamatan') }}",
+        $('#cabang_id').on('change',function(){
+            var cabang_id = this.value;
+            $.ajax
+            ({ 
+                url: "/find-nama-cabang/"+cabang_id,
                 dataType: 'json',
                 delay: 250,
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                text: item.nama,
-                                id: item.id,
-                            }
-                        })
-                    };
-                    
-                    
-                },
-                cache: true
-            }
-        });
-
-        $('#kecamatan_id').on('change', function(){
-            var kecamatan_id = this.value;
-            $.ajax ({
-                url: "/find-daerah/"+kecamatan_id,
-                dataType: 'json',
-                delay: 250,
-                success:function(data) {
-                    $('#detail_daerah').html(data);
+                success: function(data) {
+                    console.log(data);
+                    $('#txt_namacabang').html(data)
                 },
                 cache: true
             });
         });
+
+        // $('#nama_lembaga').on('change',function(){
+        //     var nama_lembaga = this.value;
+        //     $('#txt_namalembaga').html(nama_lembaga.toUpperCase());
+        // });
+
+        // $('#alamat_lembaga').on('change',function(){
+        //     var alamat_lembaga = this.value;
+        //     $('#txt_alamatlembaga').html(alamat_lembaga.toUpperCase());
+        // });
+
+        // $('#nama_santri').on('change',function(){
+        //     var nama_santri = this.value;
+        //     $('#txt_namasantri').html(nama_santri.toUpperCase());
+        // }); 
+
+        // $('#tempat_lahir_santri').on('change',function(){
+        //     var tempat_lahir_santri = this.value;
+        //     $('#txt_tempatlahirsantri').html(tempat_lahir_santri.toUpperCase());
+        // }); 
+
+        // $('#tgl').on('change',function(){
+        //     var tgl = this.value;
+        //     $('#txt_tgl').html(tgl);
+        // });
+
+        // $('#bln').on('change',function(){
+        //     var bln = this.value;
+        //     $('#txt_bln').html(bln);
+        // });
+
+        // $('#thn').on('change',function(){
+        //     var thn = this.value;
+        //     $('#txt_thn').html(thn);
+        // });
+
+        // $('#nama_ayah').on('change',function(){
+        //     var nama_ayah = this.value;
+        //     $('#txt_namaayah').html(nama_ayah);
+        // });
+
+        // $('#hp_ayah').on('change',function(){
+        //     var hp_ayah = this.value;
+        //     $('#txt_hpayah').html(hp_ayah);
+        // });
+
+        // $('#nama_ibu').on('change',function(){
+        //     var nama_ibu = this.value;
+        //     $('#txt_namaibu').html(nama_ibu);
+        // });
+
+        // $('#hp_ibu').on('change',function(){
+        //     var hp_ibu = this.value;
+        //     $('#txt_hpibu').html(hp_ibu);
+        // });
 
         $('#tempat_lahir_santri').select2({
             ajax: {

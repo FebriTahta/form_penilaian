@@ -11,10 +11,8 @@ class Surveylembaga extends Model
     protected $connection = 'mysql2';
     protected $fillable=[
         'cabang_id',
-        'kecamatan_id',
-        'dusun',
-        'desa',
-        'nama_lembaga'
+        'nama_lembaga',
+        'alamat_lembaga',
     ];
 
 }
