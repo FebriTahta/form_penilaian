@@ -253,7 +253,8 @@
                                                         <input type="number" class="form-control required" name="tgl" placeholder="Tanggal" id="tgl" min="1" max="31" required>
                                                     </div>
                                                     <div class="col-sm-4 col-4">
-                                                        <select name="bln" class="form-control required" id="bln">
+                                                        <select name="bln" class="form-control required" id="bln" required>
+                                                            <option value="">Bulan</option>
                                                             <option value="01">Januari</option>
                                                             <option value="02">Februari</option>
                                                             <option value="03">Maret</option>
