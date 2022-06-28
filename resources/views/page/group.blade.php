@@ -292,7 +292,7 @@
                     <a href="#" data-dismiss="modal" aria-label="Close"
                         class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
-                <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
+                <!---->
                     <div class="modal-body">
                         <div class="form-group">
                             <div id="errList" class="text-uppercase">
@@ -312,11 +312,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase"
-                            value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
-                    </div>
-                </form>
+                <!---->
             </div>
         </div>
     </div>
