@@ -547,7 +547,7 @@
             var id = button.data('id')
             var modal = $(this)
             // modal.find('.modal-body #id').val(id);
-            
+            console.log(id);
             $.ajax({
                 type: 'get',
                 url: "/group-list-anggota-group/"+id,
@@ -564,7 +564,7 @@
                     } else {
 
                         toastr.error(response.message);
-                        
+
                     }
                 },
                 error: function(data) {
