@@ -305,6 +305,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Anggota</th>
+                                        <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -546,33 +547,27 @@
             var id = button.data('id')
             var modal = $(this)
             // modal.find('.modal-body #id').val(id);
-            $('#table-data').DataTable({
-                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
-                destroy: true,
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: '/group-list-anggota-group/'+id,
+            
+            $.ajax({
+                type: 'get',
+                url: "/group-list-anggota-group/"+id,
+                cache: false,
+                contentType: false,
+                processData: false,
+               
+                success: function(response) {
+                    if (response.status == 200) {
+                        console.log(response);
+                        toastr.success(response.message);
+                    } else {
+                        toastr.error(response.message);
+                    }
                 },
-                columns: [{
-                        "width": 10,
-                        "data": null,
-                        "sortable": false,
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1;
-                        }
-                    },
-                    {
-                        data: 'anggota',
-                        name: 'anggota'
-                    },
-                    {
-                        data: 'option',
-                        name: 'option'
-                    },
-
-                ]
+                error: function(data) {
+                    console.log(data);
+                }
             });
+
         })
 
         $('#modaledit').on('show.bs.modal', function(event) {

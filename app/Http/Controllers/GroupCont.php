@@ -81,26 +81,26 @@ class GroupCont extends Controller
     public function data_anggota(Request $request, $group_id)
     {
         if ($request->ajax()) {
-            $group      = Group::findOrFail($group_id);
-            $data       = Karyawan::whereHas('group', function ($q) use ($group) {
-                $q->whereIn('id', $group_id);
-            });
-            return DataTables::of($data)
-                    ->addColumn('anggota', function($data){
-                        return $data->group->where('id',$group_id);
+           $data = Karyawan::with('group')->whereNested(function ($query) use ($group_id){
+                $query->where('id', $group_id);
+           })->get();
 
-                    })
-                    ->addColumn('option', function($data) use ($group){
-                        $actionBtn =
-                        '<form id="formaddgroup">
-                        <input type="hidden" name="group_id" value="'.$group->id.'"> 
-                        <input type="hidden" name="karyawan_id" value="'.$data->id.'">
-                        <input href="#" id="btnaddgroup" type="submit" class="text-primary btn btn-sm btn-success" value="Tambahkan Ke Group">
-                        </form>';
-                        return $actionBtn;
-                    })
-            ->rawColumns(['option','jabatan'])
-            ->make(true);
+           if ($data !== null) {
+                # code...
+                return response()->json(
+                    [
+                    'status'  => 200,
+                    'message' => $data,
+                    ]
+                );
+           }else{
+                return response()->json(
+                    [
+                    'status'  => 400,
+                    'message' => 'query error',
+                    ]
+                );
+           }
         }
     }
 
