@@ -75,7 +75,8 @@ Route::get('/karyawan-form-laporan/{slug_jenis}',[LaporanCont::class,'laporan_de
 //backend group
 Route::get('/group-karyawan',[GroupCont::class,'index_group'])->name('be_index_group');
 Route::post('/group-karyawan-store',[GroupCont::class,'store_group'])->name('be_store_group');
-Route::get('/group-list-karyawan',[GroupCont::class,'data_karyawan2'])->name('be_data_karyawan2');
+
+Route::get('/group-list-anggota/{group_id}',[GroupCont::class,'data_anggota']);
 Route::post('/group-add-karyawan',[GroupCont::class,'add_karyawan_group'])->name('be_store_karyawan_group');
 
 

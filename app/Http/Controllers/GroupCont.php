@@ -78,30 +78,29 @@ class GroupCont extends Controller
         }
     }
 
-    // public function data_karyawan2(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //         $group_id   = $request->id;
-    //         $group      = Group::findOrFail($group_id);
-    //         $data       = Karyawan::all();
-    //         return DataTables::of($data)
-    //                 ->addColumn('jabatan', function($data){
-    //                     $jabatan = $data->jabatan->nama_jabatan;
-    //                     return $jabatan;
-    //                 })
-    //                 ->addColumn('option', function($data) use ($group){
-    //                     $actionBtn =
-    //                     '<form id="formaddgroup">
-    //                     <input type="hidden" name="group_id" value="'.$group->id.'"> 
-    //                     <input type="hidden" name="karyawan_id" value="'.$data->id.'">
-    //                     <input href="#" id="btnaddgroup" type="submit" class="text-primary btn btn-sm btn-success" value="Tambahkan Ke Group">
-    //                     </form>';
-    //                     return $actionBtn;
-    //                 })
-    //         ->rawColumns(['option','jabatan'])
-    //         ->make(true);
-    //     }
-    // }
+    public function data_anggota(Request $request, $group_id)
+    {
+        if ($request->ajax()) {
+            $group      = Group::findOrFail($group_id);
+            $data       = Karyawan::all();
+            return DataTables::of($data)
+                    ->addColumn('anggota', function($data){
+                        return $data->group->where('id',$group_id);
+
+                    })
+                    ->addColumn('option', function($data) use ($group){
+                        $actionBtn =
+                        '<form id="formaddgroup">
+                        <input type="hidden" name="group_id" value="'.$group->id.'"> 
+                        <input type="hidden" name="karyawan_id" value="'.$data->id.'">
+                        <input href="#" id="btnaddgroup" type="submit" class="text-primary btn btn-sm btn-success" value="Tambahkan Ke Group">
+                        </form>';
+                        return $actionBtn;
+                    })
+            ->rawColumns(['option','jabatan'])
+            ->make(true);
+        }
+    }
 
     public function add_karyawan_group(Request $request)
     {

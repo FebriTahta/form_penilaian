@@ -300,7 +300,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <table>
+                            <table id="table-anggota" class="table table-bordered table-hover data-tables">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -539,6 +539,40 @@
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #nama_kategori').html(nama_kategori);
             console.log(nama_kategori);
+        })
+
+        $('#modalanggota').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            // modal.find('.modal-body #id').val(id);
+            $('#table-data').DataTable({
+                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '/group-list-anggota/'+id,
+                },
+                columns: [{
+                        "width": 10,
+                        "data": null,
+                        "sortable": false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    {
+                        data: 'anggota',
+                        name: 'anggota'
+                    },
+                    {
+                        data: 'option',
+                        name: 'option'
+                    },
+
+                ]
+            });
         })
 
         $('#modaledit').on('show.bs.modal', function(event) {
