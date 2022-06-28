@@ -363,7 +363,7 @@
         $(document).ready(function() {
             table();
             $(".tutupmodalanggota").click(function(){
-                $("#modalanggota").modal("hide");
+                $("#modalanggota").modal("hide.bs.modal");
                 console.log('tutup');
             });
         })
