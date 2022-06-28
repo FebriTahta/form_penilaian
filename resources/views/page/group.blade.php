@@ -538,6 +538,10 @@
             console.log(nama_kategori);
         })
 
+        $(".tutupmodalanggota").click(function(){
+            $("#modalanggota").modal("hide");
+        });
+
         $('#modalanggota').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
