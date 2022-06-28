@@ -87,7 +87,7 @@ class GroupCont extends Controller
 
             return $data;
 
-           if (count($data) == 0) {
+           if ($data !== null) {
                 # code...
                 return response()->json(
                     [
