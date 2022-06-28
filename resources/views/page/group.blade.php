@@ -285,7 +285,7 @@
     </div>
 
     <div class="modal fade" id="modalanggota" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
-        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content b-0">
                 <div class="modal-header r-0 bg-success">
                     <h6 class="modal-title text-white" id="exampleModalLabel">Daftar Anggota</h6>
