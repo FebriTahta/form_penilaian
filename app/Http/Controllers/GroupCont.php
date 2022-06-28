@@ -106,8 +106,8 @@ class GroupCont extends Controller
     public function add_karyawan_group(Request $request)
     {
         // return $request->group_id;
-        $karyawan = Karyawan::findOrFail($request->karyawan_id);
-        $group_id = $request->group_id;
+        $karyawan = Karyawan::findOrFail($request->select_karyawan);
+        $group_id = $request->select_group;
         $group    = Group::findOrFail($group_id);
         $karyawan->group()->syncWithoutDetaching($group_id);
         return response()->json(
