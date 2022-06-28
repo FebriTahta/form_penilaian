@@ -20,7 +20,7 @@ class GroupCont extends Controller
                         })
 
                         ->addColumn('option', function ($data) {
-                            $actionBtn .= ' <a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-jenis_id="'.$data->jenis_id.'" data-toggle="modal" data-target="#modaledit" class="text-primary btn btn-sm btn-primary"><i class="icon icon-pencil"></i></a>';
+                            $actionBtn = ' <a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-jenis_id="'.$data->jenis_id.'" data-toggle="modal" data-target="#modaledit" class="text-primary btn btn-sm btn-primary"><i class="icon icon-pencil"></i></a>';
                             $actionBtn .= ' <a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-toggle="modal" data-target="#modaldel" class="text-danger btn btn-sm btn-danger"><i class="icon icon-trash"></i></a>';
                             return $actionBtn;
                         })
