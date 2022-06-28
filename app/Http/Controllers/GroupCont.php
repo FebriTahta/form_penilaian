@@ -88,7 +88,7 @@ class GroupCont extends Controller
             return        DataTables::of($data)
 
                          ->addColumn('option', function ($data) {
-                             return '<button class="tutupmodalanggota btn btn-sm btn-danger">Keluarkan Group</button>';
+                             return '<button class="tutup btn btn-sm btn-danger" type="button">Keluarkan Group</button>';
                          })
                          ->addColumn('anggota', function($data){
                              return $data->nama_karyawan;

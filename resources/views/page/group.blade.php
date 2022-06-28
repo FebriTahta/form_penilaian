@@ -362,8 +362,9 @@
     <script>
         $(document).ready(function() {
             table();
-            $(".tutupmodalanggota").click(function(){
-                $("#modalanggota").modal("hide.bs.modal");
+
+            $(".tutup").click(function(){
+                $("#modalanggota").modal("hide");
                 console.log('tutup');
             });
         })
