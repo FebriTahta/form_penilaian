@@ -20,7 +20,6 @@ class GroupCont extends Controller
                         })
 
                         ->addColumn('option', function ($data) {
-                            $actionBtn =  '<a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-toggle="modal" data-target="#modaladd2" class="text-primary btn btn-sm btn-success"><i class="icon icon-plus"></i></a>';
                             $actionBtn .= ' <a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-jenis_id="'.$data->jenis_id.'" data-toggle="modal" data-target="#modaledit" class="text-primary btn btn-sm btn-primary"><i class="icon icon-pencil"></i></a>';
                             $actionBtn .= ' <a href="#" type="button" data-id="'.$data->id.'" data-nama_group="'.$data->nama_group.'" data-toggle="modal" data-target="#modaldel" class="text-danger btn btn-sm btn-danger"><i class="icon icon-trash"></i></a>';
                             return $actionBtn;
@@ -79,34 +78,34 @@ class GroupCont extends Controller
         }
     }
 
-    public function data_karyawan2(Request $request)
-    {
-        if ($request->ajax()) {
-            $group_id   = $request->id;
-            $group      = Group::findOrFail($group_id);
-            $data       = Karyawan::all();
-            return DataTables::of($data)
-                    ->addColumn('jabatan', function($data){
-                        $jabatan = $data->jabatan->nama_jabatan;
-                        return $jabatan;
-                    })
-                    ->addColumn('option', function($data) use ($group){
-                        $actionBtn =
-                        '<form id="formaddgroup">
-                        <input type="hidden" name="group_id" value="'.$group->id.'"> 
-                        <input type="hidden" name="karyawan_id" value="'.$data->id.'">
-                        <input href="#" id="btnaddgroup" type="submit" class="text-primary btn btn-sm btn-success" value="Tambahkan Ke Group">
-                        </form>';
-                        return $actionBtn;
-                    })
-            ->rawColumns(['option','jabatan'])
-            ->make(true);
-        }
-    }
+    // public function data_karyawan2(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $group_id   = $request->id;
+    //         $group      = Group::findOrFail($group_id);
+    //         $data       = Karyawan::all();
+    //         return DataTables::of($data)
+    //                 ->addColumn('jabatan', function($data){
+    //                     $jabatan = $data->jabatan->nama_jabatan;
+    //                     return $jabatan;
+    //                 })
+    //                 ->addColumn('option', function($data) use ($group){
+    //                     $actionBtn =
+    //                     '<form id="formaddgroup">
+    //                     <input type="hidden" name="group_id" value="'.$group->id.'"> 
+    //                     <input type="hidden" name="karyawan_id" value="'.$data->id.'">
+    //                     <input href="#" id="btnaddgroup" type="submit" class="text-primary btn btn-sm btn-success" value="Tambahkan Ke Group">
+    //                     </form>';
+    //                     return $actionBtn;
+    //                 })
+    //         ->rawColumns(['option','jabatan'])
+    //         ->make(true);
+    //     }
+    // }
 
     public function add_karyawan_group(Request $request)
     {
-        return $request->group_id;
+        // return $request->group_id;
         $karyawan = Karyawan::findOrFail($request->karyawan_id);
         $group_id = $request->group_id;
         $group    = Group::findOrFail($group_id);

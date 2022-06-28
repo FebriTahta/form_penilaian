@@ -213,51 +213,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modaladd2" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content b-0">
-                <div class="modal-header r-0 bg-success">
-                    <h6 class="modal-title text-white" id="namagrup">TAMBAHKAN KARYAWAN KE GROUP</h6>
-                    <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
-                </div>
-                <div class="modal-body">
-                    {{-- <form id="formaddgroup">
-                        <div class="form-group">
-                            <label for="select_karyawan">PILIH NAMA KARYAWAN</label>
-                            <select name="select_karyawan" id="select_karyawan">
-                                <option value="">-</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" id="btnaddgroup" class="btn btn-success text-white" value="Tambahkan Ke Group">
-                        </div>
-                    </form> --}}
-                    {{-- <table id="table-karyawan" class="table table-bordered table-hover data-tables" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Karyawan</th>
-                                <th>Jabatan</th>
-                                <th>Option</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Karyawan</th>
-                                <th>Jabatan</th>
-                                <th>Option</th>
-                            </tr>
-                        </tfoot>
-                    </table> --}}
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="modaldel" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
         <div class="modal-dialog modal-md" role="document">
