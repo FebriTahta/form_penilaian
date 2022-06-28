@@ -300,7 +300,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <table id="table-anggota" class="table table-bordered table-hover data-tables">
+                            <table id="table-anggota" class="table table-bordered table-hover data-tables" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
