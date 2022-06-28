@@ -111,7 +111,7 @@ class GroupCont extends Controller
         $group_id = $request->select_group;
         $group    = Group::findOrFail($group_id);
         
-        $exist    = GroupKaryawan::where('group_id',$group_id)->where('karyawan_id', $karyawan->id)->first();
+        $exist    = GroupKaryawan::where('karyawan_id', $karyawan->id)->first();
         if($exist !== null)
         {
             
