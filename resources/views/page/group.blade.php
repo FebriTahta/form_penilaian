@@ -30,7 +30,7 @@
             </div>
         </header>
         <hr>
-        
+
         <div class="container-fluid relative animatedParent animateOnce">
             <div class="tab-content pb-3" id="v-pills-tabContent">
                 <!--Today Tab Start-->
@@ -43,7 +43,7 @@
                                         <span class="icon icon-note-list text-light-blue s-48"></span>
                                     </div>
                                     <div class="counter-title">Group Karyawan </div>
-                                    <h5 class="sc-counter mt-3" id="total"> {{$group}} </h5>
+                                    <h5 class="sc-counter mt-3" id="total"> {{ $group }} </h5>
                                 </div>
                                 <div class="progress progress-xs r-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
@@ -58,7 +58,8 @@
                                     <div class="row">
                                         <div class="col-md-6" style="margin-bottom: 10px">
                                             <label for="select_karyawan">PILIH NAMA KARYAWAN</label>
-                                            <select name="select_karyawan" id="select_karyawan" class="form-control"></select>
+                                            <select name="select_karyawan" id="select_karyawan"
+                                                class="form-control"></select>
                                         </div>
 
                                         <div class="col-md-6" style="margin-bottom: 10px">
@@ -68,7 +69,8 @@
                                         <div class="col-md-6" style="margin-bottom: 10px">
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 10px; ">
-                                            <input type="submit" id="btnaddgroup" style="float:right" class="btn btn-success" value="Tambahkan Karyawan Ke Group"> 
+                                            <input type="submit" id="btnaddgroup" style="float:right"
+                                                class="btn btn-success" value="Tambahkan Karyawan Ke Group">
                                         </div>
                                     </div>
                                 </div>
@@ -76,37 +78,38 @@
                         </div>
                     </div>
                     <hr>
-                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Karyawan Baru</button>
+                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal"
+                        data-target="#modaladd">Tambahkan Karyawan Baru</button>
                     {{-- <button class="btn btn-success btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modalimport">Import Data Karyawan</button> --}}
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card-body">
                                     <div class="table table-responsive">
-                                    <div class="card-title">Data Group</div>
-                                    <table id="table-data" class="table table-bordered table-hover data-tables">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Group</th>
-                                                <th>Anggota</th>
-                                                <th>Jenis Penilaian</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                        <div class="card-title">Data Group</div>
+                                        <table id="table-data" class="table table-bordered table-hover data-tables">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Group</th>
+                                                    <th>Anggota</th>
+                                                    <th>Jenis Penilaian</th>
+                                                    <th>Option</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Group</th>
-                                                <th>Anggota</th>
-                                                <th>Jenis Penilaian</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Group</th>
+                                                    <th>Anggota</th>
+                                                    <th>Jenis Penilaian</th>
+                                                    <th>Option</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +157,7 @@
                 <div class="modal-header r-0 bg-primary">
                     <h6 class="modal-title text-white" id="exampleModalLabel">GROUP BARU</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
                 <form id="formadd" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
@@ -168,32 +171,33 @@
                             <select name="jenis_id" class="form-control text-capitalize" id="jenis_id" required>
                                 <option value="">- Pilih Jenis Penilaian -</option>
                                 @foreach ($jenis as $item)
-                                    <option value="{{$item->id}}">- {{$item->nama_jenis}} -</option>
+                                    <option value="{{ $item->id }}">- {{ $item->nama_jenis }} -</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label form="nama_group">Nama Group </label>
-                            <input type="text" class="form-control" id="nama_group" name="nama_group" required>  
+                            <input type="text" class="form-control" id="nama_group" name="nama_group" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="TAMBAH GROUP BARU" id="btnadd" required>
+                        <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="TAMBAH GROUP BARU"
+                            id="btnadd" required>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="modalimport" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content b-0">
                 <div class="modal-header r-0 bg-success">
                     <h6 class="modal-title text-white" id="exampleModalLabel">DATA BARU</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
-                <form action="{{route('be_import_karyawan')}}" method="POST" enctype="multipart/form-data">@csrf
+                <form action="{{ route('be_import_karyawan') }}" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
                         <div class="form-group">
                             <div id="errList" class="text-uppercase">
@@ -201,12 +205,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label form="jenis_id" style="font-size: 14px" class="text-capitalize">Import Data Karyawan </label><br>
+                            <label form="jenis_id" style="font-size: 14px" class="text-capitalize">Import Data Karyawan
+                            </label><br>
                             <input type="file" class="" id="file" name="file" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-success l-s-1 s-12 text-uppercase" value="IMPORT DATA KARYAWAN" id="btnadd" required>
+                        <input type="submit" class="btn btn-success l-s-1 s-12 text-uppercase"
+                            value="IMPORT DATA KARYAWAN" id="btnadd" required>
                     </div>
                 </form>
             </div>
@@ -220,7 +226,7 @@
                 <div class="modal-header r-0 bg-danger">
                     <h6 class="modal-title text-white" id="exampleModalLabel">HAPUS DATA</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
                 <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
@@ -230,7 +236,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id" >
+                            <input type="hidden" id="id" name="id">
                             <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
                         </div>
                         <div class="form-group">
@@ -238,7 +244,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase" value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
+                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase"
+                            value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
                     </div>
                 </form>
             </div>
@@ -251,7 +258,7 @@
                 <div class="modal-header r-0 bg-success">
                     <h6 class="modal-title text-white" id="exampleModalLabel">Tambahkan Karyawan Ini Ke Group ?</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
                 <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
@@ -261,7 +268,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id" >
+                            <input type="hidden" id="id" name="id">
                             <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
                         </div>
                         <div class="form-group">
@@ -269,7 +276,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase" value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
+                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase"
+                            value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
                     </div>
                 </form>
             </div>
@@ -282,7 +290,7 @@
                 <div class="modal-header r-0 bg-primary">
                     <h6 class="modal-title text-white" id="exampleModalLabel">UPDATE BARU</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
                 <form id="formedit" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
@@ -292,32 +300,38 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" class="form-control" id="id" name="id" required>  
+                            <input type="hidden" class="form-control" id="id" name="id" required>
                         </div>
                         <div class="form-group">
                             <label form="jenis_id">Jenis Penilaian </label>
                             <select name="jenis_id" class="form-control text-capitalize" id="jenis_id" required>
                                 <option value="">- Pilih Jenis Penilaian -</option>
-                               
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label form="nama_kategori">Kategori Penilaian </label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>  
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="UPDATE DATA" id="btnedit" required>
+                        <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="UPDATE DATA"
+                            id="btnedit" required>
                     </div>
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
+    
 @endsection
 
 @section('script')
     <script>
         $(document).ready(function() {
+            table();
+        })
+
+        function table() {
             $('#table-data').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
                 destroy: true,
@@ -326,8 +340,7 @@
                 ajax: {
                     url: '{{ route('be_index_group') }}',
                 },
-                columns: [
-                    {
+                columns: [{
                         "width": 10,
                         "data": null,
                         "sortable": false,
@@ -354,9 +367,8 @@
 
                 ]
             });
+        }
 
-            
-        })
 
         $('#formadd').submit(function(e) {
             e.preventDefault();
@@ -510,7 +522,7 @@
             var id = button.data('id')
             var nama_group = button.data('nama_group')
             var modal = $(this)
-            
+
             modal.find('.modal-header #namagrup').html('TAMBAHKAN KARYAWAN KE GROUP ' + nama_group);
             $('#table-karyawan').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
@@ -523,8 +535,7 @@
                         id: id,
                     }
                 },
-                columns: [
-                    {
+                columns: [{
                         "width": 10,
                         "data": null,
                         "sortable": false,
@@ -577,6 +588,7 @@
                         oTable.fnDraw(false);
                         $('#btnaddgroup').val('Tambah Ke Group');
                         $('#btnaddgroup').attr('disabled', false);
+                        table();
                         toastr.success(response.message);
                     } else {
                         $("#formaddgroup")[0].reset();

@@ -25,8 +25,7 @@ class GroupCont extends Controller
                             return $actionBtn;
                         })
                         ->addColumn('anggota', function($data){
-                            $anggota = $data->karyawan->count();
-                            return $anggota.' Anggota';
+                            return $data->karyawan->count();
                         })
                 ->rawColumns(['jenis','option','anggota'])
                 ->make(true);
@@ -109,7 +108,9 @@ class GroupCont extends Controller
         $karyawan = Karyawan::findOrFail($request->select_karyawan);
         $group_id = $request->select_group;
         $group    = Group::findOrFail($group_id);
-        $karyawan->group()->syncWithoutDetaching($group_id);
+        // $karyawan->group()->syncWithoutDetaching($group_id);
+
+        $group->karyawan()->syncWithoutDetaching($karyawan->id);
         return response()->json(
             [
             'status'  => 200,
