@@ -81,9 +81,10 @@ class GroupCont extends Controller
     public function data_anggota(Request $request, $group_id)
     {
         if ($request->ajax()) {
-           $data = Karyawan::with('group')->whereNested(function ($query) use ($group_id){
-                $query->where('id', $group_id);
-           })->get();
+            $group_id = $group_id;   
+            $data = Karyawan::whereHas('group', function($query) use ($group_id){
+                    $query->where('id', $group_id);
+            })->get();
 
            if (count($data) == 0) {
                 # code...
