@@ -83,7 +83,9 @@ class GroupCont extends Controller
         if ($request->ajax()) {
 
             $group_id = $group_id;   
-            $data = Karyawan::with('group')->get();
+            $data = Karyawan::with('group', function($q){
+                $q->where('id', 1);
+            });
 
            if ($data !== null) {
                 # code...
