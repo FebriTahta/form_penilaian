@@ -85,7 +85,7 @@ class GroupCont extends Controller
             $group_id = $group_id;   
             $data = Karyawan::with('group', function($q){
                 $q->where('id', 1);
-            });
+            })->get();
 
            if ($data !== null) {
                 # code...
