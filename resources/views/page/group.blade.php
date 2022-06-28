@@ -284,6 +284,42 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalanggota" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content b-0">
+                <div class="modal-header r-0 bg-success">
+                    <h6 class="modal-title text-white" id="exampleModalLabel">Daftar Anggota</h6>
+                    <a href="#" data-dismiss="modal" aria-label="Close"
+                        class="paper-nav-toggle paper-nav-white active"><i></i></a>
+                </div>
+                <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div id="errList" class="text-uppercase">
+                                {{-- ERROR MESSAGE VALIDATION --}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Anggota</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase"
+                            value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content b-0">
