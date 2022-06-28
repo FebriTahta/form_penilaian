@@ -88,7 +88,7 @@ class GroupCont extends Controller
             //     $q->where('nama_group',"=",$group->nama_group);
             // })->get();
 
-            $data = $group;
+            $data = $group_id;
            if ($data !== null) {
                 # code...
                 return response()->json(
