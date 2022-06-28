@@ -82,7 +82,9 @@ class GroupCont extends Controller
     {
         if ($request->ajax()) {
             $group      = Group::findOrFail($group_id);
-            $data       = Karyawan::all();
+            $data       = Karyawan::whereHas('group', function ($q) use ($group) {
+                $q->whereIn('id', $group_id)
+            });
             return DataTables::of($data)
                     ->addColumn('anggota', function($data){
                         return $data->group->where('id',$group_id);
