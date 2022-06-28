@@ -85,7 +85,7 @@ class GroupCont extends Controller
                 $query->where('id', $group_id);
            })->get();
 
-           if ($data !== null) {
+           if (count($data) == 0) {
                 # code...
                 return response()->json(
                     [

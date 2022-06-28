@@ -557,10 +557,14 @@
                
                 success: function(response) {
                     if (response.status == 200) {
+                        
                         console.log(response);
                         toastr.success(response.message);
+
                     } else {
+
                         toastr.error(response.message);
+                        
                     }
                 },
                 error: function(data) {
