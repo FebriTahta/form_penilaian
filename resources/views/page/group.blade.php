@@ -548,28 +548,58 @@
             var modal = $(this)
             // modal.find('.modal-body #id').val(id);
             console.log(id);
-            $.ajax({
-                type: 'get',
-                url: "/group-list-anggota-group/"+id,
-                cache: false,
-                contentType: false,
-                processData: false,
+            // $.ajax({
+            //     type: 'get',
+            //     url: "/group-list-anggota-group/"+id,
+            //     cache: false,
+            //     contentType: false,
+            //     processData: false,
                
-                success: function(response) {
-                    if (response.status == 200) {
+            //     success: function(response) {
+            //         if (response.status == 200) {
                         
-                        console.log(response);
-                        toastr.success(response.message);
+            //             console.log(response);
+            //             toastr.success(response.message);
 
-                    } else {
+            //         } else {
 
-                        toastr.error(response.message);
+            //             toastr.error(response.message);
 
-                    }
+            //         }
+            //     },
+            //     error: function(data) {
+            //         console.log(data);
+            //     }
+            // });
+
+            $('#table-anggota').DataTable({
+                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "/group-list-anggota-group/"+id,
                 },
-                error: function(data) {
-                    console.log(data);
-                }
+                columns: [{
+                        "width": 10,
+                        "data": null,
+                        "sortable": false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                   
+                    {
+                        data: 'anggota',
+                        name: 'anggota'
+                    },
+                   
+                    {
+                        data: 'option',
+                        name: 'option'
+                    },
+
+                ]
             });
 
         })

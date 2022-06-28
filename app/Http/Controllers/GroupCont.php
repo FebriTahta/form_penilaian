@@ -84,28 +84,36 @@ class GroupCont extends Controller
 
             $group      = Group::where('id', $group_id)->first();
             
-            $data = Karyawan::with('group')->whereHas('group', function($q) use ($group){
-                $q->where('id',$group->id);
-            })->get();
+            $data       = $group->karyawan;
+            return        DataTables::of($data)
+
+                         ->addColumn('option', function ($data) {
+                             return '-';
+                         })
+                         ->addColumn('anggota', function($data){
+                             return $data->nama_karyawan;
+                         })
+            ->rawColumns(['anggota','option',])
+            ->make(true);
 
             
-           if ($data !== null) {
-                # code...
-                return response()->json(
-                    [
-                    'status'  => 200,
-                    'message' => $data,
-                    ]
-                );
-           }else{
-                # code...
-                return response()->json(
-                    [
-                    'status'  => 400,
-                    'message' => 'query error',
-                    ]
-                );
-           }
+        //    if ($data !== null) {
+        //         # code...
+        //         return response()->json(
+        //             [
+        //             'status'  => 200,
+        //             'message' => $data,
+        //             ]
+        //         );
+        //    }else{
+        //         # code...
+        //         return response()->json(
+        //             [
+        //             'status'  => 400,
+        //             'message' => 'query error',
+        //             ]
+        //         );
+        //    }
         }
     }
 
