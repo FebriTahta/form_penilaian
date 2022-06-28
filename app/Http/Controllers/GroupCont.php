@@ -26,8 +26,7 @@ class GroupCont extends Controller
                             return $actionBtn;
                         })
                         ->addColumn('anggota', function($data){
-                            '<a href="#" class="text-primary" data-toggle="modal" data-target="#modalanggota" data-id="$data->id">'.$data->karyawan->count().' Anggota.</a>';
-                            return ;
+                            return '<a href="#" class="text-primary" data-toggle="modal" data-target="#modalanggota" data-id="$data->id">'.$data->karyawan->count().' Anggota.</a>'; 
                         })
                 ->rawColumns(['jenis','option','anggota'])
                 ->make(true);
