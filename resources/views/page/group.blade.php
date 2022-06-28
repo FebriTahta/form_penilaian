@@ -594,40 +594,40 @@
             var modal = $(this)
 
             modal.find('.modal-header #namagrup').html('TAMBAHKAN KARYAWAN KE GROUP ' + nama_group);
-            $('#table-karyawan').DataTable({
-                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
-                destroy: true,
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: '{{ route('be_data_karyawan2') }}',
-                    data: {
-                        id: id,
-                    }
-                },
-                columns: [{
-                        "width": 10,
-                        "data": null,
-                        "sortable": false,
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1;
-                        }
-                    },
-                    {
-                        data: 'nama_karyawan',
-                        name: 'nama_karyawan'
-                    },
-                    {
-                        data: 'jabatan',
-                        name: 'jabatan'
-                    },
-                    {
-                        data: 'option',
-                        name: 'option'
-                    },
+            // $('#table-karyawan').DataTable({
+            //     //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+            //     destroy: true,
+            //     processing: true,
+            //     serverSide: true,
+            //     ajax: {
+            //         url: '{{ route('be_data_karyawan2') }}',
+            //         data: {
+            //             id: id,
+            //         }
+            //     },
+            //     columns: [{
+            //             "width": 10,
+            //             "data": null,
+            //             "sortable": false,
+            //             render: function(data, type, row, meta) {
+            //                 return meta.row + meta.settings._iDisplayStart + 1;
+            //             }
+            //         },
+            //         {
+            //             data: 'nama_karyawan',
+            //             name: 'nama_karyawan'
+            //         },
+            //         {
+            //             data: 'jabatan',
+            //             name: 'jabatan'
+            //         },
+            //         {
+            //             data: 'option',
+            //             name: 'option'
+            //         },
 
-                ]
-            });
+            //     ]
+            // });
         })
 
         $.ajaxSetup({
