@@ -84,8 +84,10 @@ class GroupCont extends Controller
 
             $group_id = $group_id;   
             $data = Karyawan::whereHas('group', function($query) use ($group_id){
-                    $query->where('group_id', $group_id);
+                    $query->where('id', $group_id);
             })->get();
+
+            return $data;
 
            if (count($data) == 0) {
                 # code...
