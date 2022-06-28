@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Group;
 use App\Models\Jenis;
+use App\Models\GroupKaryawan;
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use DataTables;
@@ -104,18 +105,31 @@ class GroupCont extends Controller
 
     public function add_karyawan_group(Request $request)
     {
-        // return $request->group_id;
+       
+        
         $karyawan = Karyawan::findOrFail($request->select_karyawan);
         $group_id = $request->select_group;
         $group    = Group::findOrFail($group_id);
-        // $karyawan->group()->syncWithoutDetaching($group_id);
+        
+        $exist    = GroupKaryawan::where('group_id',$group_id)->where('karyawan_id', $karyawan->id)->first();
+        if($exist !== null)
+        {
+            
+            return response()->json(
+                [
+                'status'  => 400,
+                'message' => 'Karyawan Sudah Terdaftar Pada Group Lain',
+                ]
+            );
 
-        $group->karyawan()->syncWithoutDetaching($karyawan->id);
-        return response()->json(
-            [
-            'status'  => 200,
-            'message' => $karyawan->nama_karyawan.' Telah Ditambahkan Kedalam Group '.$group->nama_group,
-            ]
-        );
+        }else{
+            $group->karyawan()->syncWithoutDetaching($karyawan->id);
+            return response()->json(
+                [
+                'status'  => 200,
+                'message' => $karyawan->nama_karyawan.' Telah Ditambahkan Kedalam Group '.$group->nama_group,
+                ]
+            );
+        }
     }
 }
