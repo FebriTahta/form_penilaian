@@ -82,14 +82,13 @@ class GroupCont extends Controller
     {
         if ($request->ajax()) {
 
-            $group_id   = $group_id;   
-            $group      = Group::find($group_id);
+            $data      = Group::where('id'. $group_id)->first();
             
             // $data = Karyawan::with('group')->whereHas('group', function($q) use ($group_id){
             //     $q->where('id',$group_id);
             // })->get();
 
-            $data = $group;
+            
            if ($data !== null) {
                 # code...
                 return response()->json(
