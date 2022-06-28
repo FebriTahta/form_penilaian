@@ -540,6 +540,7 @@
 
         $(".tutupmodalanggota").click(function(){
             $("#modalanggota").modal("hide");
+            console.log('tutup');
         });
 
         $('#modalanggota').on('show.bs.modal', function(event) {
