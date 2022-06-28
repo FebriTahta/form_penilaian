@@ -85,11 +85,11 @@ class GroupCont extends Controller
             $group_id   = $group_id;   
             $group      = Group::find($group_id);
             
-            $data = Karyawan::with('group')->whereHas('group', function($q) use ($group_id){
-                $q->where('id',$group_id);
-            })->get();
+            // $data = Karyawan::with('group')->whereHas('group', function($q) use ($group_id){
+            //     $q->where('id',$group_id);
+            // })->get();
 
-            
+            $data = $group;
            if ($data !== null) {
                 # code...
                 return response()->json(
