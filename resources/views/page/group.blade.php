@@ -552,7 +552,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '/group-list-anggota/'+id,
+                    url: '/group-list-anggota-group/'+id,
                 },
                 columns: [{
                         "width": 10,
