@@ -96,24 +96,6 @@ class GroupCont extends Controller
             ->rawColumns(['anggota','option',])
             ->make(true);
 
-            
-        //    if ($data !== null) {
-        //         # code...
-        //         return response()->json(
-        //             [
-        //             'status'  => 200,
-        //             'message' => $data,
-        //             ]
-        //         );
-        //    }else{
-        //         # code...
-        //         return response()->json(
-        //             [
-        //             'status'  => 400,
-        //             'message' => 'query error',
-        //             ]
-        //         );
-        //    }
         }
     }
 

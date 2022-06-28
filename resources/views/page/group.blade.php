@@ -542,6 +542,7 @@
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var modal = $(this)
+            $('#modalanggota').modal('hide');
             // modal.find('.modal-body #id').val(id);
             console.log(id);
             // $.ajax({
