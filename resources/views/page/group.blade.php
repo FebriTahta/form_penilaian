@@ -362,6 +362,10 @@
     <script>
         $(document).ready(function() {
             table();
+            $(".tutupmodalanggota").click(function(){
+                $("#modalanggota").modal("hide");
+                console.log('tutup');
+            });
         })
 
         function table() {
@@ -538,10 +542,7 @@
             console.log(nama_kategori);
         })
 
-        $(".tutupmodalanggota").click(function(){
-            $("#modalanggota").modal("hide");
-            console.log('tutup');
-        });
+        
 
         $('#modalanggota').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
