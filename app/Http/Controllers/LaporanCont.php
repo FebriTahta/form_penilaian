@@ -298,7 +298,8 @@ class LaporanCont extends Controller
                             $poin     = $kategori->poin;
                             foreach ($poin as $key => $value) {
                                 # code...
-                                $max=array_sum($value->besar_poin);
+                                $x[]=array_sum($value->besar_poin);
+                                $max=$x;
                             }
                             return $max;
                         })
