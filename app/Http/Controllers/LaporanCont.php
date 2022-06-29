@@ -278,7 +278,7 @@ class LaporanCont extends Controller
                         return DataTables::of($data)
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
-                            $karyawan      = $data->karyawan->get();
+                            $karyawan      = $data->karyawan;
 
                             foreach ($karyawan as $key => $kar) {
                                 # code...
