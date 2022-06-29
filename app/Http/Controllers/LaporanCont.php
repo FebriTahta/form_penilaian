@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Jenis;
+use App\Models\Group;
 use App\Models\Mengisi;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
