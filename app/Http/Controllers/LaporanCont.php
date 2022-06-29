@@ -279,7 +279,7 @@ class LaporanCont extends Controller
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
-                            $score-0;
+                            $score=0;
                             $total=0;
                             foreach ($karyawan as $key => $kar) {
                                 # code...
