@@ -305,7 +305,7 @@ class LaporanCont extends Controller
                             }
                             settype($max, "integer"); 
                             $maxscore = $max * $jumHari;
-                            return $maxscore;
+                            return 'Max Score 1 Bulan - '.$maxscore;
                         })
                         
                 ->rawColumns(['score'])
