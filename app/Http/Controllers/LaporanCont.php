@@ -293,9 +293,14 @@ class LaporanCont extends Controller
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
                             $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
-                            $kategori = Kategori::where('jenis_id',$jenis->id)->first();
-                            $poin     = $kategori->poin;
-                            return $poin;
+                            $kategori = Kategori::where('jenis_id',$jenis->id)->get();
+
+                            $max = 0;
+                            foreach ($kategori as $key => $value) {
+                                # code...
+                                $max = max($value->poin->besar_poin);
+                            }
+                            return $max;
                         })
                         
                 ->rawColumns(['score'])
