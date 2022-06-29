@@ -309,7 +309,7 @@ class LaporanCont extends Controller
                                 }
                                 $text[] = $value->nama_kategori;
                             }
-                            return $text;
+                            return implode('<br>',$text);
                         })
                         
                 ->rawColumns(['score'])
