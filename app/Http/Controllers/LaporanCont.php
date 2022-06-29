@@ -323,12 +323,11 @@ class LaporanCont extends Controller
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
                                 $total                  = array_sum($score);
-                                $nilai                  = $kar->nama_karyawan.'-'.$score;
+                                $anggota[]              = $kar->nama_karyawan;
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            // return implode('<br>',$anggota);
-                            return $nilai;
+                            return implode('<br>',$anggota);
                         })
                         
                 ->rawColumns(['score','maxscore','anggota'])
