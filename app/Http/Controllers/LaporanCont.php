@@ -282,11 +282,11 @@ class LaporanCont extends Controller
                             $score         = 0;
                             foreach ($karyawan as $key => $kar) {
                                 # code...
-                                $score          = Mengisi::where('jenis_id', $jenis->id)
+                                $nilai              = Mengisi::where('jenis_id', $jenis->id)
                                                         ->whereMonth('tanggal',$bln)
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
-                                $score++;
+                                $score              = $nilai++;
                                 // $pengisian      = Mengisi::where('jenis_id', $jenis->id)
                                 //                         ->whereMonth('tanggal',$bln)
                                 //                         ->where('karyawan_id', $kar->id)
@@ -342,8 +342,8 @@ class LaporanCont extends Controller
                                 //     return '-';
                                 // }
                             }
-                            return $score;
                             
+                            return $score;
                         })
                         
                 ->rawColumns(['score'])

@@ -69,7 +69,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Total Score</th>
-                                                <th>Status</th>
+                                                <th>Score</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -79,7 +79,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Total Score</th>
-                                                <th>Status</th>
+                                                <th>Score</th>
                                             </tr>
                                         </tfoot>
                                     </table>
