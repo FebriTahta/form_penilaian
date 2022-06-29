@@ -82,6 +82,12 @@
                                 <div class="card-footer white">
                                     <a href="/form/{{$item->slug_jenis}}" target="_blank" class="btn btn-xs text-white btn-outline" style="background-color: pink">Link Form</a>
                                     <a href="/karyawan-form-laporan/{{$item->slug_jenis}}" class="btn btn-outline-primary btn-xs">Laporan</a>
+                                    @php
+                                        $group = App\Models\Group::where('jenis_id', $item->id)->count();
+                                    @endphp
+                                    @if ($group > 0)
+                                    <a href="#" class="btn btn-outline-success btn-xs">Laporan Group</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

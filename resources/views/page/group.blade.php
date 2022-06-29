@@ -59,12 +59,12 @@
                                         <div class="col-md-6" style="margin-bottom: 10px">
                                             <label for="select_karyawan">PILIH NAMA KARYAWAN</label>
                                             <select name="select_karyawan" id="select_karyawan"
-                                                class="form-control"></select>
+                                                class="form-control" required></select>
                                         </div>
 
                                         <div class="col-md-6" style="margin-bottom: 10px">
                                             <label for="select_group">PILIH GROUP</label>
-                                            <select name="select_group" id="select_group" class="form-control"></select>
+                                            <select name="select_group" id="select_group" class="form-control" required></select>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 10px">
                                         </div>
