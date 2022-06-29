@@ -299,6 +299,7 @@ class LaporanCont extends Controller
                             $max = 0;
                             $fin = [];
                             $temp= [];
+                            $text= [];
                             foreach ($kategori as $key => $value) {
                                 # code...
                                 $poins = Poin::where('kategori_id', $value->id)->get();
@@ -306,8 +307,9 @@ class LaporanCont extends Controller
                                     # code...
                                     $fin[] = $val->besar_poin;
                                 }
+                                $text[] = $value->nama_kategori.'-'.$fin;
                             }
-                            return $fin;
+                            return $text;
                         })
                         
                 ->rawColumns(['score'])
