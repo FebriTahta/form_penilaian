@@ -137,7 +137,7 @@ class LaporanCont extends Controller
                             // LOGIC
                             if ($selisih > 0) {
                                 # code...
-                                $jumHari   = cal_days_in_month(CAL_GREGORIAN, 06, 2020);
+                                $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
                                 $pengisians = Mengisi::where('jenis_id', $jenis->id)
                                             ->whereMonth('tanggal',$bln)
                                             ->where('karyawan_id', $data->karyawan->id)
@@ -291,6 +291,8 @@ class LaporanCont extends Controller
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
+
+
                             return $total;
                         })
                         
