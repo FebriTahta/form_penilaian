@@ -303,7 +303,7 @@ class LaporanCont extends Controller
                                     # code...
                                     $fin[] = $find_max_poin->besar_poin;
                                 }
-                                $max = max($fin);
+                                $max = implode(',', $fin);
                             }
                             return $max;
                         })
