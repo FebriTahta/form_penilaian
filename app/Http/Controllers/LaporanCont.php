@@ -283,7 +283,7 @@ class LaporanCont extends Controller
                             foreach ($karyawan as $key => $kar) {
                                 # code...
 
-                                $score = $key++;
+                                $score = $key;
 
                                 // $score              = Mengisi::where('jenis_id', $jenis->id)
                                 //                         ->whereMonth('tanggal',$bln)
