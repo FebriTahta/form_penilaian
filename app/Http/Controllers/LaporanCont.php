@@ -298,12 +298,14 @@ class LaporanCont extends Controller
 
                             $max = 0;
                             $fin = [];
+                            
                             foreach ($kategori as $key => $value) {
                                 # code...
                                 $fin[] = $value->poin->max('besar_poin');
-                                $max   = array_sum($fin).' score * '.$jumHari;
+                                $max   = array_sum($fin).' score * '.$jumHari.' Hari';
                             }
-                            return $max;
+                            $maxscore = $max * $jumHari;
+                            return $maxscore;
                         })
                         
                 ->rawColumns(['score'])
