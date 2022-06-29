@@ -298,18 +298,12 @@ class LaporanCont extends Controller
 
                             $max = 0;
                             $fin = [];
-                            $temp= [];
-                            $text= [];
                             foreach ($kategori as $key => $value) {
                                 # code...
-                                $poins = Poin::where('kategori_id', $value->id)->get();
-                                foreach ($poins as $key => $val) {
-                                    # code...
-                                    $fin[] = $val->besar_poin;
-                                }
-                                $text[] = $value->poin->max('besar_poin');
+                                $fin[] = $value->poin->max('besar_poin');
+                                $max   = array_sum($fin);
                             }
-                            return implode('<br>',$text);
+                            return implode('<br>',$max);
                         })
                         
                 ->rawColumns(['score'])
