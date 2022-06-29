@@ -68,10 +68,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Jabatan</th>
-                                                <th>Karyawan</th>
                                                 <th>Total Score</th>
-                                                <th>Pengisian</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -81,10 +78,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Jabatan</th>
-                                                <th>Karyawan</th>
                                                 <th>Total Score</th>
-                                                <th>Pengisian</th>
                                                 <th>Status</th>
                                             </tr>
                                         </tfoot>
@@ -187,7 +181,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '/karyawan-form-laporan/'+slug,
+                    url: '/karyawan-form-laporan-group/'+slug,
                     data: {
                         bulan: bulan
                     }
@@ -202,27 +196,13 @@
                         }
                     },
                     {
-                        data: 'jabatan',
-                        name: 'jabatan'
-                    },
-                    {
-                        data: 'karyawan',
-                        name: 'karyawan'
-                    },
-
-                    {
-                        data: 'score',
-                        name: 'score'
-                    },
-
-                    {
-                        data: 'pengisian',
-                        name: 'pengisian'
+                        data: 'nama_group',
+                        name: 'nama_group'
                     },
                    
                     {
-                        data: 'status',
-                        name: 'status'
+                        data: 'score',
+                        name: 'score'
                     },
                     
                 ]
