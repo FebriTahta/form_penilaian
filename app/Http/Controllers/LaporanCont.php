@@ -301,7 +301,7 @@ class LaporanCont extends Controller
                             $temp= [];
                             foreach ($kategori as $key => $value) {
                                 # code...
-                                $poins = Poin::where('kategori_id', $value)->get();
+                                $poins = Poin::where('kategori_id', $value->id)->get();
                                 foreach ($poins as $key => $val) {
                                     # code...
                                     $fin[] = $val->besar_poin;
