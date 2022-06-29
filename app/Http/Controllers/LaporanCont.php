@@ -274,7 +274,7 @@ class LaporanCont extends Controller
                 $thn = substr($request->bulan,0,4);
                 $bln = substr($request->bulan,5,2);
 
-                $data  = Group::where('jenis_id',$jenis_id);
+                $data  = Group::where('jenis_id',$jenis->id);
                         return DataTables::of($data)
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
