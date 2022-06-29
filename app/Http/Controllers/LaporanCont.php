@@ -310,7 +310,7 @@ class LaporanCont extends Controller
                             $hasil = $total / $total_karyawan;
                             return round($hasil);
                         })
-                        ->addColumn('karyawan', function($data) use ($jenis,$bln,$thn) {
+                        ->addColumn('anggota', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
                             $score[]=0;
