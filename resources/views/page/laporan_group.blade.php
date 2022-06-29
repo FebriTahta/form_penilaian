@@ -68,7 +68,8 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Total Score</th>
+                                                <th>Nama Group</th>
+                                                <th>Anggota</th>
                                                 <th>Score</th>
                                                 <th>Max Score</th>
                                             </tr>
@@ -79,7 +80,8 @@
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Total Score</th>
+                                                <th>Nama Group</th>
+                                                <th>Anggota</th>
                                                 <th>Score</th>
                                                 <th>Max Score</th>
                                             </tr>
@@ -200,6 +202,11 @@
                     {
                         data: 'nama_group',
                         name: 'nama_group'
+                    },
+
+                    {
+                        data: 'anggota',
+                        name: 'anggota'
                     },
                    
                     {

@@ -330,7 +330,7 @@ class LaporanCont extends Controller
                             return $anggota;
                         })
                         
-                ->rawColumns(['score','maxscore'])
+                ->rawColumns(['score','maxscore','anggota'])
                 ->make(true);
             }else {
                 # code...
