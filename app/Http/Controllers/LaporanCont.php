@@ -307,7 +307,7 @@ class LaporanCont extends Controller
                                     # code...
                                     $fin[] = $val->besar_poin;
                                 }
-                                $text[] = $value->poin->sum('besar_poin');
+                                $text[] = $value->poin->max('besar_poin');
                             }
                             return implode('<br>',$text);
                         })
