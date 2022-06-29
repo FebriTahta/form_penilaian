@@ -70,6 +70,7 @@
                                                 <th>No</th>
                                                 <th>Total Score</th>
                                                 <th>Score</th>
+                                                <th>Max Score</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,6 +81,7 @@
                                                 <th>No</th>
                                                 <th>Total Score</th>
                                                 <th>Score</th>
+                                                <th>Max Score</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -203,6 +205,11 @@
                     {
                         data: 'score',
                         name: 'score'
+                    },
+
+                    {
+                        data: 'maxscore',
+                        name: 'maxscore'
                     },
                     
                 ]

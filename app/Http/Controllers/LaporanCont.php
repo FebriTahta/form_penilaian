@@ -278,6 +278,21 @@ class LaporanCont extends Controller
 
                 $data  = Group::where('jenis_id',$jenis->id);
                         return DataTables::of($data)
+                        ->addColumn('maxscore', function($data) use ($jenis,$bln,$thn) {
+                            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
+                            $kategori = Kategori::where('jenis_id',$jenis->id)->get();
+                            $max = 0;
+                            $fin = [];
+                            
+                            foreach ($kategori as $key => $value) {
+                                # code...
+                                $fin[] = $value->poin->max('besar_poin');
+                                $max   = array_sum($fin).' score * '.$jumHari.' Hari';
+                            }
+                            settype($max, "integer"); 
+                            $maxscore = $max * $jumHari;
+                            return 'Max Score 1 Bulan - '.$maxscore;
+                        })
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
@@ -293,22 +308,10 @@ class LaporanCont extends Controller
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
-                            $kategori = Kategori::where('jenis_id',$jenis->id)->get();
-                            $max = 0;
-                            $fin = [];
-                            
-                            foreach ($kategori as $key => $value) {
-                                # code...
-                                $fin[] = $value->poin->max('besar_poin');
-                                $max   = array_sum($fin).' score * '.$jumHari.' Hari';
-                            }
-                            settype($max, "integer"); 
-                            $maxscore = $max * $jumHari;
-                            return 'Max Score 1 Bulan - '.$maxscore;
+                            return $hasil;
                         })
                         
-                ->rawColumns(['score'])
+                ->rawColumns(['score','maxscore'])
                 ->make(true);
             }else {
                 # code...
