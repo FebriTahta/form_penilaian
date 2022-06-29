@@ -43,7 +43,7 @@
                                         <span class="icon icon-note-list text-light-blue s-48"></span>
                                     </div>
                                     <div class="counter-title">Data Karyawan </div>
-                                    <h5 class="sc-counter mt-3" id="total_kategori">{{$karyawan}}</h5>
+                                    <h5 class="sc-counter mt-3" id="total">{{$karyawan}}</h5>
                                 </div>
                                 <div class="progress progress-xs r-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
@@ -55,6 +55,7 @@
                     <hr>
                     {{-- <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambahkan Karyawan Baru</button> --}}
                     <button class="btn btn-success btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modalimport">Import Data Karyawan</button>
+                    <button class="btn btn-primary btn-sm" style="margin-bottom: 20px" data-toggle="modal" data-target="#modaladd">Tambah Karyawan Baru</button>
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
@@ -141,15 +142,47 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label form="jenis_id">Jenis Penilaian </label>
-                            <select name="jenis_id" class="form-control text-capitalize" id="jenis_id" required>
-                                <option value="">- Pilih Jenis Penilaian -</option>
-                                
-                            </select>
+                            <label form="nama_karyawan">Nama Karyawan </label>
+                            <input type="text" name="nama_karyawan" class="form-control" id="nama_karyawan">
                         </div>
                         <div class="form-group">
-                            <label form="nama_kategori">Kategori Penilaian </label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>  
+                            <label form="telp_karyawan">Telp Karyawan </label>
+                            <input type="text" name="telp_karyawan" class="form-control" id="telp_karyawan">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <label form="tempatlahir_karyawan">Tempat Lahir</label>
+                                    <input type="text" name="tempatlahir_karyawan" class="form-control" id="tempatlahir_karyawan">
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <label form="tanggallahir_karyawan">Tanggal Lahir </label>
+                                    <input type="date" placeholder="tahun-bulan-tanggal" class="form-control" id="tanggallahir_karyawan" name="tanggallahir_karyawan">  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label form="alamat_karyawan">Alamat </label>
+                            <textarea name="alamat_karyawan" id="alamat_karyawan" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <label form="jenkel">Jenis Kelamin </label>
+                                    <select name="jenkel" class="form-control" id="jenkel" required>
+                                        <option value="L">Laki - Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <label form="jabatan">Jabatan </label>
+                                    <select name="jabatan_id" class="form-control" id="jabatan" required>
+                                       @foreach ($jabatan as $item)
+                                           <option value="{{$item->id}}">{{$item->nama_jabatan}}</option>
+                                       @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -188,44 +221,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modaladd2" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content b-0">
-                <div class="modal-header r-0 bg-success">
-                    <h6 class="modal-title text-white" id="exampleModalLabel">POIN PENILAIAN BARU</h6>
-                    <a href="#" data-dismiss="modal" aria-label="Close"
-                       class="paper-nav-toggle paper-nav-white active"><i></i></a>
-                </div>
-                <form id="formadd2" method="POST" enctype="multipart/form-data">@csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <div id="errList" class="text-uppercase">
-                                {{-- ERROR MESSAGE VALIDATION --}}
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h5 class="text-capitalize bold" >Kategori : <span id="nama_kategori"> </span> </h5>
-                            <input type="hidden" id="kategori_id" name="kategori_id">
-                        </div>
-
-                        <div class="form-group">
-                            <label form="nama_poin">Nama Poin Penilaian </label>
-                            <input type="text" class="form-control" id="nama_poin" name="nama_poin" required>  
-                        </div>
-
-                        <div class="form-group">
-                            <label form="besar_poin">Besar Poin Penilaian </label>
-                            <input type="number" class="form-control" id="besar_poin" name="besar_poin" required>  
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="TAMBAH POIN PENILAIAN" id="btnadd2" required>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="modaldel" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content b-0">
@@ -242,11 +237,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id" >
-                            <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
+                            <input type="text" id="id" name="id" >
+                            <h5>Nama Karyawan : <i id="nama_karyawan" class="text-capitalize"></i></h5>
                         </div>
                         <div class="form-group">
-                            <code>Yakin menghapus kategori penilaian tersebut dari database ?</code>
+                            <code>Yakin menghapus Karyawan tersebut dari database ?</code>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -273,18 +268,48 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" class="form-control" id="id" name="id" required>  
+                            <input type="hidden" name="id" class="form-control" id="id">
+                            <label form="nama_karyawan">Nama Karyawan </label>
+                            <input type="text" name="nama_karyawan" class="form-control" id="nama_karyawan">
                         </div>
                         <div class="form-group">
-                            <label form="jenis_id">Jenis Penilaian </label>
-                            <select name="jenis_id" class="form-control text-capitalize" id="jenis_id" required>
-                                <option value="">- Pilih Jenis Penilaian -</option>
-                               
-                            </select>
+                            <label form="telp_karyawan">Telp Karyawan </label>
+                            <input type="text" name="telp_karyawan" class="form-control" id="telp_karyawan">
                         </div>
                         <div class="form-group">
-                            <label form="nama_kategori">Kategori Penilaian </label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>  
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <label form="tempatlahir_karyawan">Tempat Lahir</label>
+                                    <input type="text" name="tempatlahir_karyawan" class="form-control" id="tempatlahir_karyawan">
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <label form="tanggallahir_karyawan">Tanggal Lahir </label>
+                                    <input type="text" class="form-control" id="tanggallahir_karyawan" name="tanggallahir_karyawan">  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label form="alamat_karyawan">Alamat </label>
+                            <textarea name="alamat_karyawan" id="alamat_karyawan" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <label form="jenkel">Jenis Kelamin </label>
+                                    <select name="jenkel" class="form-control" id="jenkel" required>
+                                        <option value="L">Laki - Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <label form="jabatan_id">Jabatan </label>
+                                    <select name="jabatan_id" class="form-control" id="jabatan_id" required>
+                                       @foreach ($jabatan as $item)
+                                           <option value="{{$item->id}}">{{$item->nama_jabatan}}</option>
+                                       @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -346,7 +371,7 @@
             var formData = new FormData(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ route('be_store_kategori') }}",
+                url: "{{ route('be_store_karyawan') }}",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -360,10 +385,10 @@
                         $("#formadd")[0].reset();
                         var oTable = $('#table-data').dataTable();
                         oTable.fnDraw(false);
-                        $('#btnadd').val('ADD KATEGORI');
+                        $('#btnadd').val('ADD KARYAWAN');
                         $('#btnadd').attr('disabled', false);
                         $('#modaladd').modal('hide');
-                        $('#total_kategori').html(response.total);
+                        $('#total').html(response.total);
                         toastr.success(response.message);
                     } else {
                         $("#formadd")[0].reset();
@@ -383,53 +408,12 @@
             });
         });
 
-        $('#formadd2').submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('be_store_poin') }}",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                beforeSend: function() {
-                    $('#btnadd2').attr('disabled', 'disabled');
-                    $('#btnadd2').val('Processing');
-                },
-                success: function(response) {
-                    if (response.status == 200) {
-                        $("#formadd2")[0].reset();
-                        var oTable = $('#table-data').dataTable();
-                        oTable.fnDraw(false);
-                        $('#btnadd2').val('TAMBAH POIN PENILAIAN');
-                        $('#btnadd2').attr('disabled', false);
-                        $('#modaladd2').modal('hide');
-                        toastr.success(response.message);
-                    } else {
-                        $("#formadd2")[0].reset();
-                        $('#btnadd2').val('TAMBAH POIN PENILAIAN');
-                        $('#btnadd2').attr('disabled', false);
-                        toastr.error(response.message);
-                        $('#errList').html("");
-                        $('#errList').addClass('alert alert-danger');
-                        $.each(response.errors, function(key, err_values) {
-                            $('#errList').append('<div>' + err_values + '</div>');
-                        });
-                    }
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
-        });
-
         $('#formdel').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ route('be_delete_kategori') }}",
+                url: "{{ route('be_delete_karyawan') }}",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -446,7 +430,7 @@
                         $('#btndell').val('YA HAPUS! SAYA YAKIN!');
                         $('#btndell').attr('disabled', false);
                         $('#modaldel').modal('hide');
-                        $('#total_kategori').html(response.total);
+                        $('#total').html(response.total);
                         toastr.warning(response.message);
                     } else {
                         $("#formdel")[0].reset();
@@ -471,7 +455,7 @@
             var formData = new FormData(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ route('be_store_kategori') }}",
+                url: "{{ route('be_update_karyawan') }}",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -510,33 +494,35 @@
         $('#modaldel').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var nama_kategori = button.data('nama_kategori')
+            var nama_karyawan = button.data('nama_karyawan')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #nama_kategori').html(nama_kategori);
-            console.log(nama_kategori);
+            modal.find('.modal-body #nama_karyawan').html(nama_karyawan);
+            console.log(nama_karyawan);
         })
 
         $('#modaledit').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var jenis_id = button.data('jenis_id')
-            var nama_kategori = button.data('nama_kategori')
+            var jabatan_id = button.data('jabatan_id')
+            var nama_karyawan = button.data('nama_karyawan')
+            var telp_karyawan = button.data('telp_karyawan')
+            var tempatlahir_karyawan = button.data('tempatlahir_karyawan')
+            var tanggallahir_karyawan = button.data('tanggallahir_karyawan')
+            var alamat_karyawan = button.data('alamat_karyawan')
+            var jenkel = button.data('jenkel')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #jenis_id').val(jenis_id);
-            modal.find('.modal-body #nama_kategori').val(nama_kategori);
-            console.log(jenis_id);
+            modal.find('.modal-body #jabatan_id').val(jabatan_id);
+            modal.find('.modal-body #nama_karyawan').val(nama_karyawan);
+            modal.find('.modal-body #telp_karyawan').val(telp_karyawan);
+            modal.find('.modal-body #tempatlahir_karyawan').val(tempatlahir_karyawan);
+            modal.find('.modal-body #tanggallahir_karyawan').val(tanggallahir_karyawan);
+            modal.find('.modal-body #alamat_karyawan').val(alamat_karyawan);
+            modal.find('.modal-body #jenkel').val(jenkel);
+            console.log(nama_karyawan);
         })
 
-        $('#modaladd2').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var kategori_id = button.data('kategori_id')
-            var nama_kategori = button.data('nama_kategori')
-            var modal = $(this)
-            modal.find('.modal-body #kategori_id').val(kategori_id);
-            modal.find('.modal-body #nama_kategori').html(nama_kategori);
-            console.log(nama_kategori);
-        })
+        
     </script>
 @endsection

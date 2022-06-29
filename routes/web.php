@@ -67,6 +67,9 @@ Route::post('/poin-form-store',[FormPoinCont::class,'store_poin'])->name('be_sto
 //backend karyawan
 Route::get('/karyawan-form-penilain',[FormKaryawanCont::class,'index_karyawan'])->name('be_index_karyawan');
 Route::post('/karyawan-form-import',[FormKaryawanCont::class,'import_karyawan'])->name('be_import_karyawan');
+Route::post('/karyawan-form-add',[FormKaryawanCont::class,'add_karyawan'])->name('be_store_karyawan');
+Route::post('/karyawan-form-update',[FormKaryawanCont::class,'update_karyawan'])->name('be_update_karyawan');
+Route::post('/karyawan-form-delete',[FormKaryawanCont::class,'delete_karyawan'])->name('be_delete_karyawan');
 
 //backend laporan
 Route::get('/karyawan-form-laporan',[LaporanCont::class,'laporan_detail'])->name('be_laporan_detail');
