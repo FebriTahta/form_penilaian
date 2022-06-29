@@ -295,7 +295,6 @@ class LaporanCont extends Controller
                             $hasil = $total / $total_karyawan;
                             $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
                             $kategori = Kategori::where('jenis_id',$jenis->id)->get();
-
                             $max = 0;
                             $fin = [];
                             
@@ -304,7 +303,9 @@ class LaporanCont extends Controller
                                 $fin[] = $value->poin->max('besar_poin');
                                 $max   = array_sum($fin).' score * '.$jumHari.' Hari';
                             }
-                            $maxscore = $max * $jumHari;
+                            $maksimal = $max;
+                            $totalhari= $jumHari;
+                            $maxscore = $maksimal * $totalhari;
                             return $maxscore;
                         })
                         
