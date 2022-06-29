@@ -289,6 +289,8 @@ class LaporanCont extends Controller
                                                         ->sum('total');
                                 $total                  = array_sum($score);
                             }
+                            $total_karyawan = $data->karyawan->count();
+                            $hasil = $total / $total_karyawan;
                             return $total;
                         })
                         
