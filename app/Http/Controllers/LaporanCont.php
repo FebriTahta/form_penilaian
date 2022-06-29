@@ -287,7 +287,7 @@ class LaporanCont extends Controller
                                                         ->whereMonth('tanggal',$bln)
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
-                                $total              = $score+1;
+                                $total              = $score++;
                             }
                             
                             return $total;
