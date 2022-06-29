@@ -346,7 +346,7 @@ class LaporanCont extends Controller
                                 // }
                             }
                             
-                            
+                            return $data->karyawan->count();
                         })
                         
                 ->rawColumns(['score'])
