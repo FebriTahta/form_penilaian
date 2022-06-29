@@ -86,7 +86,7 @@
                                         $group = App\Models\Group::where('jenis_id', $item->id)->count();
                                     @endphp
                                     @if ($group > 0)
-                                    <a href="#" class="btn btn-outline-success btn-xs">Laporan Group</a>
+                                        <a href="/karyawan-form-laporan-group/{{$item->slug_jenis}}" class="btn btn-outline-success btn-xs">Laporan Group</a>
                                     @endif
                                 </div>
                             </div>

@@ -262,4 +262,10 @@ class LaporanCont extends Controller
         return implode(' ',$value);
         // END TES
     }
+
+    public function laporan_group($slug_jenis)
+    {
+        $jenis = Jenis::where('slug_jenis',$slug_jenis)->first();
+        return view('page.laporan_group',compact('jenis'));
+    }
 }
