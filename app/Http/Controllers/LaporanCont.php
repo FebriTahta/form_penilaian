@@ -278,17 +278,15 @@ class LaporanCont extends Controller
                         return DataTables::of($data)
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
-                            $karyawan      = $data->karyawan;
-                            $score         = 0;
+                            $karyawan       = $data->karyawan;
+                            $score[]        = '';
                             foreach ($karyawan as $key => $kar) {
                                 # code...
 
-                                $score = $key;
-
-                                // $score              = Mengisi::where('jenis_id', $jenis->id)
-                                //                         ->whereMonth('tanggal',$bln)
-                                //                         ->where('karyawan_id', $kar->id)
-                                //                         ->sum('total');
+                                $score[]            = Mengisi::where('jenis_id', $jenis->id)
+                                                        ->whereMonth('tanggal',$bln)
+                                                        ->where('karyawan_id', $kar->id)
+                                                        ->sum('total');
                                 
                                 // $pengisian      = Mengisi::where('jenis_id', $jenis->id)
                                 //                         ->whereMonth('tanggal',$bln)
@@ -346,7 +344,7 @@ class LaporanCont extends Controller
                                 // }
                             }
                             
-                            return $data->karyawan->count();
+                            return $score;
                         })
                         
                 ->rawColumns(['score'])
