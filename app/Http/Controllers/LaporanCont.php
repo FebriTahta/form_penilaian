@@ -299,13 +299,14 @@ class LaporanCont extends Controller
                             $fin = [];
                             foreach ($kategori as $key => $value) {
                                 # code...
-                                foreach ($value->poin as $key => $find_max_poin) {
-                                    # code...
-                                    $fin[] = $find_max_poin->besar_poin;
-                                }
-                                $max = implode(',', $fin);
+                                // foreach ($value->poin as $key => $find_max_poin) {
+                                //     # code...
+                                //     $fin[] = $find_max_poin->besar_poin;
+                                // }
+                                // $max = implode(',', $fin);
+                                $fin[] = $value->nama_kategori;
                             }
-                            return $max;
+                            return $fin;
                         })
                         
                 ->rawColumns(['score'])
