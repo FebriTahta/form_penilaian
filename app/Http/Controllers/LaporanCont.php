@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Jenis;
 use App\Models\Group;
 use App\Models\Mengisi;
+use App\Models\Poin;
 use App\Models\Kategori;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
@@ -300,13 +301,13 @@ class LaporanCont extends Controller
                             $temp= [];
                             foreach ($kategori as $key => $value) {
                                 # code...
-                                foreach ($value->poin as $key => $find_max_poin) {
+                                $poins = Poin::where('kategori_id', $value)->get();
+                                foreach ($poins as $key => $val) {
                                     # code...
-                                    $fin[] = $find_max_poin->besar_poin;
+                                    $fin[] = $val->besar_poin;
                                 }
-                                $temp[] = max($fin);
                             }
-                            return $temp;
+                            return $fin;
                         })
                         
                 ->rawColumns(['score'])
