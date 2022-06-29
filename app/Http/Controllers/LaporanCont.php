@@ -287,7 +287,7 @@ class LaporanCont extends Controller
                                                         ->whereMonth('tanggal',$bln)
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
-                                
+                                $total[]            = $score++;
                                 // $pengisian      = Mengisi::where('jenis_id', $jenis->id)
                                 //                         ->whereMonth('tanggal',$bln)
                                 //                         ->where('karyawan_id', $kar->id)
@@ -344,7 +344,7 @@ class LaporanCont extends Controller
                                 // }
                             }
                             
-                            return $score;
+                            return $total;
                         })
                         
                 ->rawColumns(['score'])
