@@ -327,7 +327,7 @@ class LaporanCont extends Controller
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            return $anggota;
+                            return implode('<br>',$anggota);
                         })
                         
                 ->rawColumns(['score','maxscore','anggota'])
