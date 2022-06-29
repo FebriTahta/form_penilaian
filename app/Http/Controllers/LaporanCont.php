@@ -293,7 +293,7 @@ class LaporanCont extends Controller
                             $maxscore = $max * $jumHari;
                             return 'Max Score 1 Bulan - '.$maxscore;
                         })
-                        ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
+                        ->addColumn('finalscore', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
                             $score[]=0;
@@ -310,6 +310,23 @@ class LaporanCont extends Controller
                             $hasil = $total / $total_karyawan;
                             return round($hasil);
                         })
+
+                        ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
+
+                            $karyawan       = $data->karyawan;
+                            $score[]=0;
+                            $total=0;
+                            foreach ($karyawan as $key => $kar) {
+                                # code...
+                                $score[$key]            = Mengisi::where('jenis_id', $jenis->id)
+                                                        ->whereMonth('tanggal',$bln)
+                                                        ->where('karyawan_id', $kar->id)
+                                                        ->sum('total');
+                                $total                  = array_sum($score);
+                            }
+                            return implode('<br>',$score);
+                        })
+
                         ->addColumn('anggota', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
@@ -330,7 +347,7 @@ class LaporanCont extends Controller
                             return implode('<br>',$anggota);
                         })
                         
-                ->rawColumns(['score','maxscore','anggota'])
+                ->rawColumns(['finalscore','maxscore','anggota','score'])
                 ->make(true);
             }else {
                 # code...

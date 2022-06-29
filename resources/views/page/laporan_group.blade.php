@@ -71,6 +71,7 @@
                                                 <th>Nama Group</th>
                                                 <th>Anggota</th>
                                                 <th>Score</th>
+                                                <th>Final Score</th>
                                                 <th>Max Score</th>
                                             </tr>
                                         </thead>
@@ -83,6 +84,7 @@
                                                 <th>Nama Group</th>
                                                 <th>Anggota</th>
                                                 <th>Score</th>
+                                                <th>Final Score</th>
                                                 <th>Max Score</th>
                                             </tr>
                                         </tfoot>
@@ -212,6 +214,11 @@
                     {
                         data: 'score',
                         name: 'score'
+                    },
+
+                    {
+                        data: 'finalscore',
+                        name: 'finalscore'
                     },
 
                     {
