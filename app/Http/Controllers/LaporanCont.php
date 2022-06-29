@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Jenis;
 use App\Models\Group;
 use App\Models\Mengisi;
+use App\Models\Kategori;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
 use DataTables;
@@ -291,9 +292,10 @@ class LaporanCont extends Controller
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-
-
-                            return $total;
+                            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
+                            $kategori = Kategori::where('jenis_id',$jenis->id)->first();
+                            $poin     = $kategori->poin->sum('besar_poin');
+                            return $poin;
                         })
                         
                 ->rawColumns(['score'])
