@@ -262,10 +262,10 @@ class LaporanCont extends Controller
         // END TES
     }
 
-    public function laporan_group($slug_jenis)
+    public function laporan_group(Request $request,$slug_jenis)
     {
         $jenis = Jenis::where('slug_jenis',$slug_jenis)->first();
-        
+
         if ($request->ajax()) {
             if(!empty($request->bulan))
             {
