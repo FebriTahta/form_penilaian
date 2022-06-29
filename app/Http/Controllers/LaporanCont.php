@@ -296,11 +296,15 @@ class LaporanCont extends Controller
                             $kategori = Kategori::where('jenis_id',$jenis->id)->get();
 
                             $max = 0;
+                            $fin = [];
                             foreach ($kategori as $key => $value) {
                                 # code...
-                                $max = max($value->poin->besar_poin);
+                                foreach ($value->poin as $key => $find_max_poin) {
+                                    # code...
+                                    $fin[] = $find_max_poin->besar_poin;
+                                }
                             }
-                            return $max;
+                            return $fin;
                         })
                         
                 ->rawColumns(['score'])
