@@ -307,7 +307,7 @@ class LaporanCont extends Controller
                                     # code...
                                     $fin[] = $val->besar_poin;
                                 }
-                                $text[] = $value->nama_kategori.'-'.$fin;
+                                $text[] = $value->nama_kategori;
                             }
                             return $text;
                         })
