@@ -303,8 +303,9 @@ class LaporanCont extends Controller
                                     # code...
                                     $fin[] = $find_max_poin->besar_poin;
                                 }
+                                $max = max($fin);
                             }
-                            return implode('<br>',$fin);
+                            return $max;
                         })
                         
                 ->rawColumns(['score'])
