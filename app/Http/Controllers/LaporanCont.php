@@ -291,7 +291,7 @@ class LaporanCont extends Controller
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            return round($hasil);
+                            return $total;
                         })
                         
                 ->rawColumns(['score'])
