@@ -304,7 +304,8 @@ class LaporanCont extends Controller
                                 $max   = array_sum($fin).' score * '.$jumHari.' Hari';
                             }
                             settype($max, "integer"); 
-                            return $max+1;
+                            $maxscore = $max * $jumHari;
+                            return $maxscore;
                         })
                         
                 ->rawColumns(['score'])
