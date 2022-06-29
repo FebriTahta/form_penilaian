@@ -336,7 +336,7 @@ class LaporanCont extends Controller
 
                                     }
 
-                                    return $value;
+                                    return $value++;
                                 }else {
                                     # code...
                                     return '-';
