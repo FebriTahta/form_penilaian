@@ -310,6 +310,25 @@ class LaporanCont extends Controller
                             $hasil = $total / $total_karyawan;
                             return round($hasil);
                         })
+                        ->addColumn('karyawan', function($data) use ($jenis,$bln,$thn) {
+
+                            $karyawan       = $data->karyawan;
+                            $score[]=0;
+                            $total=0;
+                            $anggota[]=0;
+                            foreach ($karyawan as $key => $kar) {
+                                # code...
+                                $score[$key]            = Mengisi::where('jenis_id', $jenis->id)
+                                                        ->whereMonth('tanggal',$bln)
+                                                        ->where('karyawan_id', $kar->id)
+                                                        ->sum('total');
+                                $total                  = array_sum($score);
+                                $anggota[]              = $kar->nama_karyawan;
+                            }
+                            $total_karyawan = $data->karyawan->count();
+                            $hasil = $total / $total_karyawan;
+                            return $anggota;
+                        })
                         
                 ->rawColumns(['score','maxscore'])
                 ->make(true);
