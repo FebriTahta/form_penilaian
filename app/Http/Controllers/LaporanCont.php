@@ -315,7 +315,7 @@ class LaporanCont extends Controller
                             $karyawan       = $data->karyawan;
                             $score[]=0;
                             $total=0;
-                            $anggota[]=0;
+                            $anggota = [];
                             foreach ($karyawan as $key => $kar) {
                                 # code...
                                 $score[$key]            = Mengisi::where('jenis_id', $jenis->id)
