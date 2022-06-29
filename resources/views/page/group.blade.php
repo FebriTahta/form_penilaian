@@ -237,10 +237,10 @@
                         </div>
                         <div class="form-group">
                             <input type="hidden" id="id" name="id">
-                            <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
+                            <h5>Group : <i id="nama_group" class="text-capitalize"></i></h5>
                         </div>
                         <div class="form-group">
-                            <code>Yakin menghapus kategori penilaian tersebut dari database ?</code>
+                            <code>Yakin menghapus group tersebut dari database ?</code>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -252,15 +252,15 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modaladdgroup" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
+    <div class="modal fade" id="modalkick" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content b-0">
-                <div class="modal-header r-0 bg-success">
-                    <h6 class="modal-title text-white" id="exampleModalLabel">Tambahkan Karyawan Ini Ke Group ?</h6>
+                <div class="modal-header r-0 bg-danger">
+                    <h6 class="modal-title text-white" id="exampleModalLabel">KICK ANGGOTA GROUP</h6>
                     <a href="#" data-dismiss="modal" aria-label="Close"
                         class="paper-nav-toggle paper-nav-white active"><i></i></a>
                 </div>
-                <form id="formdel" method="POST" enctype="multipart/form-data">@csrf
+                <form id="formkick" method="POST" enctype="multipart/form-data">@csrf
                     <div class="modal-body">
                         <div class="form-group">
                             <div id="errList" class="text-uppercase">
@@ -268,16 +268,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id">
-                            <h5>Kategori : <i id="nama_kategori" class="text-capitalize"></i></h5>
+                            <input type="hidden" id="group_id" name="group_id">
+                            <input type="hidden" name="karyawan_id" id="karyawan_id" >
                         </div>
                         <div class="form-group">
-                            <code>Yakin menghapus kategori penilaian tersebut dari database ?</code>
+                            <code>Yakin mengeluarkan karyawan tersebut dari group ini ?</code>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-danger l-s-1 s-12 text-uppercase"
-                            value="YA HAPUS! SAYA YAKIN!" id="btndell" required>
+                            value="YA KELUARKAN! SAYA YAKIN!" id="btnkick" required>
                     </div>
                 </form>
             </div>
@@ -339,12 +339,14 @@
                             <label form="jenis_id">Jenis Penilaian </label>
                             <select name="jenis_id" class="form-control text-capitalize" id="jenis_id" required>
                                 <option value="">- Pilih Jenis Penilaian -</option>
-
+                                @foreach ($jenis as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_jenis}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label form="nama_kategori">Kategori Penilaian </label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
+                            <label form="nama_group">Kategori Penilaian </label>
+                            <input type="text" class="form-control" id="nama_group" name="nama_group" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -362,7 +364,6 @@
     <script>
         $(document).ready(function() {
             table();
-
             $(".tutup").click(function(){
                 $("#modalanggota").modal("hide");
                 console.log('tutup');
@@ -455,7 +456,7 @@
             var formData = new FormData(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ route('be_delete_kategori') }}",
+                url: "{{ route('be_remove_group') }}",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -472,7 +473,7 @@
                         $('#btndell').val('YA HAPUS! SAYA YAKIN!');
                         $('#btndell').attr('disabled', false);
                         $('#modaldel').modal('hide');
-                        $('#total_kategori').html(response.total);
+                        $('#total').html(response.total);
                         toastr.warning(response.message);
                     } else {
                         $("#formdel")[0].reset();
@@ -492,12 +493,53 @@
             });
         });
 
+        $('#formkick').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('be_kick_karyawan_group') }}",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $('#btnkick').attr('disabled', 'disabled');
+                    $('#btnkick').val('Proses Kicking');
+                },
+                success: function(response) {
+                    if (response.status == 200) {
+                        $("#formkick")[0].reset();
+                        var oTable = $('#table-data').dataTable();
+                        oTable.fnDraw(false);
+                        $('#btnkick').val('YA KELUARKAN! SAYA YAKIN!');
+                        $('#btnkick').attr('disabled', false);
+                        $('#modalkick').modal('hide');
+                        toastr.warning(response.message);
+                    } else {
+                        $("#formkick")[0].reset();
+                        $('#btnkick').val('YA HAPUS! SAYA YAKIN!');
+                        $('#btnkick').attr('disabled', false);
+                        toastr.error(response.message);
+                        $('#errList').html("");
+                        $('#errList').addClass('alert alert-danger');
+                        $.each(response.errors, function(key, err_values) {
+                            $('#errList').append('<div>' + err_values + '</div>');
+                        });
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
         $('#formedit').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ route('be_store_kategori') }}",
+                url: "{{ route('be_store_group') }}",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -536,14 +578,12 @@
         $('#modaldel').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var nama_kategori = button.data('nama_kategori')
+            var nama_group = button.data('nama_group')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #nama_kategori').html(nama_kategori);
-            console.log(nama_kategori);
+            modal.find('.modal-body #nama_group').html(nama_group);
         })
 
-        
 
         $('#modalanggota').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
@@ -552,29 +592,6 @@
             $('#modalanggota').modal('hide');
             // modal.find('.modal-body #id').val(id);
             console.log(id);
-            // $.ajax({
-            //     type: 'get',
-            //     url: "/group-list-anggota-group/"+id,
-            //     cache: false,
-            //     contentType: false,
-            //     processData: false,
-               
-            //     success: function(response) {
-            //         if (response.status == 200) {
-                        
-            //             console.log(response);
-            //             toastr.success(response.message);
-
-            //         } else {
-
-            //             toastr.error(response.message);
-
-            //         }
-            //     },
-            //     error: function(data) {
-            //         console.log(data);
-            //     }
-            // });
 
             $('#table-anggota').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
@@ -608,16 +625,25 @@
 
         })
 
+        $('#modalkick').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var group_id = button.data('group_id')
+            var karyawan_id = button.data('karyawan_id')
+            
+            var modal = $(this)
+            modal.find('.modal-body #group_id').val(group_id);
+            modal.find('.modal-body #karyawan_id').val(karyawan_id);
+        })
+
         $('#modaledit').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var jenis_id = button.data('jenis_id')
-            var nama_kategori = button.data('nama_kategori')
+            var nama_group = button.data('nama_group')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #jenis_id').val(jenis_id);
-            modal.find('.modal-body #nama_kategori').val(nama_kategori);
-            console.log(jenis_id);
+            modal.find('.modal-body #nama_group').val(nama_group);
         })
 
         $('#modaladd2').on('show.bs.modal', function(event) {

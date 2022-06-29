@@ -78,6 +78,36 @@ class GroupCont extends Controller
         }
     }
 
+    public function remove_group(Request $request)
+    {
+        $group = Group::where('id',$request->id)->first();
+        $group_name = $group->nama_group;
+        
+        if ($group->karyawan->count() > 0) {
+            # code...
+            $total = Group::count();
+            return response()->json(
+                [
+                'status'  => 400,
+                'message' => 'Terdapat Anggota Karyawan Yang Berada Pada Group. Keluarkan Dulu Anggota Pada Group Sebelum Menghapus Group',
+                'total'   => $total
+                ]
+            );
+        }else {
+            # code...
+            $group->delete();
+            $total = Group::count();
+            return response()->json(
+                [
+                'status'  => 200,
+                'message' => 'Group ' .$group_name. ' has been Deleted',
+                'total'   => $total
+                ]
+            );
+        }
+        
+    }
+
     public function data_anggota(Request $request, $group_id)
     {
         if ($request->ajax()) {
@@ -87,8 +117,8 @@ class GroupCont extends Controller
             $data       = $group->karyawan;
             return        DataTables::of($data)
 
-                         ->addColumn('option', function ($data) {
-                             return '<button class="tutup btn btn-sm btn-danger" type="button" data-dismiss="modal">Keluarkan Group</button>';
+                         ->addColumn('option', function ($data) use ($group_id) {
+                             return '<button data-group_id="'.$group_id.'" data-karyawan_id="'.$data->id.'" class="tutup btn btn-sm btn-danger" type="button" data-dismiss="modal" data-toggle="modal" data-target="#modalkick">Keluarkan Group</button>';
                          })
                          ->addColumn('anggota', function($data){
                              return $data->nama_karyawan;
@@ -101,8 +131,6 @@ class GroupCont extends Controller
 
     public function add_karyawan_group(Request $request)
     {
-       
-        
         $karyawan = Karyawan::findOrFail($request->select_karyawan);
         $group_id = $request->select_group;
         $group    = Group::findOrFail($group_id);
@@ -124,6 +152,33 @@ class GroupCont extends Controller
                 [
                 'status'  => 200,
                 'message' => $karyawan->nama_karyawan.' Telah Ditambahkan Kedalam Group '.$group->nama_group,
+                ]
+            );
+        }
+    }
+
+    public function kick_karyawan(Request $request)
+    {
+        $karyawan = Karyawan::findOrFail($request->karyawan_id);
+        $group_id = $request->group_id;
+        $group    = Group::findOrFail($group_id);
+        
+        $exist    = GroupKaryawan::where('group_id', $group_id)->where('karyawan_id', $karyawan->id)->first();
+        if($exist == null)
+        {
+            return response()->json(
+                [
+                'status'  => 400,
+                'message' => 'Karyawan Tidak berada pada Group Ini',
+                ]
+            );
+
+        }else{
+            $group->karyawan()->detach($request->karyawan_id);
+            return response()->json(
+                [
+                'status'  => 200,
+                'message' => $karyawan->nama_karyawan.' Telah Dikeluarkan Dari Group '.$group->nama_group,
                 ]
             );
         }
