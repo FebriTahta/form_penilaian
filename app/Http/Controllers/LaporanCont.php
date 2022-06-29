@@ -282,6 +282,7 @@ class LaporanCont extends Controller
                             $karyawan       = $data->karyawan;
                             $score[]=0;
                             $total=0;
+                            $max=0;
                             foreach ($karyawan as $key => $kar) {
                                 # code...
                                 $score[$key]            = Mengisi::where('jenis_id', $jenis->id)
@@ -294,8 +295,12 @@ class LaporanCont extends Controller
                             $hasil = $total / $total_karyawan;
                             $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
                             $kategori = Kategori::where('jenis_id',$jenis->id)->first();
-                            $poin     = $kategori->poin->sum('besar_poin');
-                            return $poin;
+                            $poin     = $kategori->poin;
+                            foreach ($poin as $key => $value) {
+                                # code...
+                                $max=array_sum($value->besar_poin);
+                            }
+                            return $max;
                         })
                         
                 ->rawColumns(['score'])
