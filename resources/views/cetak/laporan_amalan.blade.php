@@ -86,7 +86,6 @@
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
-                                                            ->join('poins','penilaians.poin_id','poins.id')
                                                             ->select('poins.nama_poin')
                                                             ->first();
                             
