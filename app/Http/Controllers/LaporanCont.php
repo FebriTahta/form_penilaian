@@ -340,7 +340,7 @@ class LaporanCont extends Controller
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
                                 $total                  = array_sum($score);
-                                $anggota[]              = $kar->nama_karyawan;
+                                $anggota[]              = '<a href="">'.$kar->nama_karyawan.'</a>';
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
