@@ -88,7 +88,7 @@
                                                     ->whereDate('tanggal', $tanggal)
                                                     ->first();
                         @endphp 
-                        {{$val}}
+                        {{$val->karyawan_id}}
                     </td>
                 </tr>
             @endfor
