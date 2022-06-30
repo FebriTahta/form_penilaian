@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\User;
 class LoginController extends Controller
 {
     /*
@@ -46,8 +47,10 @@ class LoginController extends Controller
             'name' => 'required',
             'password' => 'required',
         ]);
-  
-        $fieldType = filter_var($request->name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        
+        $user = User::where('id',$request->name)->first();
+        $name = $user->name;
+        $fieldType = filter_var($name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
         if(auth()->attempt(array($fieldType => $input['name'], 'password' => $input['password'])))
         {
             return redirect()->route('home');
