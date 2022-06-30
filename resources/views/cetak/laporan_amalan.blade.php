@@ -103,7 +103,7 @@
                                                             ->whereDate('tanggal','=',$full_tanggal)
                                                             ->first();
                         @endphp
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->nilai}}</td>
                 </tr>
             @endfor
         </tbody>
