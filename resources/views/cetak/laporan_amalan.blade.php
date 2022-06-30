@@ -102,8 +102,9 @@
 
                         ?>
                         
-                        <td>{{$penilaian->nilai}}</td>
+                        
                     @endforeach
+                    <td>{{$penilaian->nilai}}</td>
                 </tr>
             @endfor
         </tbody>
