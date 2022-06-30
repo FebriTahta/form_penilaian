@@ -47,7 +47,7 @@
                 <tr>
                     <td>
                         @if (strlen($tanggal_saja) == 1)
-                            {{$tanggal_saja = 0.$i}}
+                            {{$tanggal_saja = '0'.$i+1}}
                         @else
                             {{$tanggal_saja = $i+1}}
                         @endif
