@@ -7,6 +7,7 @@ use App\Models\Mengisi;
 use App\Models\Poin;
 use App\Models\Kategori;
 use App\Models\Penilaian;
+use App\Exports\LaporanAmalanExport;
 use Illuminate\Http\Request;
 use DataTables;
 use Carbon\Carbon;
@@ -340,7 +341,7 @@ class LaporanCont extends Controller
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
                                 $total                  = array_sum($score);
-                                $anggota[]              = '<a href="">'.$kar->nama_karyawan.'</a>';
+                                $anggota[]              = '<a href="/export-laporan-amalan/'.$kar->id.'/'.$jenis->id.'/'.$bln.'">'.$kar->nama_karyawan.'</a>';
                             }
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
@@ -356,5 +357,12 @@ class LaporanCont extends Controller
             
         }
         return view('page.laporan_group',compact('jenis'));
+    }
+
+    public function export_laporan_amalan(Request $request , $karyawan_id, $jenis_id, $bulan)
+    {
+        $karyawan   = Karyawan::where('id',$karyawan_id)->first();
+        $jenis      = Jenis::where('id', $jenis_id)->first();
+        return Excel::download(new LaporanAmalanExport($karyawan,$jenis,$bulan), $jenis->nama_jenis.' - '.$karyawan->nama_karyawan.' - bulan '.$bulan.'.xlsx');
     }
 }

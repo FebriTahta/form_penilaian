@@ -86,6 +86,8 @@ Route::get('/group-list-anggota-group/{group_id}',[GroupCont::class,'data_anggot
 Route::post('/group-add-karyawan',[GroupCont::class,'add_karyawan_group'])->name('be_store_karyawan_group');
 Route::post('/group-kick-karyawan-from-group',[GroupCont::class,'kick_karyawan'])->name('be_kick_karyawan_group');
 
+//backend export laporan amalan harian
+Route::post('/export-laporan-amalan/{karyawan_id}/{jenis}/{bulan}',[LaporanCont::class,'export_laporan_amalan']);
 
 
 // SURVEY DB 2 FE
