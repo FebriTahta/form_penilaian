@@ -89,7 +89,7 @@
                                                             ->first();
                         @endphp
                         @php
-                        $x = 0;
+                        $x = '0';
                             if ($i+1 < 10) {
                                 # code...
                                 $x = '0'.$i+1;
