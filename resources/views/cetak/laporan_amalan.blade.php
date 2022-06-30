@@ -67,7 +67,7 @@
                             @php
                                $tanggal_muda = '0'.$i+1; 
                             @endphp
-                            {{$tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer")}}
+                            {{$tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda}}
                         @else
                             
                         @endif
