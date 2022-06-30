@@ -51,23 +51,12 @@
                             {{$i+1}}    
                         @endif
                     </td>
-                    @php
-                        if (strlen($i+1) == 1) {
-                            # code...
-                            $tanggal_muda = '0'.$i+1;
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer");
-                        }else {
-                            # code...
-                            $tanggal_muda = $i+1;
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer");
-                        }
-                    @endphp
                     <td>
                         @if (strlen($i+1) == 1)
                             @php
                                $tanggal_muda = '0'.$i+1; 
                             @endphp
-                            {{$tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda}}
+                            {{$tanggal_muda}}
                         @else
                             
                         @endif
