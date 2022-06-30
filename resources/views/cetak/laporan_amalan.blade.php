@@ -136,7 +136,7 @@
                                                         ->where('kategori_id',$item->id)
                                                         ->whereMonth('created_at',$bulan)
                                                         ->whereYear('created_at',$data_tahun)
-                                                        ->get('nilai','created_at');
+                                                        ->get('created_at');
                         @endphp
                         {{$real}}
                     </td>
