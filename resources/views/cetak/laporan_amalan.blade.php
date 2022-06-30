@@ -89,7 +89,7 @@
                                                             ->first();
                         @endphp
                         <td>
-                            {{$penilaian}}
+                            {{$penilaian->kategori->nama_kategori}}
                         </td>
                     @endforeach
                 </tr>
