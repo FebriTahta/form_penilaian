@@ -91,7 +91,7 @@
                                                         ->whereDate('created_at', date('Y-m-d', strtotime($tanggal)))
                                                         ->first();
                             @endphp
-                            <td>{{$tgl}}</td>
+                            <td>{{$val->poin}}</td>
                     @endforeach
                     
                 </tr>
