@@ -100,7 +100,7 @@
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->tanggal}}</td>
                     @endforeach
                 </tr>
             @endfor
