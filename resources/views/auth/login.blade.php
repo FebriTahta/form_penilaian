@@ -14,7 +14,7 @@
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-                            <input type="text" id="name">
+                            <input type="text" id="nama_karyawan">
                             <div class="col-md-6">
                                 {{-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> --}}
                                 <select name="user_id" data-width="100%" id="user_id"
@@ -96,7 +96,7 @@
                                         text: item.name,
                                         id: item.id,
                                     }
-                                    $('#name').val(item.name);
+                                    $('#nama_karyawan').val(item.name);
                                 })
                             };
                         },
