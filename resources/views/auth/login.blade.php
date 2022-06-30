@@ -15,7 +15,11 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                {{-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> --}}
+                                <select name="user_id" data-width="100%" id="user_id"
+                                    class="form-control required" style="font-size: 12px">
+                                    <option value=""></option>
+                                </select>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -70,4 +74,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#user_id').select2({
+                ajax: {
+                        url: "{{ route('find_karyawan') }}",
+                        dataType: 'json',
+                        delay: 250,
+                        processResults: function(data) {
+                            return {
+                                results: $.map(data, function(item) {
+                                    return {
+                                        text: item.name,
+                                        id: item.id,
+                                    }
+                                })
+                            };
+                        },
+                        cache: true
+                    }
+                });
+</script>
 @endsection
