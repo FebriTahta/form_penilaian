@@ -101,7 +101,7 @@
                            
                         @endphp
                         
-                        <td>{{$penilaian->id}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
