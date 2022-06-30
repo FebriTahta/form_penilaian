@@ -83,10 +83,12 @@
                     <td>
 
                         @php
+                            $tgl = '';
                             $full_tanggal = date('Y-m-d', strtotime($tanggal));
+                            $tgl = $full_tanggal;
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
-                                                    ->whereDate('created_at', $full_tanggal)
+                                                    ->whereDate('created_at', $tgl)
                                                     ->first();
                         @endphp 
                         {{$val->id}}
