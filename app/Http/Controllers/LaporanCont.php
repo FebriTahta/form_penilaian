@@ -344,7 +344,7 @@ class LaporanCont extends Controller
                                                         ->sum('total');
                                 $total                  = array_sum($score);
                                 $anggota[]              = '<a data-toggle="modal" data-target="#modallaporan" 
-                                data-karyawan_id="'.$kar->id.'" data-jenis_id="'.$jenis_id.'" data-nama_jenis="'.$jenis->nama_jenis.'" data-bulan="'.$bln.'" data-tahun ="'.$thn.'"
+                                data-karyawan_id="'.$kar->id.'" data-jenis_id="'.$jenis->id.'" data-nama_jenis="'.$jenis->nama_jenis.'" data-bulan="'.$bln.'" data-tahun ="'.$thn.'"
                                 data-nama_karyawan="'.$kar->nama_karyawan.'" 
                                 href="#"</a>'; 
                             }
