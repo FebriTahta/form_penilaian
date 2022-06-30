@@ -52,6 +52,7 @@
                             $tanggal_muda = '0'.$i+1; 
                             $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
                             $hari = \Carbon\Carbon::parse($tanggal)->format('l');
+                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('d m Y');
                         @endphp
 
                         @if ($hari == 'Monday')
@@ -100,7 +101,7 @@
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian->tanggal}}</td>
+                        <td>{{$full_tanggal}}</td>
                     @endforeach
                 </tr>
             @endfor
