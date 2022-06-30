@@ -89,12 +89,13 @@
                                                             ->first();
                         @endphp
                         @php
+                        $x = 0;
                             if ($i+1 < 10) {
                                 # code...
                                 $x = '0'.$i+1;
                             }else {
                                 # code...
-                                $x = $i+1;
+                                // $x = $i+1;
                             }
                         @endphp
                         <td>{{$x}}</td>
