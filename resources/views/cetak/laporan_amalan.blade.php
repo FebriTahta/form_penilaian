@@ -127,7 +127,11 @@
                 <tr>
                     <td>{{$key}}</td>
                     <td>{{$item->nama_kategori}}</td>
-                    <td>{{max($item->poin->besar_poin)}}</td>
+                    <td>
+                        @foreach ($kategori->poin as $item_poin)
+                            {{$item_poin->besar_poin}}
+                        @endforeach
+                    </td>
                 </tr>
             @endforeach
         </tbody>
