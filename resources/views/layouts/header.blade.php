@@ -45,7 +45,18 @@
                                 <div class="col">
                                     <a href="#">
                                         <i class="icon-perm_data_setting grey darken-3 avatar  r-5"></i>
-                                        <div class="pt-1">Settings</div>
+                                        <div class="pt-1">
+                                            
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
