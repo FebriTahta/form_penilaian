@@ -95,6 +95,7 @@
                                     return {
                                         text: item.name,
                                         id: item.id,
+                                        $('#nama_karyawan').val(text);
                                     }
                                     
                                 })
