@@ -91,7 +91,11 @@
                                         // ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
                                         ->get();
                         @endphp
-                        <td>{{$penilaian->whereDate('tanggal',$full_tanggal)}}</td>
+                        <td>
+                            @foreach ($penilaian as $item)
+                                {{$item->whereDate('tanggal',$full_tanggal)}}
+                            @endforeach
+                        </td>
                     @endforeach
                     <?php 
                             
