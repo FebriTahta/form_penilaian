@@ -109,5 +109,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:pusat,cabang,lembaga,bendahara
                                          ->first();
         return $penilaian->nilai;
     });
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
