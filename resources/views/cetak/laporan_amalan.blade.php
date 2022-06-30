@@ -91,7 +91,7 @@
                                                     ->whereDate('created_at', $tgl)
                                                     ->first();
                         @endphp 
-                        {{$val->id}}
+                        {{$val}}
                     </td>
                 </tr>
             @endfor
