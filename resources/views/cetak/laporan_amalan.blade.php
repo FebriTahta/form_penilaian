@@ -128,7 +128,7 @@
                     <td>{{$key}}</td>
                     <td>{{$item->nama_kategori}}</td>
                     <td>
-                        @foreach ($kategori->poin as $item_poin)
+                        @foreach ($item->poin as $item_poin)
                             {{$item_poin->besar_poin}}
                         @endforeach
                     </td>
