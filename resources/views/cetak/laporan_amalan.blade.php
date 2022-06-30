@@ -83,13 +83,13 @@
                     <td>
 
                         @php
-                            $full_tanggal = date_parse_from_format('Y-m-d', $tanggal);
+                            $full_tanggal = date('Y-m-d', strtotime($tanggal));
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->whereDate('tanggal', $full_tanggal)
                                                     ->first();
                         @endphp 
-                         {{$full_tanggal}}
+                        {{$full_tanggal}}
                     </td>
                 </tr>
             @endfor
