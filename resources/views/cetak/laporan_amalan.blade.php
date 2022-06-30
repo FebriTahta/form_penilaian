@@ -43,14 +43,19 @@
         <tbody>
             <tr></tr>
             @for ($i = 0; $i < $jumHari; $i++)
+                {{$tanggal_saja = $i+1}}
                 <tr>
                     <td>
-                        @if (strlen($i+1) == 1)
-                            0{{$i+1}}    
+                        @if (strlen($tanggal_saja) == 1)
+                            {{$tanggal_saja = 0.$i}}
                         @else
-                            {{$i+1}}    
+                            {{$tanggal_saja = $i+1}}
                         @endif
                     </td>
+                    @php
+                        $date = $data_tahun.'-'.$bulan.'-'.$tanggal_saja
+                    @endphp
+                    <td></td>
                 </tr>
             @endfor
         </tbody>
