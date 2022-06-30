@@ -81,13 +81,13 @@
 
                     @foreach ($data_jenis->kategori as $item)
                         @php
-                            $pengisian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
+                            $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
-                                                            ->first();
+                                                            ->select('nilai');
                         @endphp
-                        <td>{{$pengisian->nilai}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
