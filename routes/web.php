@@ -51,7 +51,7 @@ Route::get('/survey-lembaga',[SurveyController::class,'index_survey'])->name('fe
 Route::post('/form-survey',[SurveyController::class,'form_survey'])->name('form_survey');
 
 
-Route::group(['middleware' => ['auth', 'CheckRole:pusat,cabang,lembaga,bendahara']], function () {
+Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
 
     Route::get('/find-cabang',[SurveyController::class,'find_cabang'])->name('find_cabang');
     Route::get('/find-kecamatan',[SurveyController::class,'find_kecamatan'])->name('find_kecamatan');
@@ -109,7 +109,6 @@ Route::group(['middleware' => ['auth', 'CheckRole:pusat,cabang,lembaga,bendahara
                                          ->first();
         return $penilaian->nilai;
     });
-    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');    
 });
 Route::get('/nama_karyawan_from_id/{user_id}',[FormKaryawanCont::class,'nama_karyawan_from_id']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
