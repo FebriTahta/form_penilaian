@@ -143,6 +143,8 @@
                         @endphp
                         {{$val}}
                     </td>
+
+                    <td>{{round(($item->poin->max('besar_poin') * $jumHari)/$val)}}</td>
                 </tr>
             @endforeach
         </tbody>
