@@ -97,11 +97,11 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            ->whereDate('tanggal','=','2022-06-22')
+                                                            ->whereDate('tanggal','=','2022-06-'.$key)
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian->poin->nama_poin}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
