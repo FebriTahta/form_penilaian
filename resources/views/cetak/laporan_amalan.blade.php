@@ -113,12 +113,12 @@
     <table style="border: solid">
         <thead>
             <tr>
-                <th rowspan="2">No</th>
-                <th rowspan="2">Amalan</th>
-                <th rowspan="2">Target</th>
-                <th rowspan="2">Real</th>
-                <th rowspan="2">%</th>
-                <th rowspan="2">PREDIKAT</th>
+                <th >No</th>
+                <th >Amalan</th>
+                <th >Target</th>
+                <th >Real</th>
+                <th >%</th>
+                <th >PREDIKAT</th>
             </tr>
         </thead>
 
