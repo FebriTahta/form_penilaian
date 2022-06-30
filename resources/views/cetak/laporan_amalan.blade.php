@@ -133,8 +133,8 @@
                             @php
                                 $nilai[] = $item_poin->besar_poin;
                             @endphp
-                            {{$nilai}}
                         @endforeach
+                        {{$nilai}}
                     </td>
                 </tr>
             @endforeach
