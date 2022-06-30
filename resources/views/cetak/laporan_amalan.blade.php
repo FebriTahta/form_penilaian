@@ -44,7 +44,13 @@
             <tr></tr>
             @for ($i = 0; $i < $jumHari; $i++)
                 <tr>
-                    <td>{{$i+1}}</td>
+                    <td>
+                        @if (strlen($i+1) == 1)
+                            0{{$i+1}}    
+                        @else
+                            {{$i+1}}    
+                        @endif
+                    </td>
                 </tr>
             @endfor
         </tbody>
