@@ -73,6 +73,6 @@ class LaporanAmalanExport implements ShouldAutoSize,FromView
             $data_bulan = 'Desember';
         }
 
-        return view('cetak.laporan_amalan',compact('data_karyawan','data_jenis','data_bulan','data_tahun'));
+        return view('cetak.laporan_amalan',compact('data_karyawan','data_jenis','data_bulan','data_tahun','bulan'));
     }
 }

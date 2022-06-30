@@ -38,7 +38,7 @@
             </tr>
         </thead >
         @php
-            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $data_bulan, $data_tahun);
+            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bulan, $data_tahun);
         @endphp
         <tbody>
             <tr></tr>
