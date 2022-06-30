@@ -95,14 +95,18 @@
                                     return {
                                         text: item.name,
                                         id: item.id,
-                                        $('#nama_karyawan').val(text);
+                                        
                                     }
-                                    
                                 })
                             };
                         },
                         cache: true
                     }
                 });
+
+                $('#user_id').on('change',function(){
+                var name = this.value;
+                $('#nama_karyawan').val(name);
+        });
 </script>
 @endsection
