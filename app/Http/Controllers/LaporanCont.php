@@ -11,6 +11,7 @@ use App\Models\Penilaian;
 use App\Exports\LaporanAmalanExport;
 use Illuminate\Http\Request;
 use DataTables;
+use Excel;
 use Carbon\Carbon;
 
 class LaporanCont extends Controller
