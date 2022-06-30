@@ -88,10 +88,10 @@
                                 $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                         ->where('jenis_id', $data_jenis->id)
                                                         ->where('kategori_id', $item->id)
-                                                        ->whereDate('created_at', $data_tahun.'-'.$bulan.'-22')
+                                                        ->whereDate('created_at', $data_tahun.'-'.$bulan.'-'.$tgl)
                                                         ->first();
                             @endphp
-                            <td>{{$val->poin->nama_poin}} {{$tanggal_awal}}</td>
+                            <td>{{$val->poin->nama_poin}} {{$tgl}}</td>
                     @endforeach
                     
                 </tr>
