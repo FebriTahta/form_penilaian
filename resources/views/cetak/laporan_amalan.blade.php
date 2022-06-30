@@ -54,7 +54,8 @@
                     @php
                         if (strlen($i+1) == 1) {
                             # code...
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.settype('0'.$i+1, "integer"); ;
+                            $tanggal_muda = '0'.$i+1;
+                            $tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer");
                         }else {
                             # code...
                             $tanggal = $data_tahun.'-'.$bulan.'-'.$i+1;
