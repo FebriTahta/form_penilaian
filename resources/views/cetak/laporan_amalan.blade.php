@@ -95,13 +95,13 @@
                         @php
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
-                                                            // ->where('jenis_id',$data_jenis->id)
-                                                            // ->where('kategori_id',$item->id)
+                                                            ->where('jenis_id',$data_jenis->id)
+                                                            ->where('kategori_id',$item->id)
                                                             ->whereDate('tanggal','=',date('Y-m-d'))
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian->id}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
