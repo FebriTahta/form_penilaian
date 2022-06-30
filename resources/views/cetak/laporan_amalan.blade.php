@@ -84,8 +84,8 @@
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
-                                                            ->where('tanggal',$tanggal)
                                                             ->where('kategori_id',$item->id)
+                                                            ->where('tanggal',$tanggal)
                                                             ->join('poins','penilaians.poin_id','poins.id')
                                                             ->select('poins.nama_poin')
                                                             ->first();
