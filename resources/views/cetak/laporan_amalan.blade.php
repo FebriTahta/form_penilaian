@@ -130,13 +130,23 @@
                     <td>{{$item->nama_kategori}}</td>
                     <td>{{$item->poin->max('besar_poin') * $jumHari}}</td>
                     <td>
-                        @php
-                            foreach ($data_karyawan->penilaian as $key => $value) {
-                                # code...
-                                $real = $value->where('jenis_id',$data_jenis->id)->where('kategori_id',$item->id)->get();
-                            }
-                        @endphp
-                        {{$real}}
+                        @foreach ($data_jenis->kategori as $item)
+                            @php
+                                $tgl = '';
+                                $full_tanggal = date('Y-m-d', strtotime($tanggal));
+                                $tgl = (string)$tanggal_awal;
+                                $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
+                                                        ->where('jenis_id', $data_jenis->id)
+                                                        ->where('kategori_id', $item->id)
+                                                        ->whereDate('created_at', date('Y-m-d', strtotime($tanggal)))
+                                                        ->first();
+                            @endphp
+                            
+                                @if ($val !== null)
+                                    {{$val->poin->nama_poin}}
+                                @endif
+                            
+                    @endforeach
                     </td>
                 </tr>
             @endforeach
