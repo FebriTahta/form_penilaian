@@ -87,8 +87,8 @@
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
                                                             ->select('id')
-                                                            ->first();
-                           
+                                                            ->get();
+                           $penilaian['id']
                         }}
                         </td>
                     @endforeach
