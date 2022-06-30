@@ -91,7 +91,7 @@
                                         // ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
                                         ->get();
                         @endphp
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->whereDate('tanggal',$full_tanggal)}}</td>
                     @endforeach
                     <?php 
                             
