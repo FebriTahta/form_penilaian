@@ -51,7 +51,7 @@ class LoginController extends Controller
         $user = User::where('id',$request->name)->first();
         $name = $user->name;
         $fieldType = filter_var($name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
-        if(auth()->attempt(array($fieldType => $input['name'], 'password' => $input['password'])))
+        if(auth()->attempt(array($name, 'password' => $input['password'])))
         {
             return redirect()->route('home');
         }else{
