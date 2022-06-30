@@ -58,7 +58,8 @@
                             $tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer");
                         }else {
                             # code...
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.$i+1;
+                            $tanggal_muda = $i+1;
+                            $tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer");
                         }
                     @endphp
                     <td>
