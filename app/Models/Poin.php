@@ -17,4 +17,9 @@ class Poin extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class);
+    }
 }
