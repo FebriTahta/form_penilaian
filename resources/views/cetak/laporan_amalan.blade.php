@@ -97,7 +97,7 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            // ->where('tanggal',$full_tanggal)
+                                                            ->whereDate('tanggal',$full_tanggal)
                                                             ->first();
                         @endphp
                         
