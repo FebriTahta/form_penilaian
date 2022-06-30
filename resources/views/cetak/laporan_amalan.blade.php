@@ -129,7 +129,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$item->nama_kategori}}</td>
                     <td>
-                        {{$item->poin->max('besar_poin')}}
+                        {{$item->poin->max('besar_poin') * $jumHari}}
                     </td>
                 </tr>
             @endforeach
