@@ -15,7 +15,7 @@
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
             <tr>
-                <th rowspan="3" colspan="10"> {{$data_jenis->nama_jenis}} <br> <p> {{$data_karyawan->nama_karyawan}} - Bulan {{$data_bulan}} Tahun {{$data_tahun}}</p></th>
+                <th rowspan="3" colspan="10"> {{$data_jenis->nama_jenis}} <br> <p> {{$data_karyawan->nama_karyawan}} - Periode {{$data_bulan}} {{$data_tahun}}</p></th>
             </tr>
         </thead>
     </table>
@@ -26,36 +26,33 @@
         </thead>
     </table>
     {{-- spasi --}}
-    {{-- <table>
+    <table>
         <thead style="font-weight: bold; border: black">
             <tr style="border: black; text-transform: uppercase">
                 <th rowspan="2">NO</th>
-                <th rowspan="2">NAMA LEMBAGA</th>
-                <th rowspan="2">KEPALA LEMBAGA</th>
-                <th rowspan="2">WA / TELP</th>
-                <th rowspan="2">JUMLAH GURU</th>
-                <th rowspan="2">JUMLAH SANTRI</th>
-                <th rowspan="2">ALAMAT</th>
-                <th rowspan="2">PENGELOLA</th>
-                <th rowspan="2">STATUS</th>
+                <th rowspan="2">Hari</th>
+                <th rowspan="2">Tanggal</th>
+                <th rowspan="2">Sholat Jamaah</th>
+                <th rowspan="2">Do'a Tolak Balak</th>
+                <th rowspan="2">Qobliyah</th>
+                <th rowspan="2">Ba'diyah</th>
+                <th rowspan="2">Lail</th>
+                <th rowspan="2">Do'a NF</th>
+                <th rowspan="2">Dhuha</th>
+                <th rowspan="2">Al Waqi'ah</th>
+                <th rowspan="2">Baca Al Qur'an</th>
+                <th rowspan="2">Sujud Syukur</th>
             </tr>
         </thead >
         <tbody>
             <tr></tr>
-            @foreach ($lembaga as $key=> $item)
+            @foreach ($karyawan->mengisi as $key=> $item)
             <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$item->name}}</td>
-                <td>{{$item->kepalalembaga}}</td>
-                <td>{{$item->telp}}</td>
-                <td>{{$item->jml_guru}}</td>
-                <td>{{$item->jml_santri}}</td>
-                <td>{{$item->alamat}}</td>
-                <td>{{$item->pengelola}}</td>
-                <td>{{$item->status}}</td>
+                
             </tr>
             @endforeach
         </tbody>
-    </table> --}}
+    </table>
 </body>
 </html>
