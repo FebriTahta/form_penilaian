@@ -88,8 +88,9 @@
                                                             ->where('tanggal',$tanggal)
                                                             ->select('id')
                                                             ->get();
-                           $penilaian['id'];
+                           
                         }}
+                        {{$penilaian['id'];}}
                         </td>
                     @endforeach
                 </tr>
