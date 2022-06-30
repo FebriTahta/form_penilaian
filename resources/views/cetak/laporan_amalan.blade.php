@@ -38,6 +38,7 @@
                 <th rowspan="2">Ba'diyah</th>
                 <th rowspan="2">Lail</th>
                 <th rowspan="2">Do'a NF</th>
+                <th rowspan="2">Dhuha</th>
                 <th rowspan="2">Al Waqi'ah</th>
                 <th rowspan="2">Baca Al Qur'an</th>
                 <th rowspan="2">Sujud Syukur</th>
@@ -107,6 +108,19 @@
                 </tr>
             @endfor
         </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Amalan</th>
+                <th rowspan="2">Target</th>
+                <th rowspan="2">Real</th>
+                <th rowspan="2">%</th>
+                <th rowspan="2">PREDIKAT</th>
+            </tr>
+        </thead>
     </table>
 </body>
 </html>
