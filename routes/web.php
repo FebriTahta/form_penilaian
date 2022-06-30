@@ -100,7 +100,7 @@ Route::get('/tes', function(){
                                      ->where('kategori_id',1)
                                      ->whereDate('tanggal','2022-06-08')
                                      ->first();
-    return $penilaian;
+    return $penilaian->nilai;
 });
 
 Auth::routes();
