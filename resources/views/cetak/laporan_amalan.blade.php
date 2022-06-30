@@ -15,7 +15,7 @@
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
             <tr>
-                <th rowspan="3" colspan="10"> {{$data_jenis->nama_jenis}} <br> <p> {{$data_karyawan->nama_karyawan}} - Periode {{$data_bulan}} {{$data_tahun}}</p></th>
+                <th rowspan="3" colspan="13"> {{$data_jenis->nama_jenis}} <br> <p> {{$data_karyawan->nama_karyawan}} - Periode {{$data_bulan}} {{$data_tahun}}</p></th>
             </tr>
         </thead>
     </table>
