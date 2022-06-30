@@ -54,10 +54,10 @@
                     @php
                         if (strlen($i+1) == 1) {
                             # code...
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.'0'.$i+1
+                            $tanggal = $data_tahun.'-'.$bulan.'-'.'0'.$i+1;
                         }else {
                             # code...
-                            $tanggal = $data_tahun.'-'.$bulan.'-'.$i+1
+                            $tanggal = $data_tahun.'-'.$bulan.'-'.$i+1;
                         }
                     @endphp
                     <td>
