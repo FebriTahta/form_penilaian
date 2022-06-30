@@ -79,16 +79,16 @@
                         {{$tanggal_awal.' '.$data_bulan}}
                     </td>
 
-                    @if (01 == 1)
-                        <td>sama</td>
-                    @endif
-                    {{-- @foreach ($data_jenis->kategori as $item)
+                    @foreach ($data_jenis->kategori as $item)
                         @php
-                            App\Http\Penilaian::where('karyawan_id',$data_karyawan->id)
-                                              ->where('jenis_id',$data_jenis->id)
-                                              ->where('kategori_id',$item->id);
-                        @endphp 
-                    @endforeach --}}
+                            $pengisian = App\Http\Penilaian::where('karyawan_id',$data_karyawan->id)
+                                                            ->where('jenis_id',$data_jenis->id)
+                                                            ->where('kategori_id',$item->id)
+                                                            ->where('tanggal',$tanggal)
+                                                            ->first();
+                        @endphp
+                        <td>{{$pengisian}}</td>
+                    @endforeach
                 </tr>
             @endfor
         </tbody>
