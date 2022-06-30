@@ -79,7 +79,7 @@
                         {{$tanggal_awal.' '.$data_bulan}}
                     </td>
 
-                    @foreach ($data_jenis->kategori as $item)
+                    @foreach ($data_jenis->kategori as $key => $item)
                         @php
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
@@ -88,9 +88,9 @@
                                                             ->where('tanggal',$tanggal)
                                                             // ->select('nilai')
                                                             ->first();
-                            
+                            $data.$key = $penilaian->nilai;
                         @endphp
-                        <td>{{$penilaian}}</td>
+                        <td>{{$data.$key}}</td>
                     @endforeach
                 </tr>
             @endfor
