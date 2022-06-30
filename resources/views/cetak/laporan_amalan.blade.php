@@ -150,9 +150,27 @@
                             $target  = $item->poin->max('besar_poin') * $jumHari;
                         @endphp
                         @if ($realnya > 0)
-                            {{round($target/$realnya)}}    
+                            {{round($target/$realnya)}} %
                         @else
                         -
+                        @endif
+                    </td>
+
+                    <td>
+                        @if ($realnya > 0)
+                            @if (round($target/$realnya) > 89 || round($target/$realnya) == 100)
+                                Istimewa
+                            @elseif(round($target/$realnya) > 79 || round($target/$realnya) < 90)
+                                Sangat Baik
+                            @elseif(round($target/$realnya) > 69 || round($target/$realnya) < 80)
+                                Baik
+                            @elseif(round($target/$realnya) > 59 || round($target/$realnya) < 70)
+                                Cukup
+                            @elseif(round($target/$realnya) > 49 || round($target/$realnya) < 60)
+                                Kurang
+                            @endif
+                        @else
+                            Kurang
                         @endif
                     </td>
                 </tr>
