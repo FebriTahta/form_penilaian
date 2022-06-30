@@ -163,7 +163,7 @@
 <div class="modal fade" id="modallaporan" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content b-0">
-            <div class="modal-header r-0 bg-danger">
+            <div class="modal-header r-0 bg-primary">
                 <h6 class="modal-title text-white" id="exampleModalLabel">CETAK LAPORAN </h6>
                 <a href="#" data-dismiss="modal" aria-label="Close"
                    class="paper-nav-toggle paper-nav-white active"><i></i></a>
@@ -177,6 +177,7 @@
                 <div class="form-group">
                     <h4 id="nama_karyawan"></h4>
                     <h5>Cetak Laporan <p id="nama_jenis"></p> </h5>
+                    <a href="" id="button_cetak_laporan"></a>
                 </div>
             </div>
         </div>
@@ -203,10 +204,15 @@
             var button  = $(event.relatedTarget)
             var nama_karyawan    = button.data('nama_karyawan')
             var nama_jenis   = button.data('nama_jenis')
-            
+            var karyawan_id = button.data('karyawan_id')
+            var jenis_id = button.data('jenis_id')
+            var bulan = button.data('bulan')
+            var tahun = button.data('tahun')
             var modal   = $(this)
             modal.find('.modal-body #nama_karyawan').html(nama_karyawan);
             modal.find('.modal-body #nama_jenis').html(nama_jenis);
+            var a = document.getElementById('button_cetak_laporan');
+            a.href = "/export-laporan-amalan/"+karyawan_id+"/"+jenis_id+"/"+bulan+"/"+tahun;
         })
     </script>
 
