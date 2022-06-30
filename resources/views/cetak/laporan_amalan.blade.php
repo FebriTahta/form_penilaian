@@ -131,12 +131,10 @@
                     <td>{{$item->poin->max('besar_poin') * $jumHari}}</td>
                     <td>
                         @php
-                            $real = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
-                                                        ->where('jenis_id', $data_jenis->id)
-                                                        ->where('kategori_id',$item->id)
-                                                        ->whereMonth('created_at',$bulan)
-                                                        ->whereYear('created_at',$data_tahun)
-                                                        ->get('created_at');
+                            foreach ($data_karyawan->penilaian as $key => $value) {
+                                # code...
+                                $real = $value->where('jenis_id',$data_jenis->id)->where('kategori_id',$item->id)->get();
+                            }
                         @endphp
                         {{$real}}
                     </td>
