@@ -88,9 +88,16 @@
                                                             ->where('tanggal',$tanggal)
                                                             ->first();
                         @endphp
-                        <td>
-                           0{{$i+1}}
-                        </td>
+                        @php
+                            if ($i+1 < 10) {
+                                # code...
+                                $x = '0'.$i+1;
+                            }else {
+                                # code...
+                                $x = $i+1;
+                            }
+                        @endphp
+                        <td>{{$x}}</td>
                     @endforeach
                 </tr>
             @endfor
