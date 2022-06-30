@@ -54,7 +54,7 @@
                     <td>
                         @if (strlen($i+1) == 1)
                             @php
-                               $tanggal_muda = '0'.$i+1; 
+                               $tanggal_muda = 0.''.$i+1; 
                             @endphp
                             {{$tanggal_muda}}
                         @else
