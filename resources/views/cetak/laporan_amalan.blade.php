@@ -45,39 +45,35 @@
             @for ($i = 0; $i < $jumHari; $i++)
                 <tr>
                     <td>
-                        @if (strlen($i+1) == 1)
-                            0{{$i+1}}    
+                        {{$i+1}}
+                    </td>
+                    <td>
+                        @php
+                            $tanggal_muda = '0'.$i+1; 
+                            $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
+                            $hari = \Carbon\Carbon::parse($tanggal)->format('l');
+                        @endphp
+
+                        @if ($hari == 'Monday')
+                            Senin
+                        @elseif($hari == 'Tuesday')
+                            Selasa
+                        @elseif($hari == 'Wednesday')
+                            Rabu
+                        @elseif($hari == 'Thursday')
+                            Kamis
+                        @elseif($hari == 'Friday')
+                            Jum'at
+                        @elseif($hari == 'Saturday')
+                            Sabtu
+                        @elseif($hari == 'Sunday')
+                            Ahad
                         @else
-                            {{$i+1}}    
+                            {{$hari}}
                         @endif
                     </td>
                     <td>
-                        @if (strlen($i+1) == 1)
-                            @php
-                               $tanggal_muda = '0'.$i+1; 
-                               $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
-                               $hari = \Carbon\Carbon::parse($tanggal)->format('l');
-                            @endphp
-                            @if ($hari == 'Monday')
-                                Senin
-                            @elseif($hari == 'Tuesday')
-                                Selasa
-                            @elseif($hari == 'Wednesday')
-                                Rabu
-                            @elseif($hari == 'Thursday')
-                                Kamis
-                            @elseif($hari == 'Friday')
-                                Jum'at
-                            @elseif($hari == 'Saturday')
-                                Sabtu
-                            @elseif($hari == 'Sunday')
-                                Minggu
-                            @else
-                                {{$hari}}
-                            @endif
-                        @else
-                            
-                        @endif
+                        {{$i+1.' '.$data_bulan}}
                     </td>
                 </tr>
             @endfor
