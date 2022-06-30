@@ -128,8 +128,17 @@
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$item->nama_kategori}}</td>
+                    <td>{{$item->poin->max('besar_poin') * $jumHari}}</td>
                     <td>
-                        {{$item->poin->max('besar_poin') * $jumHari}}
+                        @php
+                            $real = App\Models\Penilaian::where('karyawan_id',$data_karyawan_id)
+                                                        ->where('jenis_id', $data_jenis->id)
+                                                        ->where('kategori_id',$item->id)
+                                                        ->whereMonth('created_at',$bulan)
+                                                        ->whereYear('created_at',$data_tahun)
+                                                        ->sum('nilai');
+                        @endphp
+                        {{$real}}
                     </td>
                 </tr>
             @endforeach
