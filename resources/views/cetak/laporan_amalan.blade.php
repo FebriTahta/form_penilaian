@@ -82,7 +82,7 @@
                     
                     <td>
 
-                        @foreach ($adata_jenis->kategori as $item)
+                        @foreach ($data_jenis->kategori as $item)
                             @php
                                 $tgl = '';
                                 $full_tanggal = date('Y-m-d', strtotime($tanggal));
