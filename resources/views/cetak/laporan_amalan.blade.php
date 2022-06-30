@@ -56,8 +56,25 @@
                             @php
                                $tanggal_muda = '0'.$i+1; 
                                $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
+                               $hari = \Carbon\Carbon::parse($tanggal)->format('l');
                             @endphp
-                            {{\Carbon\Carbon::parse($tanggal)->format('l')}}
+                            @if ($hari == 'Monday')
+                                Senin
+                            @elseif($hari == 'Tuesday')
+                                Selasa
+                            @elseif($hari == 'Wednesday')
+                                Rabu
+                            @elseif($hari == 'Thursday')
+                                Kamis
+                            @elseif($hari == 'Friday')
+                                Jum'at
+                            @elseif($hari == 'Saturday')
+                                Sabtu
+                            @elseif($hari == 'Sunday')
+                                Minggu
+                            @else
+                                {{$hari}}
+                            @endif
                         @else
                             
                         @endif
