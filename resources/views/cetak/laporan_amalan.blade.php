@@ -83,7 +83,7 @@
                     <td>
 
                         @php
-                            $full_tanggal = date_parse_from_format('d/M/Y:H:i:s', $tanggal);
+                            $full_tanggal = date_parse_from_format('Y-m-d', $tanggal);
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->whereDate('tanggal', $full_tanggal)
