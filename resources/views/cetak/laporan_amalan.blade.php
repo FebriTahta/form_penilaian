@@ -82,16 +82,19 @@
                     
                     <td>
 
-                        @php
-                            $tgl = '';
-                            $full_tanggal = date('Y-m-d', strtotime($tanggal));
-                            $tgl = $full_tanggal;
-                            $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
-                                                    ->where('jenis_id', $data_jenis->id)
-                                                    ->whereDate('created_at', $i)
-                                                    ->first();
-                        @endphp 
-                        {{$val->id}}
+                        @foreach ($adata_jenis->kategori as $item)
+                            @php
+                                $tgl = '';
+                                $full_tanggal = date('Y-m-d', strtotime($tanggal));
+                                $tgl = $full_tanggal;
+                                $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
+                                                        ->where('jenis_id', $data_jenis->id)
+                                                        ->where('kategori_id', $item->id)
+                                                        ->whereDate('created_at', '2022-06-22')
+                                                        ->first();
+                            @endphp
+                            {{$val->id}} 
+                        @endforeach
                     </td>
                 </tr>
             @endfor
