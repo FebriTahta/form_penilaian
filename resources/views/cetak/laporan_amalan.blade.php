@@ -43,6 +43,9 @@
         <tbody>
             <tr></tr>
             @for ($i = 0; $i < $jumHari; $i++)
+                @php
+                    $tanggal = 0;
+                @endphp
                 <tr>
                     <td>
                         @if (strlen($i+1) == 1)
