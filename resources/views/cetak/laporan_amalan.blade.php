@@ -97,7 +97,7 @@
                                     $data = $item->whereDate('tanggal',$full_tanggal)->first()
                                 @endphp
 
-                                {{$data}}
+                                {{$data->nilai}}
                             @endforeach
                         </td>
                     @endforeach
