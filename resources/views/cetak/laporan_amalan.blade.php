@@ -146,7 +146,7 @@
 
                     <td>
                         @if ($item->poin->max('besar_poin') * $jumHari > 0)
-                            {{round(($item->poin->max('besar_poin') * $jumHari)/$val)}} %
+                            {{($item->poin->max('besar_poin') * $jumHari)/$val}} 
                         @else
                         -
                         @endif
