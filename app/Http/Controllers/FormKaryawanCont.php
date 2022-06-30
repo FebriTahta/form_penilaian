@@ -17,6 +17,13 @@ use Excel;
 
 class FormKaryawanCont extends Controller
 {
+    public function nama_karyawan_from_id(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
+        $data = $user->name;
+        return response()->json($data);
+    }
+
     public function index_karyawan(Request $request)
     {
         if ($request->ajax()) {

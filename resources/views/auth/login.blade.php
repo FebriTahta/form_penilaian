@@ -61,7 +61,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <input type="text" id="nama_karyawan">
+                                <input type="hidden" id="nama_karyawan" name="name" >
                                 {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -105,8 +105,18 @@
                 });
 
                 $('#user_id').on('change',function(){
-                var name = this.value;
-                $('#nama_karyawan').val(name);
-        });
+                var user_id = this.value;
+                    $.ajax
+                    ({ 
+                        url: "/nama_karyawan_from_id/"+user_id,
+                        dataType: 'json',
+                        delay: 250,
+                        success: function(data) {
+                            console.log(data);
+                            $('#nama_karyawan').value(data)
+                        },
+                        cache: true
+                    });
+                });
 </script>
 @endsection

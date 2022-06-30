@@ -111,5 +111,5 @@ Route::group(['middleware' => ['auth', 'CheckRole:pusat,cabang,lembaga,bendahara
     });
     
 });
-
+Route::get('/nama_karyawan_from_id/{user_id}',[FormKaryawanCont::class,'nama_karyawan_from_id']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
