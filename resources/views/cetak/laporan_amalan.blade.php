@@ -88,7 +88,7 @@
                                                             ->where('tanggal',$tanggal)
                                                             ->first();
                         @endphp
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->karyawan}}</td>
                     @endforeach
                 </tr>
             @endfor
