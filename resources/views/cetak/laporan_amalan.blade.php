@@ -98,7 +98,7 @@
                             //                                 ->where('kategori_id',$item->id)
                             //                                 ->whereDate('tanggal','=',$tanggal)
                             //                                 ->first();
-                            $penilaian = App\Models\Mengisi::whereDate('created_at',"=",$full_tanggal)->first();
+                            $penilaian = App\Models\Mengisi::whereDay('created_at',$x)->first();
                         @endphp
                         
                         <td>{{$penilaian->id}}</td>
