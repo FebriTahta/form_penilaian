@@ -159,7 +159,7 @@
                     <td>
                         @if ($realnya > 0)
                             @if (round($target/$realnya) > 89 || round($target/$realnya) == 100)
-                                Istimewa
+                                Istimewa {{round($target/$realnya)}}
                             @elseif(round($target/$realnya) > 79 || round($target/$realnya) < 90)
                                 Sangat Baik
                             @elseif(round($target/$realnya) > 69 || round($target/$realnya) < 80)
