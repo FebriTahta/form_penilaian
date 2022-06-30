@@ -73,7 +73,10 @@
                         @endif
                     </td>
                     <td>
-                        {{$i+1.' '.$data_bulan}}
+                        @php
+                            $tanggal_awal = $i+1;
+                        @endphp
+                        {{$tanggal_awal.' '.$data_bulan}}
                     </td>
                 </tr>
             @endfor
