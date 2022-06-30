@@ -136,8 +136,8 @@
                                 <img class="user_avatar" src="{{asset('assets/img/dummy/u2.png')}}" alt="User Image">
                             </div>
                             <div class="float-left info">
-                                <h6 class="font-weight-light mt-2 mb-1">Alexander Pierce</h6>
-                                <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                                <h6 class="font-weight-light mt-2 mb-1">{{auth()->user()->name}}</h6>
+                                <a href="#"><i class="icon-circle text-primary blink"></i> {{auth()->user()->karyawan->jabatan->nama_jabatan}}</a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
