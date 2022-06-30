@@ -89,7 +89,7 @@
                                                     ->whereDate('tanggal', '2022-06-12')
                                                     ->first();
                         @endphp 
-                        {{$val->poin->nama_poin}} {{$full_tanggal}}
+                        {{$val->tanggal}} {{$full_tanggal}}
                     </td>
                 </tr>
             @endfor
