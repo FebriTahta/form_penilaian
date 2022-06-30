@@ -83,7 +83,7 @@
                     <td>
 
                         @php
-                            $val = App\Models\Poin::where('karyawan_id', $data_karyawan->id)
+                            $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->whereDate('tanggal', $tanggal)
                                                     ->first();
