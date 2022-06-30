@@ -93,15 +93,12 @@
                                 }
                         @endphp
                         @php
-                            $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
-                                                            ->where('jenis_id',$data_jenis->id)
-                                                            ->where('kategori_id',$item->id)
-                                                            ->whereDay('created_at',$x)
-                                                            ->first();
-                           
+                            
+                            $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)->where('jenis_id',$data_jenis->id)->where('kategori_id',$item->id)->whereDate('created_at',$full_date)->first();
+
                         @endphp
                         
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->nilai}}</td>
                     @endforeach
                 </tr>
             @endfor
