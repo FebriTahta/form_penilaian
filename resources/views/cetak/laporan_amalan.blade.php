@@ -126,6 +126,7 @@
             @foreach ($data_jenis->kategori as $key=>$item)
                 <tr>
                     <td>{{$key}}</td>
+                    <td>{{$item->nama_kategori}}</td>
                 </tr>
             @endforeach
         </tbody>
