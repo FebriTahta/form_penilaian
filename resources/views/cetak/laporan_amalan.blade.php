@@ -91,7 +91,7 @@
                                     # code...
                                     $x = $i+1;
                                 }
-                                $tanggal_muda = '0'.$i+1; 
+                                $tanggal_muda = $i+1; 
                                 $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
                                 $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
                                 $penilaian = App\Models\Penilaian::where('karyawan_id',63)
