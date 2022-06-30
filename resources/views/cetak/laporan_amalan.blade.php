@@ -84,12 +84,12 @@
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
-                                                            ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
-                                                            ->get();
-                            $nilai = $penilaian;
+                                                            ->where('kategori_id',$item->id)
+                                                            ->first();
+                            
                         @endphp
-                        <td>{{$nilai}}</td>
+                        <td>{{$penilaian->poin_id}}</td>
                     @endforeach
                 </tr>
             @endfor
