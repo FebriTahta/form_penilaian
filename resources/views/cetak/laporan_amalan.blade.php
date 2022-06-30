@@ -131,7 +131,7 @@
                     <td>{{$item->poin->max('besar_poin') * $jumHari}}</td>
                     <td>
                         @php
-                            $real = App\Models\Penilaian::where('karyawan_id',$data_karyawan_id)
+                            $real = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                                                         ->where('jenis_id', $data_jenis->id)
                                                         ->where('kategori_id',$item->id)
                                                         ->whereMonth('created_at',$bulan)
