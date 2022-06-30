@@ -101,7 +101,7 @@
                             $penilaian = App\Models\Mengisi::whereDate('created_at',"=",$full_tanggal)->first();
                         @endphp
                         
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->id}}</td>
                     @endforeach
                 </tr>
             @endfor
