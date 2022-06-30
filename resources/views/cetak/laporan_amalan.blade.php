@@ -89,7 +89,7 @@
                                                             ->first();
                             
                         @endphp
-                        <td>{{$penilaian->poin_id}}</td>
+                        <td>{{$penilaian->poin['id']}}</td>
                     @endforeach
                 </tr>
             @endfor
