@@ -27,11 +27,13 @@ use App\Models\Karyawan;
 
 Route::get('/', function () {
     // return view('welcome');
-    $poin = Poin::count();
-    $kategori = Kategori::count();
-    $jenis = Jenis::count();
-    $karyawan = Karyawan::count();
-    return view('page.dashboard',compact('poin','kategori','jenis','karyawan'));
+    // $poin = Poin::count();
+    // $kategori = Kategori::count();
+    // $jenis = Jenis::count();
+    // $karyawan = Karyawan::count();
+    // return view('page.dashboard',compact('poin','kategori','jenis','karyawan'));
+
+    return redirect('/login');
 });
 
 Route::get('/find-nama-karyawan',[FormJenisCont::class,'find_nama_karyawan'])->name('find_karyawan');
@@ -104,4 +106,8 @@ Route::get('/tes', function(){
 });
 
 Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
