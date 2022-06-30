@@ -52,7 +52,7 @@
                             $tanggal_muda = '0'.$i+1; 
                             $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
                             $hari = \Carbon\Carbon::parse($tanggal)->format('l');
-                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
+                            
                         @endphp
 
                         @if ($hari == 'Monday')
@@ -91,11 +91,13 @@
                                     # code...
                                     $x = $i+1;
                                 }
-
+                                $tanggal_muda = '0'.$i+1; 
+                                $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
+                                $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
                                 $penilaian = App\Models\Penilaian::where('karyawan_id',63)
                                         ->where('jenis_id',1)
                                         ->where('kategori_id',1)
-                                        ->whereDate('tanggal','2022-06-08')
+                                        ->whereDate('tanggal',$full_tanggal)
                                         ->first();
                         @endphp
                         <td>{{$penilaian->nilai}}</td>
