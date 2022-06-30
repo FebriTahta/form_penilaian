@@ -91,7 +91,7 @@
                                         ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
                                         ->first();
                         @endphp
-                        <td>{{$tanggal_muda}}</td>
+                        <td>{{$full_tanggal}}</td>
                     @endforeach
                     <?php 
                             
