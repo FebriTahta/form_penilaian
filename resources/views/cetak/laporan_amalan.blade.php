@@ -79,34 +79,17 @@
                         @endphp
                         {{$tanggal_awal.' '.$data_bulan}}
                     </td>
-
-                    @foreach ($data_jenis->kategori as $key => $item)
-                        @php
-                                $tanggal_muda = $i+1; 
-                                $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
-                                $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
-                                $penilaian = App\Models\Penilaian::where('karyawan_id',63)
-                                        ->where('jenis_id',1)
-                                        ->where('kategori_id',1)
-                                        // ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
-                                        ->get();
-                        @endphp
-                        <td>
-                            @foreach ($penilaian as $item)
-                                @php
-                                    $data = $item->whereDate('tanggal',$full_tanggal)->first()
-                                @endphp
-
-                                {{$data->nilai}}
-                            @endforeach
-                        </td>
-                    @endforeach
-                    <?php 
-                            
-                            
-
-                    ?>
                     
+                    <td>
+
+                        @php
+                            $val = App\Models\Poin::where('karyawan_id', $data_karyawan->id)
+                                                    ->where('jenis_id', $data_jenis->id)
+                                                    ->whereDate('tanggal', $full_tanggal)
+                                                    ->first();
+                        @endphp 
+                        {{$val}}
+                    </td>
                 </tr>
             @endfor
         </tbody>
