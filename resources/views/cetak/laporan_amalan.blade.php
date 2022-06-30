@@ -89,7 +89,7 @@
                                                             ->first();
                         @endphp
                         <td>
-                            {{$tanggal}}
+                            {{$data_tahun.'-'.$data_bulan.'-'.$i+1}}
                         </td>
                     @endforeach
                 </tr>
