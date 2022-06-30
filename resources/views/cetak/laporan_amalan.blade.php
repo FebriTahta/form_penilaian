@@ -82,15 +82,6 @@
 
                     @foreach ($data_jenis->kategori as $key => $item)
                         @php
-                            $x = '0';
-                                if ($i+1 < 10) {
-                                    # code..
-                                    $y = $i+1;
-                                    $x = '0'.''.$y;
-                                }else {
-                                    # code...
-                                    $x = $i+1;
-                                }
                                 $tanggal_muda = $i+1; 
                                 $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
                                 $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
@@ -100,7 +91,7 @@
                                         ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
                                         ->first();
                         @endphp
-                        <td>{{$penilaian->nilai}}</td>
+                        <td>{{$tanggal_muda}}</td>
                     @endforeach
                     <?php 
                             
