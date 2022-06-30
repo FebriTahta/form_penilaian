@@ -88,10 +88,10 @@
                             $tgl = $full_tanggal;
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
-                                                    ->whereDate('created_at', $tgl)
+                                                    ->whereDate('created_at', $i)
                                                     ->first();
                         @endphp 
-                        {{$val}}
+                        {{$val->id}}
                     </td>
                 </tr>
             @endfor
