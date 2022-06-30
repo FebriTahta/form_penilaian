@@ -146,13 +146,13 @@
 
                     <td>
                         @php
-                            $realnya = $item->poin->max('besar_poin') * $jumHari;
-                            $target  = $val;
+                            $realnya = $val;
+                            $target  = $item->poin->max('besar_poin') * $jumHari;
                         @endphp
-                        @if ($realnya == 0)
-                        {{$realnya}}    
+                        @if ($realnya > 0)
+                            {{$target/$realnya}}    
                         @else
-                        {{$realnya}}
+                        -
                         @endif
                     </td>
                 </tr>
