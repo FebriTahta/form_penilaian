@@ -88,7 +88,7 @@
                                                             ->where('tanggal',$tanggal)
                                                             // ->select('nilai')
                                                             ->first();
-                            $data.$key = $penilaian->nilai;
+                            $data.$key = $penilaian;
                         @endphp
                         <td>{{$data.$key}}</td>
                     @endforeach
