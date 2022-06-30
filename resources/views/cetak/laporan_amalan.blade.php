@@ -87,7 +87,7 @@
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
                                                             ->select('id')
-                                                            ->get();
+                                                            ->first();
                            
                         }}
                         {{$penilaian['id'];}}
