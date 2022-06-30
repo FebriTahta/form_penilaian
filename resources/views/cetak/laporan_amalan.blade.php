@@ -98,7 +98,7 @@
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
                                                             ->whereDate('tanggal','=',$full_tanggal)
-                                                            ->first();
+                                                            ->first('nilai');
                         @endphp
                         
                         <td>{{$penilaian}}</td>
