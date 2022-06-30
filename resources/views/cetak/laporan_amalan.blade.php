@@ -101,7 +101,7 @@
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian}}</td>
+                        <td>{{$penilaian->id}}</td>
                     @endforeach
                 </tr>
             @endfor
