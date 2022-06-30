@@ -94,5 +94,14 @@ Route::get('/export-laporan-amalan/{karyawan_id}/{jenis}/{bulan}/{tahun}',[Lapor
 Route::get('/survey-lembaga',[SurveyController::class,'index_survey'])->name('fe_index_survey');
 Route::post('/form-survey',[SurveyController::class,'form_survey'])->name('form_survey');
 
+Route::get('/tes', function(){
+    $penilaian = App\Models\Penilaian::where('karyawan_id',63)
+                                     ->where('jenis_id',1)
+                                     ->where('kategori_id',1)
+                                     ->whereDate('tanggal','2022-06-08')
+                                     ->first();
+    return $penilaian;
+});
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
