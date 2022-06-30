@@ -97,11 +97,11 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            ->whereDate('tanggal',$full_tanggal)
+                                                            ->whereDate('created_at',$full_tanggal)
                                                             ->first();
                         @endphp
                         
-                        <td>{{$full_tanggal}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
