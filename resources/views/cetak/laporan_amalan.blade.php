@@ -90,7 +90,7 @@
                                                             ->first();
                            
                         }}
-                        {{$penilaian['id'];}}
+                        {{$penilaian->id}}
                         </td>
                     @endforeach
                 </tr>
