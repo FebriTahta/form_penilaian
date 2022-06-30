@@ -93,7 +93,11 @@
                         @endphp
                         <td>
                             @foreach ($penilaian as $item)
-                                {{$item->whereDate('tanggal',$full_tanggal)->first()}}
+                                @php
+                                    $data = $item->whereDate('tanggal',$full_tanggal)->first()
+                                @endphp
+
+                                {{$data}}
                             @endforeach
                         </td>
                     @endforeach
