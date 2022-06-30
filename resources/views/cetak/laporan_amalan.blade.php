@@ -32,26 +32,21 @@
                 <th rowspan="2">NO</th>
                 <th rowspan="2">Hari</th>
                 <th rowspan="2">Tanggal</th>
-                <th rowspan="2">Sholat Jamaah</th>
-                <th rowspan="2">Do'a Tolak Balak</th>
-                <th rowspan="2">Qobliyah</th>
-                <th rowspan="2">Ba'diyah</th>
-                <th rowspan="2">Lail</th>
-                <th rowspan="2">Do'a NF</th>
-                <th rowspan="2">Dhuha</th>
-                <th rowspan="2">Al Waqi'ah</th>
-                <th rowspan="2">Baca Al Qur'an</th>
-                <th rowspan="2">Sujud Syukur</th>
+                @foreach ($data_jenis->kategori as $item)
+                    <th rowspan="2">{{$item->nama_kategori}}</th>
+                @endforeach
             </tr>
         </thead >
+        @php
+            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $data_bulan, $data_tahun);
+        @endphp
         <tbody>
             <tr></tr>
-            @foreach ($data_karyawan->mengisi as $key=> $item)
-            <tr>
-                <td>{{$key+1}}</td>
-                
-            </tr>
-            @endforeach
+            @for ($i = 1; $i < $jumHari; $i++)
+                <tr>
+                    <td>{{$i}}</td>
+                </tr>
+            @endfor
         </tbody>
     </table>
 </body>
