@@ -83,13 +83,13 @@
                     <td>
 
                         @php
-                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
+                            $full_tanggal = date_parse_from_format('d/M/Y:H:i:s', $tanggal);
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->whereDate('tanggal', $full_tanggal)
                                                     ->first();
                         @endphp 
-                        {{$val->tanggal}} {{$full_tanggal}}
+                         {{$full_tanggal}}
                     </td>
                 </tr>
             @endfor
