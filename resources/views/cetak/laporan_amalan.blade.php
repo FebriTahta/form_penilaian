@@ -80,9 +80,7 @@
                         {{$tanggal_awal.' '.$data_bulan}}
                     </td>
                     
-                    <td>
-
-                        @foreach ($data_jenis->kategori as $item)
+                    @foreach ($data_jenis->kategori as $item)
                             @php
                                 $tgl = '';
                                 $full_tanggal = date('Y-m-d', strtotime($tanggal));
@@ -93,9 +91,9 @@
                                                         ->whereDate('created_at', '2022-06-22')
                                                         ->first();
                             @endphp
-                            {{$val->id}} 
-                        @endforeach
-                    </td>
+                            <td>{{$val->poin->nama_poin}}</td>
+                    @endforeach
+                    
                 </tr>
             @endfor
         </tbody>
