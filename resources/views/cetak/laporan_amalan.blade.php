@@ -150,11 +150,11 @@
                             $target  = $val;
                             $presentase = $realnya / $val;
                         @endphp
-                        @if ($realnya > 0)
+                        @if ($realnya == 0)
                            
-                            {{$presentase}}
+                            
                         @else
-                        -
+                        {{$presentase}}
                         @endif
                     </td>
                 </tr>
