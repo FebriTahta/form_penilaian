@@ -89,7 +89,7 @@
                                                             ->first();
                         @endphp
                         <td>
-                            {{$penilaian}}
+                            {{$penilaian->created_at}}
                         </td>
                     @endforeach
                 </tr>
