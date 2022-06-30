@@ -89,7 +89,18 @@
                                                             ->first();
                         @endphp
                         <td>
-                            {{$data_tahun.'-'.$data_bulan.'-'.$i+1}}
+                            @php
+                                $tgl = $i+1;
+                                $fin = 0;
+                                if (strlen($tgl) == 1) {
+                                    # code...
+                                    $fin = '0'.$tgl;
+                                }else {
+                                    # code...
+                                    $fin = $tgl;
+                                }
+                            @endphp
+                            {{$data_tahun.'-'.$data_bulan.'-'.$tgl}}
                         </td>
                     @endforeach
                 </tr>
