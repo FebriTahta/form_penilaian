@@ -113,7 +113,7 @@
                         delay: 250,
                         success: function(data) {
                             console.log(data);
-                            $('#nama_karyawan').value(data)
+                            $('#nama_karyawan').val(data)
                         },
                         cache: true
                     });
