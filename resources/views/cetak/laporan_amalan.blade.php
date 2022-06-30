@@ -134,9 +134,9 @@
                             $real = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                                                         ->where('jenis_id', $data_jenis->id)
                                                         ->where('kategori_id',$item->id)
-                                                        // ->whereMonth('created_at',$bulan)
-                                                        // ->whereYear('created_at',$data_tahun)
-                                                        ->sum('nilai');
+                                                        ->whereMonth('created_at',$bulan)
+                                                        ->whereYear('created_at',$data_tahun)
+                                                        ->get();
                         @endphp
                         {{$real}}
                     </td>
