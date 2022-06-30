@@ -127,6 +127,7 @@
                 <tr>
                     <td>{{$key}}</td>
                     <td>{{$item->nama_kategori}}</td>
+                    <td>{{max($item->poin->besar_poin)}}</td>
                 </tr>
             @endforeach
         </tbody>
