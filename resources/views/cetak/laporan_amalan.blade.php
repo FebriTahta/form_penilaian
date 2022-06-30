@@ -91,7 +91,7 @@
                                                         ->whereDate('created_at', $data_tahun.'-'.$bulan.'-22')
                                                         ->first();
                             @endphp
-                            <td>{{$val->poin->nama_poin}}</td>
+                            <td>{{$val->poin->nama_poin}} {{$tanggal_muda}}</td>
                     @endforeach
                     
                 </tr>
