@@ -81,7 +81,7 @@
 
                     @foreach ($data_jenis->kategori as $item)
                         @php
-                            $pengisian = App\Http\Penilaian::where('karyawan_id',$data_karyawan->id)
+                            $pengisian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
