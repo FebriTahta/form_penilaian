@@ -87,10 +87,10 @@
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
                                                             // ->select('nilai')
-                                                            ->get();
+                                                            ->first();
                             
                         @endphp
-                        <td>{{$penilaian[0]['nilai']}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
