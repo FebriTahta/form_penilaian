@@ -146,7 +146,12 @@
 
                     <td>
                         @if ($item->poin->max('besar_poin') * $jumHari > 0)
-                            {{$val}} 
+                            @php
+                                $realnya = $item->poin->max('besar_poin') * $jumHari;
+                                $target  = $val;
+                                $presentase = $realnya / $val;
+                            @endphp
+                            {{$presentase}}
                         @else
                         -
                         @endif
