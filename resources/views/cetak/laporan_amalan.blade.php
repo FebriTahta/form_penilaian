@@ -43,9 +43,6 @@
         <tbody>
             <tr></tr>
             @for ($i = 0; $i < $jumHari; $i++)
-                @php
-                    $tanggal = 0;
-                @endphp
                 <tr>
                     <td>
                         @if (strlen($i+1) == 1)
@@ -66,7 +63,14 @@
                         }
                     @endphp
                     <td>
-                        {{$tanggal}}
+                        @if (strlen($i+1) == 1)
+                            @php
+                               $tanggal_muda = '0'.$i+1; 
+                            @endphp
+                            {{$tanggal = $data_tahun.'-'.$bulan.'-'.settype($tanggal_muda, "integer")}}
+                        @else
+                            
+                        @endif
                     </td>
                 </tr>
             @endfor
