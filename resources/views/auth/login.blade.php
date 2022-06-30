@@ -74,7 +74,14 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('newregis/js/common_scripts.min.js') }}"></script>
+    <script src="{{ asset('newregis/js/common_functions.js') }}"></script>
+    <script src="{{ asset('newregis/assets/validate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('select2-develop/dist/js/select2.js') }}"></script>
 
+    <script src="{{ asset('newregis/js/daterangepicker_func.js') }}"></script>
+    <script src="{{ asset('date2/dist/mc-calendar.min.js') }}"></script>
 <script>
     $('#user_id').select2({
                 ajax: {

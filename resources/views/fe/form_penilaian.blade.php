@@ -441,22 +441,22 @@
 
                 $('#user_id').select2({
                 ajax: {
-                    url: "{{ route('find_karyawan') }}",
-                    dataType: 'json',
-                    delay: 250,
-                    processResults: function(data) {
-                        return {
-                            results: $.map(data, function(item) {
-                                return {
-                                    text: item.name,
-                                    id: item.id,
-                                }
-                            })
-                        };
-                    },
-                    cache: true
-                }
-            });
+                        url: "{{ route('find_karyawan') }}",
+                        dataType: 'json',
+                        delay: 250,
+                        processResults: function(data) {
+                            return {
+                                results: $.map(data, function(item) {
+                                    return {
+                                        text: item.name,
+                                        id: item.id,
+                                    }
+                                })
+                            };
+                        },
+                        cache: true
+                    }
+                });
                 
             }
         })
