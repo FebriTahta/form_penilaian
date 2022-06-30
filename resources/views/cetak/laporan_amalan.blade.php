@@ -52,7 +52,7 @@
                             $tanggal_muda = '0'.$i+1; 
                             $tanggal = $data_tahun.'-'.$bulan.'-'.$tanggal_muda;
                             $hari = \Carbon\Carbon::parse($tanggal)->format('l');
-                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('d m Y');
+                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
                         @endphp
 
                         @if ($hari == 'Monday')
@@ -97,11 +97,11 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            ->where('tanggal',$data_tahun.'-'.$bulan.'-'.$x)
+                                                            ->where('tanggal',$full_tanggal)
                                                             ->first();
                         @endphp
                         
-                        <td>{{$full_tanggal}}</td>
+                        <td>{{$penilaian->id}}</td>
                     @endforeach
                 </tr>
             @endfor
