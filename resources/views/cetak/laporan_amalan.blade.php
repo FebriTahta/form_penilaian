@@ -158,16 +158,16 @@
 
                     <td>
                         @if ($realnya > 0)
-                            @if (round($target/$realnya) > 89 || round($target/$realnya) == 100)
-                                Istimewa {{round($target/$realnya)}}
-                            @elseif(round($target/$realnya) > 79 || round($target/$realnya) < 90)
-                                Sangat Baik
-                            @elseif(round($target/$realnya) > 69 || round($target/$realnya) < 80)
-                                Baik
-                            @elseif(round($target/$realnya) > 59 || round($target/$realnya) < 70)
-                                Cukup
-                            @elseif(round($target/$realnya) > 49 || round($target/$realnya) < 60)
+                            @if (round($target/$realnya) < 59)
                                 Kurang
+                            @elseif(round($target/$realnya) > 59 && round($target/$realnya) < 70)
+                                Cukup
+                            @elseif(round($target/$realnya) > 69 && round($target/$realnya) < 80)
+                                Baik
+                            @elseif(round($target/$realnya) > 79 && round($target/$realnya) < 90)
+                                Sangat baik
+                            @elseif(round($target/$realnya) > 89 && round($target/$realnya) < = 100)
+                                Sangat baik
                             @endif
                         @else
                             Kurang
