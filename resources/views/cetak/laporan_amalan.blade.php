@@ -85,7 +85,7 @@
                         @php
                             $val = App\Models\Poin::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
-                                                    ->whereDate('tanggal', $full_tanggal)
+                                                    ->whereDate('tanggal', $tanggal)
                                                     ->first();
                         @endphp 
                         {{$val}}
