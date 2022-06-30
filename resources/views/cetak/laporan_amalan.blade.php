@@ -93,7 +93,7 @@
                             @endphp
                             <td>
                                 @if ($val !== null)
-                                {{$val->poin}}
+                                    {{$val->poin->nama_poin}}
                                 @endif
                             </td>
                     @endforeach
