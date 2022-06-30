@@ -97,7 +97,7 @@
                                 $penilaian = App\Models\Penilaian::where('karyawan_id',63)
                                         ->where('jenis_id',1)
                                         ->where('kategori_id',1)
-                                        ->whereDate('tanggal',$full_tanggal)
+                                        ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
                                         ->first();
                         @endphp
                         <td>{{$penilaian->nilai}}</td>
