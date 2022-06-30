@@ -130,7 +130,7 @@
                     <td>{{$item->nama_kategori}}</td>
                     <td>
                         @foreach ($item->poin as $item_poin)
-                            {{$item_poin->besar_poin}}
+                            {{max($item_poin->besar_poin)}}
                         @endforeach
                     </td>
                 </tr>
