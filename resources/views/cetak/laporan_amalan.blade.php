@@ -87,7 +87,7 @@
                                                             ->where('tanggal',$tanggal)
                                                             ->first();
                         @endphp
-                        <td>{{$pengisian->poin->nama_poin}}</td>
+                        <td>{{$pengisian->poin_id}}</td>
                     @endforeach
                 </tr>
             @endfor
