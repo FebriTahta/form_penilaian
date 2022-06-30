@@ -42,9 +42,9 @@
         @endphp
         <tbody>
             <tr></tr>
-            @for ($i = 1; $i < $jumHari; $i++)
+            @for ($i = 0; $i < $jumHari; $i++)
                 <tr>
-                    <td>{{$i}}</td>
+                    <td>{{$i+1}}</td>
                 </tr>
             @endfor
         </tbody>
