@@ -100,7 +100,7 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',1)
                                                             ->where('kategori_id',1)
-                                                            ->whereDate('created_at','=',$full_tanggal)
+                                                            ->whereDate('created_at','=','2022-06-22')
                                                             ->first();
                         @endphp
                         <td>{{$penilaian->nilai}}</td>
