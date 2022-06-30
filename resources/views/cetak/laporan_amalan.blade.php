@@ -88,10 +88,10 @@
                                 $penilaian = App\Models\Penilaian::where('karyawan_id',63)
                                         ->where('jenis_id',1)
                                         ->where('kategori_id',1)
-                                        ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
-                                        ->first();
+                                        // ->whereDate('tanggal',$data_tahun.'-'.$bulan.'-'.$tanggal_muda)
+                                        ->get();
                         @endphp
-                        <td>{{$full_tanggal}}</td>
+                        <td>{{$penilaian}}</td>
                     @endforeach
                     <?php 
                             
