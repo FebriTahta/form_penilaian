@@ -110,7 +110,7 @@
         </tbody>
     </table>
 
-    <table>
+    <table style="border: solid">
         <thead>
             <tr>
                 <th rowspan="2">No</th>
@@ -121,6 +121,14 @@
                 <th rowspan="2">PREDIKAT</th>
             </tr>
         </thead>
+
+        <tbody>
+            @foreach ($data_jenis as $key=>$item)
+                <tr>
+                    <td>{{$key}}</td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
 </body>
 </html>
