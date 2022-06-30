@@ -129,12 +129,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$item->nama_kategori}}</td>
                     <td>
-                        @foreach ($item->poin as $item_poin)
-                            @php
-                                $nilai[] = $item_poin->besar_poin;
-                            @endphp
-                        @endforeach
-                        {{max($nilai)}}
+                        {{$item->poin->max('besar_poin')}}
                     </td>
                 </tr>
             @endforeach
