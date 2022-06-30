@@ -95,9 +95,9 @@
                         @php
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
-                                                            // ->where('jenis_id',$data_jenis->id)
-                                                            // ->where('kategori_id',$item->id)
-                                                            ->where('tanggal',$full_tanggal)
+                                                            ->where('jenis_id',$data_jenis->id)
+                                                            ->where('kategori_id',$item->id)
+                                                            // ->where('tanggal',$full_tanggal)
                                                             ->first();
                         @endphp
                         
