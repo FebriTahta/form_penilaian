@@ -343,8 +343,12 @@ class LaporanCont extends Controller
                                                         ->where('karyawan_id', $kar->id)
                                                         ->sum('total');
                                 $total                  = array_sum($score);
-                                $anggota[]              = '<a href="/export-laporan-amalan/'.$kar->id.'/'.$jenis->id.'/'.$bln.'/'.$thn.'">'.$kar->nama_karyawan.'</a>';
+                                $anggota[]              = '<a data-toggle="modal" data-target="#modallaporan" 
+                                data-karyawan_id="'.$kar->id.'" data-jenis_id="'.$jenis_id.'" data-nama_jenis="'.$jenis->nama_jenis.'" data-bulan="'.$bln.'" data-tahun ="'.$thn.'"
+                                data-nama_karyawan="'.$kar->nama_karyawan.'" 
+                                href="#"</a>'; 
                             }
+                            // href="/export-laporan-amalan/'.$kar->id.'/'.$jenis->id.'/'.$bln.'/'.$thn.'">'.$kar->nama_karyawan.'</a>';
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
                             return implode('<br>',$anggota);

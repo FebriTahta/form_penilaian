@@ -160,6 +160,30 @@
 </div>
 
 
+<div class="modal fade" id="modallaporan" tabindex="-1" role="dialog" aria-labelledby="modalCreateMessage">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content b-0">
+            <div class="modal-header r-0 bg-danger">
+                <h6 class="modal-title text-white" id="exampleModalLabel">CETAK LAPORAN </h6>
+                <a href="#" data-dismiss="modal" aria-label="Close"
+                   class="paper-nav-toggle paper-nav-white active"><i></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div id="errList" class="text-uppercase">
+                        {{-- ERROR MESSAGE VALIDATION --}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h4 id="nama_karyawan"></h4>
+                    <h5>Cetak Laporan <p id="nama_jenis"></p> </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @endsection
 
 @section('script')
@@ -173,6 +197,16 @@
             var modal   = $(this)
             modal.find('.modal-body #nama').html(nama);
             modal.find('.modal-body #tanggal_kosong').html(tanggal);
+        })
+
+        $('#modallaporan').on('show.bs.modal', function(event) {
+            var button  = $(event.relatedTarget)
+            var nama_karyawan    = button.data('nama_karyawan')
+            var nama_jenis   = button.data('nama_jenis')
+            
+            var modal   = $(this)
+            modal.find('.modal-body #nama_karyawan').html(nama_karyawan);
+            modal.find('.modal-body #nama_jenis').html(nama_jenis);
         })
     </script>
 
