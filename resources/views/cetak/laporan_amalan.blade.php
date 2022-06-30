@@ -32,9 +32,15 @@
                 <th rowspan="2">NO</th>
                 <th rowspan="2">Hari</th>
                 <th rowspan="2">Tanggal</th>
-                @foreach ($data_jenis->kategori as $item)
-                    <th rowspan="2">{{$item->nama_kategori}}</th>
-                @endforeach
+                <th rowspan="2">Sholat Jama'ah</th>
+                <th rowspan="2">Do'a Tolak Balak</th>
+                <th rowspan="2">Qobliyah</th>
+                <th rowspan="2">Ba'diyah</th>
+                <th rowspan="2">Lail</th>
+                <th rowspan="2">Do'a NF</th>
+                <th rowspan="2">Al Waqi'ah</th>
+                <th rowspan="2">Baca Al Qur'an</th>
+                <th rowspan="2">Sujud Syukur</th>
             </tr>
         </thead >
         @php
