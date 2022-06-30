@@ -86,7 +86,7 @@
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
-                                                            // ->select('nilai')
+                                                            ->select('poin.id')
                                                             ->first();
                            
                         }}
