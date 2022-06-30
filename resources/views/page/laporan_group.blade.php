@@ -177,7 +177,7 @@
                 <div class="form-group">
                     <h4 id="nama_karyawan"></h4>
                     <h5>Cetak Laporan <p id="nama_jenis"></p> </h5>
-                    <a href="" id="button_cetak_laporan"></a>
+                    <a href="#" class="btn btn-primary" id="button_cetak_laporan">Cetak Laporan</a>
                 </div>
             </div>
         </div>
