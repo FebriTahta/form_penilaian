@@ -130,7 +130,10 @@
                     <td>{{$item->nama_kategori}}</td>
                     <td>
                         @foreach ($item->poin as $item_poin)
-                            {{max($item_poin->besar_poin)}}
+                            @php
+                                $nilai[] = $item_poin->besar_poin;
+                            @endphp
+                            {{max($nilai)}}
                         @endforeach
                     </td>
                 </tr>
