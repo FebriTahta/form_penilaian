@@ -88,7 +88,7 @@
                                 $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                         ->where('jenis_id', $data_jenis->id)
                                                         ->where('kategori_id', $item->id)
-                                                        ->whereDate('created_at', '2022-06-9')
+                                                        ->whereDate('created_at', $data_tahun.'-'.$bulan.'-9')
                                                         ->first();
                             @endphp
                             <td>{{$val->poin->nama_poin}}</td>
