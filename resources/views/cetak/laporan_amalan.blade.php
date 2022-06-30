@@ -97,7 +97,7 @@
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            ->whereDate('tanggal','=','2022-06-'.$key)
+                                                            ->whereDate('tanggal','=',$tanggal)
                                                             ->first();
                         @endphp
                         
