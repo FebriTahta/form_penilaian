@@ -140,7 +140,7 @@
                                                     // ->whereDate('created_at', date('Y-m-d', strtotime($tanggal)))
                                                     ->sum('nilai');
                         @endphp
-                        {{$val}}
+                        {{$val}} {{$data_karyawan->mengisi->count()}}
                     </td>
                 </tr>
             @endforeach
