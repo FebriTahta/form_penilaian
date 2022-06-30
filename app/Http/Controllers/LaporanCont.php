@@ -346,7 +346,7 @@ class LaporanCont extends Controller
                                 $anggota[]              = '<a data-toggle="modal" data-target="#modallaporan" 
                                 data-karyawan_id="'.$kar->id.'" data-jenis_id="'.$jenis->id.'" data-nama_jenis="'.$jenis->nama_jenis.'" data-bulan="'.$bln.'" data-tahun ="'.$thn.'"
                                 data-nama_karyawan="'.$kar->nama_karyawan.'" 
-                                >'.$kar->nama_karyawan.'</a>';
+                                href="#">'.$kar->nama_karyawan.'</a>';
                             }
                             // href="/export-laporan-amalan/'.$kar->id.'/'.$jenis->id.'/'.$bln.'/'.$thn.'">'.$kar->nama_karyawan.'</a>';
                             $total_karyawan = $data->karyawan->count();
