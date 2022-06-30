@@ -83,12 +83,13 @@
                     <td>
 
                         @php
+                            $full_tanggal = \Carbon\Carbon::parse($tanggal)->format('Y-m-d');
                             $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->whereDate('tanggal', '2022-06-12')
                                                     ->first();
                         @endphp 
-                        {{$val->poin->nama_poin}}
+                        {{$val->poin->nama_poin}} {{$full_tanggal}}
                     </td>
                 </tr>
             @endfor
