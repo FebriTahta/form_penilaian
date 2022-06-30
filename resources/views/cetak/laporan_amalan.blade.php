@@ -149,7 +149,7 @@
                             @php
                                 $realnya = $item->poin->max('besar_poin') * $jumHari;
                                 $target  = $val;
-                                $presentase = $realnya;
+                                $presentase = $realnya + $val;
                             @endphp
                             {{$presentase}}
                         @else
