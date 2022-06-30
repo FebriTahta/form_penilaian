@@ -101,7 +101,7 @@
                                                             ->first();
                         @endphp
                         
-                        <td>{{$penilaian->id}}</td>
+                        <td>{{$full_tanggal}}</td>
                     @endforeach
                 </tr>
             @endfor
