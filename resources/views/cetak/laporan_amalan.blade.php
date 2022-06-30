@@ -87,8 +87,9 @@
                                                             ->where('kategori_id',$item->id)
                                                             ->where('tanggal',$tanggal)
                                                             ->first();
+                            $nilai = $penilaian->nilai;
                         @endphp
-                        <td>{{$penilaian->karyawan}}</td>
+                        <td>{{$nilai}}</td>
                     @endforeach
                 </tr>
             @endfor
