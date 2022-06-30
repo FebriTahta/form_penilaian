@@ -134,7 +134,7 @@
                                 $nilai[] = $item_poin->besar_poin;
                             @endphp
                         @endforeach
-                        {{implode('',$nilai)}}
+                        {{max($nilai)}}
                     </td>
                 </tr>
             @endforeach
