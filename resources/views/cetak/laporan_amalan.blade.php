@@ -92,18 +92,16 @@
                                     $x = $i+1;
                                 }
                         @endphp
-                        <?php 
+                    @endforeach
+                    <?php 
                             
-                            $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
-                                        ->where('jenis_id',$data_jenis->id)
-                                        ->where('kategori_id',$item->id)
+                            $penilaian = App\Models\Penilaian::where('karyawan_id',63)
+                                        ->where('jenis_id',1)
+                                        ->where('kategori_id',1)
                                         ->whereDate('created_at',$full_tanggal)
                                         ->first();
 
-                        ?>
-                        
-                        
-                    @endforeach
+                    ?>
                     <td>{{$penilaian->nilai}}</td>
                 </tr>
             @endfor
