@@ -80,7 +80,7 @@
                     </td>
 
                     @foreach ($data_jenis->kategori as $key => $item)
-                        {{
+                        <td>{{
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
@@ -88,9 +88,9 @@
                                                             ->where('tanggal',$tanggal)
                                                             // ->select('nilai')
                                                             ->first();
-                            $data.$key = $penilaian;
+                           
                         }}
-                        <td>{{$data.$key}}</td>
+                        </td>
                     @endforeach
                 </tr>
             @endfor
