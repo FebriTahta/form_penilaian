@@ -89,7 +89,7 @@
                                                     ->whereDate('tanggal', $full_tanggal)
                                                     ->first();
                         @endphp 
-                        {{$full_tanggal}}
+                        {{$val->id}}
                     </td>
                 </tr>
             @endfor
