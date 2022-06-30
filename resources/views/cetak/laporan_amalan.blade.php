@@ -46,7 +46,7 @@
         </thead >
         <tbody>
             <tr></tr>
-            @foreach ($karyawan->mengisi as $key=> $item)
+            @foreach ($data_karyawan->mengisi as $key=> $item)
             <tr>
                 <td>{{$key+1}}</td>
                 
