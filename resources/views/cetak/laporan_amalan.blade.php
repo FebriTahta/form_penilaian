@@ -90,7 +90,7 @@
                                                             ->get();
                             
                         @endphp
-                        <td>{{$penilaian['nilai']}}</td>
+                        <td>{{$penilaian[0]['nilai']}}</td>
                     @endforeach
                 </tr>
             @endfor
