@@ -5,6 +5,7 @@ use App\Models\Jenis;
 use App\Models\Group;
 use App\Models\Mengisi;
 use App\Models\Poin;
+use App\Models\Karyawan;
 use App\Models\Kategori;
 use App\Models\Penilaian;
 use App\Exports\LaporanAmalanExport;
