@@ -80,7 +80,7 @@
                     </td>
 
                     @foreach ($data_jenis->kategori as $item)
-                        <th rowspan="2">{{$item->nama_kategori}}</th>
+                        <th>{{$item->nama_kategori}}</th>
                     @endforeach
                 </tr>
             @endfor
