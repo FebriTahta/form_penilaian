@@ -123,7 +123,7 @@
         </thead>
 
         <tbody>
-            @foreach ($data_jenis as $key=>$item)
+            @foreach ($data_jenis->kategori as $key=>$item)
                 <tr>
                     <td>{{$key}}</td>
                 </tr>
