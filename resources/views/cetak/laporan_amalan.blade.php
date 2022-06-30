@@ -113,19 +113,20 @@
     <table style="border: solid">
         <thead>
             <tr>
-                <th >No</th>
-                <th >Amalan</th>
-                <th >Target</th>
-                <th >Real</th>
-                <th >%</th>
-                <th >PREDIKAT</th>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Amalan</th>
+                <th rowspan="2">Target</th>
+                <th rowspan="2">Real</th>
+                <th rowspan="2">%</th>
+                <th rowspan="2">PREDIKAT</th>
             </tr>
         </thead>
 
         <tbody>
+            <tr></tr>
             @foreach ($data_jenis->kategori as $key=>$item)
                 <tr>
-                    <td>{{$key}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$item->nama_kategori}}</td>
                     <td>
                         @foreach ($item->poin as $item_poin)
