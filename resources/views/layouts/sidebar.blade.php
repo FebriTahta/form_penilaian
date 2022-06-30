@@ -137,7 +137,7 @@
                             </div>
                             <div class="float-left info">
                                 <h6 class="font-weight-light mt-2 mb-1">{{auth()->user()->name}}</h6>
-                                <a href="#"><i class="icon-circle text-primary blink"></i> {{auth()->user()->karyawan}}</a>
+                                <a href="#"><i class="icon-circle text-primary blink"></i> {{auth()->user()->role}}</a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
