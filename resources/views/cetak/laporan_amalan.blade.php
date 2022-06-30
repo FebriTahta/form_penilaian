@@ -81,25 +81,26 @@
 
                     @foreach ($data_jenis->kategori as $key => $item)
                         @php
+                            $x = '0';
+                                if ($i+1 < 10) {
+                                    # code..
+                                    $y = $i+1;
+                                    $x = '0'.''.$y;
+                                }else {
+                                    # code...
+                                    $x = $i+1;
+                                }
+                        @endphp
+                        @php
                             $penilaian = App\Models\Penilaian::where('karyawan_id',$data_karyawan->id)
                             // ->with('karyawan','jenis','kategori','poin')
                                                             ->where('jenis_id',$data_jenis->id)
                                                             ->where('kategori_id',$item->id)
-                                                            ->where('tanggal',$tanggal)
+                                                            ->where('tanggal',$data_tahun.'-'.$bulan.'-'.$x)
                                                             ->first();
                         @endphp
-                        @php
-                        $x = '0';
-                            if ($i+1 < 10) {
-                                # code..
-                                $y = $i+1;
-                                $x = '0'.''.$y;
-                            }else {
-                                # code...
-                                $x = $i+1;
-                            }
-                        @endphp
-                        <td>{{$x}}</td>
+                        
+                        <td>{{$penilaian}}</td>
                     @endforeach
                 </tr>
             @endfor
