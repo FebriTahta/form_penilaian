@@ -68,7 +68,7 @@
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $ya =  $real + $val;
+                            $ya =  round($real + $val);
                             @endphp
                             {{array_sum($ya)}}
                         @endforeach
