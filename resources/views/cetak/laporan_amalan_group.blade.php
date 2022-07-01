@@ -63,24 +63,17 @@
                         $real    = 0 ;
                         foreach ($item->karyawan as $key => $data_karyawan) {
                             # code...
-                            // $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
-                            //                         ->where('jenis_id', $data_jenis->id)
-                            //                         ->where('kategori_id', $kategori->id)
-                            //                         ->whereMonth('tanggal', $bulan)
-                            //                         ->whereYear('tanggal', $data_tahun)
-                            //                         ->sum('nilai');
-
-                            foreach ($data_karyawan->penilaian as $key => $value) {
-                                # code...
-                                $val = $value->sum('nilai');
-                                $nilai[] = $val;
-                            }
-                            
-                            // $real = array_sum($nilai);
+                            $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
+                                                    ->where('jenis_id', $data_jenis->id)
+                                                    ->where('kategori_id', $kategori->id)
+                                                    ->whereMonth('tanggal', $bulan)
+                                                    ->whereYear('tanggal', $data_tahun)
+                                                    ->sum('nilai');
+                            $nilai[] = $val;
+                            $real = array_sum($nilai);
                         }
-                        
                     @endphp
-                    <td>{{implode('',$nilai)}}</td>
+                    <td>{{$real}}</td>
                 </tr>
             @endforeach
         </tbody>
