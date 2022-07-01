@@ -9,7 +9,7 @@ use App\Models\Karyawan;
 use App\Models\Kategori;
 use App\Models\Penilaian;
 use App\Exports\LaporanAmalanExport;
-use App\Exports\LaporanGroup;
+use App\Exports\LaporanGroupExport;
 use Illuminate\Http\Request;
 use DataTables;
 use Excel;
@@ -435,6 +435,6 @@ class LaporanCont extends Controller
         $tahun = substr($month,0,4);
         $bulan = substr($month,5,2);
         // return $jenis->nama_jenis.' - Periode - '.$month;
-        return Excel::download(new LaporanGroup($jenis,$bulan,$tahun,$month), $jenis->nama_jenis.' - Periode - '.$month);
+        return Excel::download(new LaporanGroupExport($jenis,$bulan,$tahun,$month), $jenis->nama_jenis.' - Periode - '.$month);
     }
 }
