@@ -65,7 +65,15 @@
                     @endphp
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
-                            {{$value->nama_karyawan}}
+                            @php
+                            $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                                                    ->where('jenis_id', $data_jenis->id)
+                                                    ->where('kategori_id', $kategori->id)
+                                                    ->whereMonth('tanggal', $bulan)
+                                                    ->whereYear('tanggal', $data_tahun)
+                                                    ->sum('nilai');    
+                            @endphp
+                            {{$val}}
                         @endforeach
                     </td>
                 </tr>
