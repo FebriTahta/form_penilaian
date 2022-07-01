@@ -330,7 +330,7 @@ class LaporanCont extends Controller
 
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            
+
                             $kategori = Kategori::where('jenis_id',$jenis->id)->get();
                             foreach ($kategori as $key => $value) {
                                 # code...
@@ -342,7 +342,7 @@ class LaporanCont extends Controller
 
                             if ($hasil > 0) {
                                 # code...
-                                $end = $maxscore / $hasil * 100;
+                                $end = round($maxscore / $hasil);
                             }else {
                                 # code...
                                 $end = 0;
