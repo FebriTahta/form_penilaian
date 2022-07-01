@@ -63,6 +63,8 @@
                                 <div class="card-body">
                                     <div class="table table-responsive">
                                     <div class="card-title" style="margin-left: 15px">Tabel Laporan {{$jenis->nama_jenis}}</div>
+                                    <input type="text" id="jenis_id" value="{{$jenis_id}}">
+                                    <a href="/export-laporan-amalan-group/{{$jenis->id}}" class="btn btn-primary" id="export_laporan_group"> DOWNLOAD LAPORAN GROUP</a>
                                     <div class="card-title" style="margin-left: 15px; margin-right: 15px;"><input type="month" id="bulan" value="{{date('Y-m')}}" class="form-control"></div>
                                     <table id="table-data" class="table table-bordered table-hover data-tables">
                                         <thead>
@@ -222,6 +224,12 @@
       $(document).ready(function() {
             var slug = $('#slug_jenis').val();
             var bulan= $('#bulan').val();
+
+            var jenis_id = $('#jenis_id').val();
+            console.log(jenis_id);
+            // var a = document.getElementById('button_cetak_laporan');
+            // a.href = "/export-laporan-amalan/"+karyawan_id+"/"+jenis_id+"/"+bulan+"/"+tahun;
+
             console.log(bulan);
             $('#table-data').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization

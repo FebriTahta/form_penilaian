@@ -9,6 +9,7 @@ use App\Models\Karyawan;
 use App\Models\Kategori;
 use App\Models\Penilaian;
 use App\Exports\LaporanAmalanExport;
+use App\Exports\LaporanGroup;
 use Illuminate\Http\Request;
 use DataTables;
 use Excel;
@@ -426,5 +427,11 @@ class LaporanCont extends Controller
         $karyawan   = Karyawan::where('id',$karyawan_id)->first();
         $jenis      = Jenis::where('id', $jenis_id)->first();
         return Excel::download(new LaporanAmalanExport($karyawan,$jenis,$bulan,$tahun), $jenis->nama_jenis.' - '.$karyawan->nama_karyawan.' - bulan '.$bulan.'.xlsx');
+    }
+
+    public function export_laporan_amalan_group(Request $request, $jenis_id)
+    {
+        $jenis = Jenis::find($jenis_id);
+        return Excel::download(new LaporanGroup($jenis), $jenis->nama_jenis.' - ');
     }
 }
