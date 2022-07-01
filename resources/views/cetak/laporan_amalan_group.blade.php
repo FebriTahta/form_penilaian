@@ -73,7 +73,7 @@
                             $real = array_sum($nilai);
                         }
                     @endphp
-                    <td>{{$real}}</td>
+                    <td>{{implode(',',$nilai)}}</td>
                 </tr>
             @endforeach
         </tbody>
