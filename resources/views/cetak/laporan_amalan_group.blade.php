@@ -50,7 +50,12 @@
 
         <tbody>
             <tr></tr>
-            
+            @foreach ($data_jenis->kategori as $key => $kategori)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{$kategori->nama_kategori}}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     @endforeach
