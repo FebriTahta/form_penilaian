@@ -57,15 +57,10 @@
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
                     <td>{{$kategori->poin->max('besar_poin') * $jumlah_hari}}</td>
-
-                    @php
-                        $nilai[] = '';
-                        // $real    = 0 ;
-                        
-                    @endphp
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
                             @php
+                            $real = '';
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
