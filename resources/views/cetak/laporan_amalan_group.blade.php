@@ -61,6 +61,7 @@
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
+                            $ya[] =[];
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
@@ -69,7 +70,7 @@
                                                     ->sum('nilai');    
                             $ya =  $real + $val;
                             @endphp
-                            {{$ya}}
+                            {{array_sum($ya)}}
                         @endforeach
                     </td>
                 </tr>
