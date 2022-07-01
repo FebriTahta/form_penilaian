@@ -72,9 +72,8 @@
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                                                    $nilai[]=$val;
                             @endphp
-                            {{array_sum($nilai)}}
+                            {{$val}}
                         @endforeach
                     </td>
                 </tr>
