@@ -34,7 +34,7 @@ class LaporanAmalanExport implements ShouldAutoSize,FromView
         $bulan         = $this->bulan;
         $data_tahun    = $this->tahun;
         $data_bulan    = 0;
-        $jumHari       = cal_days_in_month(CAL_GREGORIAN, $bulan, $data_tahun);
+        $jumlah_hari       = cal_days_in_month(CAL_GREGORIAN, $bulan, $data_tahun);
         if ($bulan == '01') {
             # code...
             $data_bulan = 'Januari';
@@ -73,6 +73,6 @@ class LaporanAmalanExport implements ShouldAutoSize,FromView
             $data_bulan = 'Desember';
         }
 
-        return view('cetak.laporan_amalan',compact('data_karyawan','data_jenis','data_bulan','data_tahun','bulan','jumHari'));
+        return view('cetak.laporan_amalan',compact('data_karyawan','data_jenis','data_bulan','data_tahun','bulan','jumlah_hari'));
     }
 }
