@@ -73,7 +73,21 @@
                             $real = array_sum($nilai);
                         }
                     @endphp
-                    <td>{{$real}}</td>
+                    <td>
+                        @foreach ($item->karyawan as $key => $data_karyawan)
+                            @php
+                                 $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
+                                                    ->where('jenis_id', $data_jenis->id)
+                                                    ->where('kategori_id', $kategori->id)
+                                                    ->whereMonth('tanggal', $bulan)
+                                                    ->whereYear('tanggal', $data_tahun)
+                                                    ->sum('nilai');
+                                $nilai[] = $val;
+                                $real = array_sum($nilai);
+                            @endphp
+                           {{$real}}
+                        @endforeach
+                    </td>
                 </tr>
             @endforeach
         </tbody>
