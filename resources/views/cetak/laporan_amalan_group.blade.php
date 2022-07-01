@@ -72,8 +72,9 @@
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
+                            $real += $val;
                             @endphp
-                            {{sum($val)}}
+                            {{$real}}
                         @endforeach
                     </td>
                 </tr>
