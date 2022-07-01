@@ -345,7 +345,7 @@ class LaporanCont extends Controller
                                 $end = $hasil / $maxscore;
                             }else {
                                 # code...
-                                $end = 0;
+                                $end = '-';
                             }
                             return round($end);
                         })
