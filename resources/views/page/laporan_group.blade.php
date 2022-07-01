@@ -64,7 +64,7 @@
                                     <div class="table table-responsive">
                                     <div class="card-title" style="margin-left: 15px">Tabel Laporan {{$jenis->nama_jenis}}</div>
                                     <input type="hidden" id="jenis_id" value="{{$jenis->id}}">
-                                    <a href="/export-laporan-amalan-group/{{$jenis->id}}" class="btn btn-sm btn-primary" style="margin-left: 15px; margin-right: 15px;" id="export_laporan_group"> DOWNLOAD LAPORAN GROUP</a>
+                                    <a href="/export-laporan-amalan-group/{{$jenis->id}}" class="btn btn-sm btn-primary" style="margin-left: 15px; margin-right: 15px; margin-bottom:15px" id="export_laporan_group"> DOWNLOAD LAPORAN GROUP</a>
                                     <div class="card-title" style="margin-left: 15px; margin-right: 15px;"><input type="month" id="bulan" value="{{date('Y-m')}}" class="form-control"></div>
                                     <table id="table-data" class="table table-bordered table-hover data-tables">
                                         <thead>
