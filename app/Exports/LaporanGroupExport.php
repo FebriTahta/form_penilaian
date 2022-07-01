@@ -8,13 +8,13 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class LaporanGroupExport implements ShouldAutoSize,FromView
 {
-    public function __construct($month,$jenis,$bulan,$tahun)
-    {
-        $this->month=$month;
-        $this->jenis=$jenis;
-        $this->bulan=$bulan;
-        $this->tahun=$tahun;
-    }
+    // public function __construct($month,$jenis,$bulan,$tahun)
+    // {
+    //     $this->month=$month;
+    //     $this->jenis=$jenis;
+    //     $this->bulan=$bulan;
+    //     $this->tahun=$tahun;
+    // }
 
     public function view(): View
     {
