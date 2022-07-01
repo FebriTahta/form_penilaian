@@ -70,8 +70,8 @@
                                                     ->sum('nilai');    
                             $nilai[] = $val;
                             @endphp
-                            {{implode(',',$nilai)}}
                         @endforeach
+                        {{implode(',',$nilai)}}
                     </td>
                 </tr>
             @endforeach
