@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Exports;
-use App\Models\Jenis;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -15,14 +14,6 @@ class LaporanGroup implements  ShouldAutoSize,FromView
     //     $this->bulan=$bulan;
     //     $this->tahun=$tahun;
     //     $this->month=$month;
-    // }
-
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    // public function collection()
-    // {
-    //     //
     // }
 
     public function view(): View
