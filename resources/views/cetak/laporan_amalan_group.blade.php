@@ -64,7 +64,7 @@
                         foreach ($item->karyawan as $key => $data_karyawan) {
                             # code...
                             $val = App\Models\Penilaian::where('jenis_id', $data_jenis->id)
-                                                    // ->where('kategori_id', $kategori->id)
+                                                    ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');
