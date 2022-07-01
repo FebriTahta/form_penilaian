@@ -288,9 +288,11 @@
 
         $('#bulan').on('change', function() {
             var bulan = this.value;
+            var jenis_id = $('#jenis_id').val();
+            console.log(jenis_id);
             var laporan_group = document.getElementById('export_laporan_group');
                 laporan_group.href = "/export-laporan-amalan-group/"+jenis_id+"/"+bulan;
-                
+
             if (bulan == '') {
                 var slug = $('#slug_jenis').val();
                 var bulan= $('#bulan').val();
