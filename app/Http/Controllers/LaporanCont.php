@@ -340,6 +340,7 @@ class LaporanCont extends Controller
                             settype($max, "integer"); 
                             $maxscore = $max * $jumHari;
 
+                            $predikat = '';
                             if ($hasil > 0) {
                                 # code...
                                 $end = ($hasil*100) / $maxscore;
@@ -363,7 +364,7 @@ class LaporanCont extends Controller
                                 # code...
                                 $predikat = '- KURANG';
                             }
-                            return round($predikat);
+                            return $predikat;
                         })
 
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
