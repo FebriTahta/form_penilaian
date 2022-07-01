@@ -72,7 +72,7 @@
 
                             foreach ($data_karyawan->penilaian as $key => $value) {
                                 # code...
-                                $val = $value;
+                                $val = $value->sum('nilai');
                                 $nilai[] = $val;
                             }
                             
