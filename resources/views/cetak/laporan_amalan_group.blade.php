@@ -15,7 +15,7 @@
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
             <tr>
-                <th rowspan="3" colspan="13"> {{$data_jenis->nama_jenis}} <br> <p> GROUP - Periode {{$month}}</p></th>
+                <th rowspan="3" colspan="13"> {{$data_jenis->nama_jenis}} <br> <p> GROUP - Periode {{$data_bulan}} {{$data_tahun}}</p></th>
             </tr>
         </thead>
     </table>
@@ -27,5 +27,23 @@
     </table>
     {{-- spasi --}}
     
+
+    <table style="border: solid">
+        <thead>
+            <tr>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Amalan</th>
+                <th rowspan="2">Target</th>
+                <th rowspan="2">Real</th>
+                <th rowspan="2">%</th>
+                <th rowspan="2">PREDIKAT</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr></tr>
+            
+        </tbody>
+    </table>
 </body>
 </html>
