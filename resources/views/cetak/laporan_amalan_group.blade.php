@@ -77,7 +77,7 @@
                             # code...
                             foreach ($data_karyawan->penilaian as $key => $penilaians) {
                                 # code...
-                                $penilaians::where('jenis_id', $data_jenis->id)
+                                $val = $penilaians::where('jenis_id', $data_jenis->id)
                                 ->where('kategori_id', $kategori->id)->whereMonth('tanggal', $bulan)->whereYear('tanggal',$data_tahun)
                                 ->sum('nilai');
                                 $nilai[] = $val;
