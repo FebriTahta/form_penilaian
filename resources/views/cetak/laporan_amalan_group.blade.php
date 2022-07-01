@@ -70,7 +70,7 @@
                             //                         ->whereYear('tanggal', $data_tahun)
                             //                         ->sum('nilai');
 
-                            foreach ($karyawan->penilaian as $key => $value) {
+                            foreach ($data_karyawan->penilaian as $key => $value) {
                                 # code...
                                 $val = $value->penilaian_name;
                                 $nilai[] = $val;
