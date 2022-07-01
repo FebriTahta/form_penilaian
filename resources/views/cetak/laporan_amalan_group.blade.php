@@ -61,16 +61,14 @@
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
-                            $ya[] =[];
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $ya =  round($real + $val);
                             @endphp
-                            {{array_sum($ya)}}
+                            {{array_sum($val)}}
                         @endforeach
                     </td>
                 </tr>
