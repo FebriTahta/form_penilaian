@@ -83,10 +83,11 @@
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');
                                 $nilai[] = $val;
-                                $real = array_sum($nilai);
+                                // $real = array_sum($nilai);
                             @endphp
-                           {{$real}}
+                           
                         @endforeach
+                        {{implode('',$nilai)}}
                     </td>
                 </tr>
             @endforeach
