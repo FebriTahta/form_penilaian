@@ -71,7 +71,7 @@
                             $nilai[] = $val;
                         }
                     @endphp
-                    <td>{{$nilai}}</td>
+                    <td>{{implode('-',$nilai)}}</td>
                 </tr>
             @endforeach
         </tbody>
