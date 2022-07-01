@@ -70,7 +70,7 @@
                                                     ->sum('nilai');    
                             $nilai[] = $val;
                             @endphp
-                            {{$nilai}}
+                            {{array_sum($nilai)}}
                         @endforeach
                     </td>
                 </tr>
