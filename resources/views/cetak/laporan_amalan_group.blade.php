@@ -61,16 +61,17 @@
                     @php
                         $nilai[] = '';
                         $real    = 0 ;
-                        foreach ($item->karyawan as $key => $karyawan) {
+                        foreach ($item->karyawan as $key => $data_karyawan) {
                             # code...
-                            $val = $karyawan->penilaian::where('jenis_id', $data_jenis->id)
+                            $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
+                                                    ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');
                             $nilai[] = $val;
+                            $real = array_sum($nilai);
                         }
-                        $real = array_sum($nilai);
                     @endphp
                     <td>{{$real}}</td>
                 </tr>
