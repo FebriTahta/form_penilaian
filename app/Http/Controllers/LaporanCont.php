@@ -433,7 +433,7 @@ class LaporanCont extends Controller
     {
         // $jenis = Jenis::find($jenis_id);
         // $tahun = substr($month,0,4);
-        // $bulan = substr($month,5,2);
+        $bulan = substr($month,5,2);
         // return Excel::download(new LaporanGroupExport($jenis,$bulan,$tahun,$month), $jenis->nama_jenis.' - Periode - '.$month);
 
         $karyawan   = Karyawan::where('id',63)->first();
