@@ -293,6 +293,7 @@
                 var bulan= $('#bulan').val();
                 var laporan_group = document.getElementById('export_laporan_group');
                 laporan_group.href = "/export-laporan-amalan-group/"+jenis_id+"/"+bulan;
+                
                 console.log(bulan);
                 $('#table-data').DataTable({
                     //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
