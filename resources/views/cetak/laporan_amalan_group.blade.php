@@ -61,13 +61,12 @@
                     @php
                         $nilai[] = '';
                         $real    = 0 ;
-                        foreach ($item->karyawan as $key => $value) {
-                            # code...
-                            $nilai[] = $value->distinct('nama_karyawan');
-                        }
+                        
                     @endphp
                     <td>
-                        {{$nilai}}
+                        @foreach ($item->karyawan as $key => $value) 
+                            {{$value}}
+                        @endforeach
                     </td>
                 </tr>
             @endforeach
