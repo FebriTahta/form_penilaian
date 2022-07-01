@@ -150,7 +150,7 @@
                             $target  = $item->poin->max('besar_poin') * $jumHari;
                         @endphp
                         @if ($realnya > 0)
-                            {{round($target/$realnya)}} %
+                            {{round(($realnya*100)/$target)}} %
                         @else
                         -
                         @endif
