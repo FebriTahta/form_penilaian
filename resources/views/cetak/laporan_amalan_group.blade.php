@@ -28,7 +28,7 @@
     {{-- spasi --}}
     
 
-    @foreach ($jenis->group as $item)
+    @foreach ($data_jenis->group as $item)
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
             <tr>
