@@ -61,6 +61,7 @@
                     @php
                         $nilai[] = '';
                         $real    = 0 ;
+                        $val     = '';
                         foreach ($item->karyawan as $key => $data) {
                             # code...
                             $val = App\Models\Penilaian::where('karyawan_id', $data->id)
@@ -74,7 +75,8 @@
                         }
                     @endphp
                     <td>
-                        {{implode(',',$nilai)}}
+                        {{$val}}
+                        {{-- {{implode(',',$val)}} --}}
                     </td>
                 </tr>
             @endforeach
