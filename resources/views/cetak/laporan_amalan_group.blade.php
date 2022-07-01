@@ -69,8 +69,8 @@
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
                             @endphp
+                            {{$val}}
                         @endforeach
-                        {{$val}}
                     </td>
                 </tr>
             @endforeach
