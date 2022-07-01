@@ -435,6 +435,6 @@ class LaporanCont extends Controller
         $tahun = substr($month,0,4);
         $bulan = substr($month,5,2);
         // return $jenis->nama_jenis.' - Periode - '.$month;
-        return Excel::download(new LaporanGroup($jenis,$bulan,$tahun,$month), $jenis->nama_jenis.' - Periode - '.$month);
+        return Excel::download(new LaporanGroup, $jenis->nama_jenis.' - Periode - '.$month);
     }
 }

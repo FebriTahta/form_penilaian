@@ -9,13 +9,13 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class LaporanGroup implements  ShouldAutoSize,FromView
 {
-    public function __construct($jenis,$bulan,$tahun,$month)
-    {
-        $this->jenis=$jenis;
-        $this->bulan=$bulan;
-        $this->tahun=$tahun;
-        $this->month=$month;
-    }
+    // public function __construct($jenis,$bulan,$tahun,$month)
+    // {
+    //     $this->jenis=$jenis;
+    //     $this->bulan=$bulan;
+    //     $this->tahun=$tahun;
+    //     $this->month=$month;
+    // }
 
     /**
     * @return \Illuminate\Support\Collection
