@@ -432,7 +432,9 @@ class LaporanCont extends Controller
     public function export_laporan_amalan_group(Request $request, $jenis_id,$month)
     {
         $jenis = Jenis::find($jenis_id);
-        return $month;
+        $bulan = substr($month,0,4);
+        $tahun = substr($month,5,2);
+        return 'bulan '.$bulan. ' - Tahun '.$tahun;
         return Excel::download(new LaporanGroup($jenis), $jenis->nama_jenis.' - ');
     }
 }
