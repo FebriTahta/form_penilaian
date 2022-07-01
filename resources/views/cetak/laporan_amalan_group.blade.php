@@ -60,7 +60,7 @@
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
                             @php
-                            $real = '';
+                            $real = 0;
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
