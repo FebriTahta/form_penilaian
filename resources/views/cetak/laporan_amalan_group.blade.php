@@ -61,10 +61,9 @@
                     @php
                         $nilai[] = '';
                         $real    = 0 ;
-                        foreach ($item->karyawan as $key => $data_karyawan) {
+                        foreach ($item->karyawan->penilaian as $key => $penilaian) {
                             # code...
-                            $val = App\Models\Penilaian::where('karyawan_id', $data_karyawan->id)
-                                                    ->where('jenis_id', $data_jenis->id)
+                            $val = $penilaian::where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
