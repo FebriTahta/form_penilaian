@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$data_jenis->nama_jenis}}</title>
+    <title> _ </title>
     <style>
         .notel {
         mso-number-format: "\@";
@@ -15,7 +15,7 @@
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
             <tr>
-                <th rowspan="3" colspan="13"> {{$data_jenis->nama_jenis}} <br> <p> GROUP - Periode {{$data_bulan}} {{$data_tahun}}</p></th>
+                <th rowspan="3" colspan="13"> _ <br> <p> GROUP - Periode _</p></th>
             </tr>
         </thead>
     </table>
