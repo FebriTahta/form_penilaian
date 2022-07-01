@@ -73,7 +73,7 @@
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
                             @endphp
-                            {{$val}}
+                            {{array_sum($val)}}
                         @endforeach
                     </td>
                 </tr>
