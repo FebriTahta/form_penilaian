@@ -359,6 +359,9 @@ class LaporanCont extends Controller
                                 }elseif($end < 60 && $end > 49)
                                 {
                                     $predikat = '<p class="text-danger">KURANG</p>';
+                                }else {
+                                    # code...
+                                    $predikat = '<p class="text-danger">KURANG</p>';
                                 }
                             }else {
                                 # code...
