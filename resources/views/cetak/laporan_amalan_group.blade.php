@@ -61,26 +61,13 @@
                     @php
                         $nilai[] = '';
                         $real    = 0 ;
-                        $val     = '';
-                        foreach ($item->karyawan as $key => $data) {
+                        foreach ($item->karyawan as $key => $value) {
                             # code...
-                            $y = $data->penilaian;
-                            foreach ($y as $key => $value) {
-                                # code...
-                                $val = $value::
-                                                    where('jenis_id', $data_jenis->id)
-                                                    ->where('kategori_id', $kategori->id)
-                                                    ->whereMonth('tanggal', $bulan)
-                                                    ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');
-                                $nilai[] = $val;                    
-                            }
-                            $real = array_sum($nilai);
+                            $nilai[] = $value->nama_karyawan;
                         }
                     @endphp
                     <td>
-                        {{$val}}
-                        {{-- {{implode(',',$val)}} --}}
+                        {{implode(',',$nilai)}}
                     </td>
                 </tr>
             @endforeach
