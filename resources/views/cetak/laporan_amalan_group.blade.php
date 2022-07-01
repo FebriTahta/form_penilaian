@@ -69,9 +69,9 @@
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');
-                            $nilai[] = $val;
-                            $real = array_sum($nilai);
                         }
+                        $nilai[] = $val;
+                        $real = array_sum($nilai);
                     @endphp
                     <td>{{implode(',',$nilai)}}</td>
                 </tr>
