@@ -67,8 +67,8 @@
                             $y = $data->penilaian;
                             foreach ($y as $key => $value) {
                                 # code...
-                                $val = $value::where('karyawan_id', $data->id)
-                                                    ->where('jenis_id', $data_jenis->id)
+                                $val = $value::
+                                                    where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
