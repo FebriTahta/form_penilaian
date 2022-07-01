@@ -330,7 +330,8 @@ class LaporanCont extends Controller
 
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-
+                            
+                            $kategori = Kategori::where('jenis_id',$jenis->id)->get();
                             foreach ($kategori as $key => $value) {
                                 # code...
                                 $fin[] = $value->poin->max('besar_poin');
