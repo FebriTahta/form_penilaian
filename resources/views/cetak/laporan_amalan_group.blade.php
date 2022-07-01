@@ -60,7 +60,7 @@
 
                     @php
                         $nilai[] = '';
-                        $real    = 0 ;
+                        // $real    = 0 ;
                         
                     @endphp
                     <td>
