@@ -365,7 +365,7 @@ class LaporanCont extends Controller
                                 }
                             }else {
                                 # code...
-                                $predikat = '- KURANG';
+                                $predikat = '- KOSONG';
                             }
                             return $predikat;
                         })
