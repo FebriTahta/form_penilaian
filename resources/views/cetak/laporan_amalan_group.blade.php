@@ -47,7 +47,9 @@
                 <th rowspan="2">PREDIKAT</th>
             </tr>
         </thead>
-
+        @php
+            
+        @endphp
         <tbody>
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
