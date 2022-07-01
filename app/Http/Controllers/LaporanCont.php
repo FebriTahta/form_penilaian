@@ -343,11 +343,27 @@ class LaporanCont extends Controller
                             if ($hasil > 0) {
                                 # code...
                                 $end = ($hasil*100) / $maxscore;
+                                if ($end > 90 ) {
+                                    # code...
+                                    $predikat = '<p class="text-success">ISTIMEWA</p>';
+                                }elseif($end < 90 && $end > 79)
+                                {
+                                    $predikat = '<p class="text-primary">SANGAT BAIK</p>';
+                                }elseif($end < 80 && $end > 69)
+                                {
+                                    $predikat = '<p class="text-info">BAIK</p>';
+                                }elseif($end < 70 && $end > 59)
+                                {
+                                    $predikat = '<p class="text-warning">CUKUP</p>';
+                                }elseif($end < 60 && $end > 49)
+                                {
+                                    $predikat = '<p class="text-danger">KURANG</p>';
+                                }
                             }else {
                                 # code...
-                                $end = '-';
+                                $predikat = '- KURANG';
                             }
-                            return round($end);
+                            return round($predikat);
                         })
 
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
