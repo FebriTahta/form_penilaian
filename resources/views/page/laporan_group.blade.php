@@ -72,6 +72,7 @@
                                                 <th>Anggota</th>
                                                 <th>Score</th>
                                                 <th>Final Score</th>
+                                                <th>Predikat</th>
                                                 <th>Max Score</th>
                                             </tr>
                                         </thead>
@@ -85,6 +86,7 @@
                                                 <th>Anggota</th>
                                                 <th>Score</th>
                                                 <th>Final Score</th>
+                                                <th>Predikat</th>
                                                 <th>Max Score</th>
                                             </tr>
                                         </tfoot>
@@ -262,6 +264,11 @@
                     },
 
                     {
+                        data: 'predikat',
+                        name: 'predikat'
+                    },
+
+                    {
                         data: 'maxscore',
                         name: 'maxscore'
                     },
@@ -306,7 +313,7 @@
                             data: 'score',
                             name: 'score'
                         },
-
+                        
                         {
                             data: 'pengisian',
                             name: 'pengisian'
@@ -360,6 +367,11 @@
                     {
                         data: 'finalscore',
                         name: 'finalscore'
+                    },
+
+                    {
+                        data: 'predikat',
+                        name: 'predikat'
                     },
 
                     {

@@ -314,6 +314,41 @@ class LaporanCont extends Controller
                             return round($hasil);
                         })
 
+                        ->addColumn('predikat', function($data) use ($jenis,$bln,$thn) {
+                            $jumHari   = cal_days_in_month(CAL_GREGORIAN, $bln, $thn);
+                            $karyawan       = $data->karyawan;
+                            $score[]=0;
+                            $total=0;
+                            foreach ($karyawan as $key => $kar) {
+                                # code...
+                                $score[$key]            = Mengisi::where('jenis_id', $jenis->id)
+                                                        ->whereMonth('tanggal',$bln)
+                                                        ->where('karyawan_id', $kar->id)
+                                                        ->sum('total');
+                                $total                  = array_sum($score);
+                            }
+
+                            $total_karyawan = $data->karyawan->count();
+                            $hasil = $total / $total_karyawan;
+
+                            foreach ($kategori as $key => $value) {
+                                # code...
+                                $fin[] = $value->poin->max('besar_poin');
+                                $max   = array_sum($fin).' score * '.$jumHari.' Hari';
+                            }
+                            settype($max, "integer"); 
+                            $maxscore = $max * $jumHari;
+
+                            if ($hasil > 0) {
+                                # code...
+                                $end = $maxscore / $hasil * 100;
+                            }else {
+                                # code...
+                                $end = 0;
+                            }
+                            return round($end);
+                        })
+
                         ->addColumn('score', function($data) use ($jenis,$bln,$thn) {
 
                             $karyawan       = $data->karyawan;
@@ -354,7 +389,7 @@ class LaporanCont extends Controller
                             return implode('<br> * ',$anggota);
                         })
                         
-                ->rawColumns(['finalscore','maxscore','anggota','score'])
+                ->rawColumns(['finalscore','maxscore','anggota','score','predikat'])
                 ->make(true);
             }else {
                 # code...
