@@ -65,7 +65,7 @@
                     @endphp
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
-                            {{$value}}
+                            {{$value->nama_karyawan}}
                         @endforeach
                     </td>
                 </tr>
