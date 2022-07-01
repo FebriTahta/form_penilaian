@@ -351,7 +351,7 @@ class LaporanCont extends Controller
                             // href="/export-laporan-amalan/'.$kar->id.'/'.$jenis->id.'/'.$bln.'/'.$thn.'">'.$kar->nama_karyawan.'</a>';
                             $total_karyawan = $data->karyawan->count();
                             $hasil = $total / $total_karyawan;
-                            return implode('<br> * ',$anggota);
+                            return implode('- <br> * ',$anggota);
                         })
                         
                 ->rawColumns(['finalscore','maxscore','anggota','score'])
