@@ -323,51 +323,52 @@
                 var bulan= $('#bulan').val();
                 console.log(bulan);
                 $('#table-data').DataTable({
-                    //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
-                    destroy: true,
-                    processing: true,
-                    serverSide: true,
-                    ajax: {
-                        url: '/karyawan-form-laporan/'+slug,
-                        data: {
-                            bulan: bulan
+                //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '/karyawan-form-laporan-group/'+slug,
+                    data: {
+                        bulan: bulan
+                    }
+                },
+                columns: [
+                    {
+                        "width": 10,
+                        "data": null,
+                        "sortable": false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
                         }
                     },
-                    columns: [
-                        {
-                            "width": 10,
-                            "data": null,
-                            "sortable": false,
-                            render: function(data, type, row, meta) {
-                                return meta.row + meta.settings._iDisplayStart + 1;
-                            }
-                        },
-                        {
-                            data: 'jabatan',
-                            name: 'jabatan'
-                        },
-                        {
-                            data: 'karyawan',
-                            name: 'karyawan'
-                        },
+                    {
+                        data: 'nama_group',
+                        name: 'nama_group'
+                    },
 
-                        {
-                            data: 'score',
-                            name: 'score'
-                        },
+                    {
+                        data: 'anggota',
+                        name: 'anggota'
+                    },
+                   
+                    {
+                        data: 'score',
+                        name: 'score'
+                    },
 
-                        {
-                            data: 'pengisian',
-                            name: 'pengisian'
-                        },
+                    {
+                        data: 'finalscore',
+                        name: 'finalscore'
+                    },
 
-                        {
-                        data: 'status',
-                        name: 'status'
-                        },
-                        
-                    ]
-                });
+                    {
+                        data: 'maxscore',
+                        name: 'maxscore'
+                    },
+                    
+                ]
+            });
             }
             
         });
