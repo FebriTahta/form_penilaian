@@ -99,7 +99,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     
     //backend export laporan amalan harian
     Route::get('/export-laporan-amalan/{karyawan_id}/{jenis}/{bulan}/{tahun}',[LaporanCont::class,'export_laporan_amalan']);
-    Route::get('/export-laporan-amalan-group/{jenis_id}',[LaporanCont::class,'export_laporan_amalan_group']);
+    Route::get('/export-laporan-amalan-group/{jenis_id}/{month}',[LaporanCont::class,'export_laporan_amalan_group']);
     
     Route::get('/tes', function(){
         $penilaian = App\Models\Penilaian::where('karyawan_id',63)
