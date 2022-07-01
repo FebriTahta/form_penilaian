@@ -342,7 +342,7 @@ class LaporanCont extends Controller
 
                             if ($hasil > 0) {
                                 # code...
-                                $end = $maxscore / $hasil;
+                                $end = $hasil / $maxscore;
                             }else {
                                 # code...
                                 $end = 0;
