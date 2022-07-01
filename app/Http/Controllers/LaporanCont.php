@@ -346,22 +346,22 @@ class LaporanCont extends Controller
                                 $end = ($hasil*100) / $maxscore;
                                 if ($end > 90 ) {
                                     # code...
-                                    $predikat = '<p class="text-success">'.$end.'% ISTIMEWA</p>';
+                                    $predikat = '<p class="text-success">'.round($end).'% ISTIMEWA</p>';
                                 }elseif($end < 90 && $end > 79)
                                 {
-                                    $predikat = '<p class="text-primary">'.$end.'% SANGAT BAIK</p>';
+                                    $predikat = '<p class="text-primary">'.round($end).'% SANGAT BAIK</p>';
                                 }elseif($end < 80 && $end > 69)
                                 {
-                                    $predikat = '<p class="text-info">'.$end.'% BAIK</p>';
+                                    $predikat = '<p class="text-info">'.round($end).'% BAIK</p>';
                                 }elseif($end < 70 && $end > 59)
                                 {
-                                    $predikat = '<p class="text-warning">'.$end.'% CUKUP</p>';
+                                    $predikat = '<p class="text-warning">'.round($end).'% CUKUP</p>';
                                 }elseif($end < 60 && $end > 49)
                                 {
-                                    $predikat = '<p class="text-danger">'.$end.'% KURANG</p>';
+                                    $predikat = '<p class="text-danger">'.round($end).'% KURANG</p>';
                                 }else {
                                     # code...
-                                    $predikat = '<p class="text-danger">'.$end.'% KURANG</p>';
+                                    $predikat = '<p class="text-danger">'.round($end).'% KURANG</p>';
                                 }
                             }else {
                                 # code...
