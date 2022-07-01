@@ -63,7 +63,7 @@
                         $real    = 0 ;
                         foreach ($item->karyawan as $key => $value) {
                             # code...
-                            $nilai[] = $value->nama_karyawan;
+                            $nilai[] = $value->distinct('nama_karyawan');
                         }
                     @endphp
                     <td>
