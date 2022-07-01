@@ -74,7 +74,7 @@
                         }
                     @endphp
                     <td>
-                        {{implode('',$nilai)}}
+                        {{implode(',',$nilai)}}
                     </td>
                 </tr>
             @endforeach
