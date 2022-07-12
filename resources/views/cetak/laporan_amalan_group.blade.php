@@ -27,7 +27,7 @@
     </table>
     {{-- spasi --}}
     @php
-        $real[] = '';
+        $nilai[] = '';
     @endphp
 
     @foreach ($data_jenis->group as $item)
@@ -70,11 +70,11 @@
                                                     ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $real[] = $val;
+                            $nilai[] = $val;
                             @endphp
                         @endforeach
 
-                        {{array_sum($real)}}
+                        {{array_sum($nilai)}}
                         
                     </td>
                 </tr>
