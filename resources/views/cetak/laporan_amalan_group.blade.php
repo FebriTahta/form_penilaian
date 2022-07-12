@@ -67,13 +67,13 @@
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
                     <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari)}}</td>
-                    <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()}}</td>
+                    <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari) * $item->karyawan->count()}}</td>
                     <td>
                         {{$x}}
                     </td>
                     <td>
                         @if ($x !== 0)
-                            {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count())}} %
+                            {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))}} %
                         @endif
                     </td>
                     <td>
