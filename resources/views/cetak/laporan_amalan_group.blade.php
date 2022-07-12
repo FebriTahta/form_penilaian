@@ -92,7 +92,7 @@
                             @endif
 
                         @else
-                            Kosong
+                            Kosong / Belum diisi
                         @endif
                     </td>
                 </tr>
