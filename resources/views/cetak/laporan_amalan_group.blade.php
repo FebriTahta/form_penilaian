@@ -69,6 +69,11 @@
                     <td>
                         {{$x}}
                     </td>
+                    <td>
+                        @if ($x !== 0)
+                            {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari))}} %
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>
