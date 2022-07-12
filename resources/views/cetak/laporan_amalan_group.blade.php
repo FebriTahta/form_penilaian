@@ -66,12 +66,14 @@
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
-                            $nilai[] = App\Models\Penilaian::where('karyawan_id', $value->id)
+                            
+                            $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');
+                                                    ->sum('nilai');    
+                            $nilai[] = $val;
                             @endphp
                         @endforeach
 
