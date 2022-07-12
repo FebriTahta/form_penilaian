@@ -58,19 +58,24 @@
                     <td>{{$kategori->nama_kategori}}</td>
                     <td>{{$kategori->poin->max('besar_poin') * $jumlah_hari}}</td>
                     <td>
+                        @php
+                            $nilai[] = '';
+                        @endphp
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
-                            $nilai[] = '';
+                            
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
+                            $nilai[] = $val;
                             @endphp
-                            {{$val}}
                         @endforeach
+
+                        {{array_sum($nilai)}}
                     </td>
                 </tr>
             @endforeach
