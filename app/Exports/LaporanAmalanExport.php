@@ -74,5 +74,20 @@ class LaporanAmalanExport implements ShouldAutoSize,FromView
         }
 
         return view('cetak.laporan_amalan',compact('data_karyawan','data_jenis','data_bulan','data_tahun','bulan'));
+
+        // foreach ($data_jenis->group as $item) {
+        //     # code...
+        //     foreach ($item->karyawan as $value) {
+        //         # code...
+        //         $real[] = '';
+        //         $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+        //                                             ->where('kategori_id', $kategori->id)
+        //                                             ->whereMonth('tanggal', $bulan) 
+        //                                             ->whereYear('tanggal', $data_tahun)
+        //                                             ->sum('nilai');    
+        //         $real[] = $val;
+        //     }
+        //     array_sum($real);
+        // }
     }
 }
