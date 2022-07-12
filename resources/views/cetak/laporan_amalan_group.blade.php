@@ -65,7 +65,7 @@
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
-                    <td>{{$kategori->poin->max('besar_poin') * $jumlah_hari}}</td>
+                    <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()}}</td>
                     <td>
                         {{$x}}
                     </td>
