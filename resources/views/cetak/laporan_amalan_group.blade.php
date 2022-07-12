@@ -74,6 +74,25 @@
                             {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari))}} %
                         @endif
                     </td>
+                    <td>
+                        @if ($x !== 0)
+                            
+                            @if (round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) < 59)
+                                Kurang
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) > 59 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) < 70)
+                                Cukup
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) > 69 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) < 80)
+                                Baik
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) > 79 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) < 90)
+                                Sangat Baik
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) > 89 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)) <= 100)
+                                Istimewa
+                            @endif
+
+                        @else
+                            Kosong
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>

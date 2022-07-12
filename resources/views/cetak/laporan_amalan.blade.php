@@ -167,7 +167,7 @@
                             @elseif(round($target/$realnya) > 79 && round($target/$realnya) < 90)
                                 Sangat baik
                             @elseif(round($target/$realnya) > 89 && round($target/$realnya) <= 100)
-                                Sangat baik
+                                Istimewa
                             @endif
                         @else
                             Kurang
