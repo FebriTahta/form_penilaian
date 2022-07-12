@@ -60,7 +60,7 @@
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
                     $real[] = $val;
-                    $x = array_sum($real)
+                    $x = array_sum($real);
                 }
             @endphp
                 <tr>
