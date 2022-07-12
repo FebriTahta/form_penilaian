@@ -27,9 +27,8 @@
     </table>
     {{-- spasi --}}
     @php
-        $real[] = '';
+        $real = '';
     @endphp
-
     @foreach ($data_jenis->group as $item)
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
@@ -49,9 +48,6 @@
                 <th rowspan="2">PREDIKAT</th>
             </tr>
         </thead>
-        @php
-            
-        @endphp
         <tbody>
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
@@ -68,7 +64,7 @@
                                                     ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $real[] = $val;
+                            $real = array($val);
                             @endphp
                         @endforeach
 
