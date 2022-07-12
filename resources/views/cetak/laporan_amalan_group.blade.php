@@ -59,7 +59,8 @@
                                                     ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $real[] = $val;
+                    $real[] = $val;
+                    $x = array_sum($real)
                 }
             @endphp
                 <tr>
@@ -69,7 +70,7 @@
                     <td>
                         
 
-                        {{array_sum($real)}}
+                        {{$x}}
                         
                     </td>
                 </tr>
