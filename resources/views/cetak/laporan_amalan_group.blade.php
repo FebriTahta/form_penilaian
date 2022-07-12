@@ -58,7 +58,7 @@
                             @php
                             $real[] = '';
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
-                                                    ->where('jenis_id', $data_jenis->id)
+                                                    // ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
