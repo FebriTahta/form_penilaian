@@ -49,6 +49,9 @@
         <tbody>
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
+            @php
+                $real[] = '';
+            @endphp
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
@@ -56,7 +59,7 @@
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
                             @php
-                            $real[] = '';
+                            
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     // ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
