@@ -79,15 +79,15 @@
                     <td>
                         @if ($x !== 0)
                             
-                            @if (round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) < 59)
+                            @if (round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 59)
                                 Kurang
-                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) > 59 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) < 70)
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 59 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 70)
                                 Cukup
-                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) > 69 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) < 80)
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 69 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 80)
                                 Baik
-                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) > 79 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) < 90)
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 79 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 90)
                                 Sangat Baik
-                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) > 89 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari)*$item->karyawan->count()) <= 100)
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 89 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) <= 100)
                                 Istimewa
                             @endif
 
