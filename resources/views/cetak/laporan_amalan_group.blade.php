@@ -50,27 +50,26 @@
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
             @php
-                $real.$key[] = '';
+                $real[] = '';
+                foreach ($item->karyawan as $value) {
+                    # code...
+                    $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                                                    // ->where('jenis_id', $data_jenis->id)
+                                                    ->where('kategori_id', $kategori->id)
+                                                    ->whereMonth('tanggal', $bulan) 
+                                                    ->whereYear('tanggal', $data_tahun)
+                                                    ->sum('nilai');    
+                            $real[] = $val;
+                }
             @endphp
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
                     <td>{{$kategori->poin->max('besar_poin') * $jumlah_hari}}</td>
                     <td>
-                        @foreach ($item->karyawan as $value) 
-                            @php
-                            
-                            $val = App\Models\Penilaian::where('karyawan_id', $value->id)
-                                                    // ->where('jenis_id', $data_jenis->id)
-                                                    ->where('kategori_id', $kategori->id)
-                                                    ->whereMonth('tanggal', $bulan) 
-                                                    ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');    
-                            $real.$key[] = $val;
-                            @endphp
-                        @endforeach
+                        
 
-                        {{array_sum($real.$key)}}
+                        {{array_sum($real)}}
                         
                     </td>
                 </tr>
