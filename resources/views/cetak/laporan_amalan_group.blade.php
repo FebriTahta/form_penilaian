@@ -61,24 +61,23 @@
 
 
                         @php
-                            $nilai[] = '';
+                            $nilai = "";
                         @endphp
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
                             
-                            $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                            // $val =     
+                            $nilai[] = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
                                                     ->whereMonth('tanggal', $bulan)
                                                     ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');    
-                            $nilai[] = $val;
+                                                    ->sum('nilai');
                             @endphp
-                            {{array_sum($nilai)}}
                         @endforeach
 
-                        
+                        {{array_sum($nilai)}}
 
 
                     </td>
