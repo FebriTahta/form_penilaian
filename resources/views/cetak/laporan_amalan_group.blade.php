@@ -26,7 +26,9 @@
         </thead>
     </table>
     {{-- spasi --}}
-    
+    @php
+        $real[] = '';
+    @endphp
 
     @foreach ($data_jenis->group as $item)
     <table>
@@ -58,10 +60,6 @@
                     <td>{{$kategori->nama_kategori}}</td>
                     <td>{{$kategori->poin->max('besar_poin') * $jumlah_hari}}</td>
                     <td>
-
-                        @php
-                            $nilai[] = '';
-                        @endphp
                         @foreach ($item->karyawan as $key => $value) 
                             @php
                             $real = 0;
@@ -69,14 +67,14 @@
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
-                                                    ->whereMonth('tanggal', $bulan)
+                                                    ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $nilai[] = $val++;
+                            $real[] = $val;
                             @endphp
                         @endforeach
 
-                        {{$val}}
+                        {{array_sum($real)}}
                         
                     </td>
                 </tr>
