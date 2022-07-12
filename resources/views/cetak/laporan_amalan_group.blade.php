@@ -50,7 +50,7 @@
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
             @php
-                $real[$key] = '';
+                $real.$key[] = '';
             @endphp
                 <tr>
                     <td>{{$key+1}}</td>
@@ -66,11 +66,11 @@
                                                     ->whereMonth('tanggal', $bulan) 
                                                     ->whereYear('tanggal', $data_tahun)
                                                     ->sum('nilai');    
-                            $real[$key] = $val;
+                            $real.$key[] = $val;
                             @endphp
                         @endforeach
 
-                        {{array_sum($real)}}
+                        {{array_sum($real.$key)}}
                         
                     </td>
                 </tr>
