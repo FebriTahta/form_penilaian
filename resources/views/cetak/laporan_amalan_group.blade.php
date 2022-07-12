@@ -61,7 +61,7 @@
 
 
                         @php
-                            $nilai = '';
+                            $nilai[] = '';
                         @endphp
                         @foreach ($item->karyawan as $key => $value) 
                             @php
