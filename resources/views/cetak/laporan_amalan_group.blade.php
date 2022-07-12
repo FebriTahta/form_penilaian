@@ -26,9 +26,7 @@
         </thead>
     </table>
     {{-- spasi --}}
-    @php
-        $real[] = '';
-    @endphp
+   
     @foreach ($data_jenis->group as $item)
     <table>
         <thead style="font-weight: bold; text-transform: uppercase">
@@ -58,6 +56,7 @@
                     <td>
                         @foreach ($item->karyawan as $key => $value) 
                             @php
+                            $real[] = '';
                             $val = App\Models\Penilaian::where('karyawan_id', $value->id)
                                                     ->where('jenis_id', $data_jenis->id)
                                                     ->where('kategori_id', $kategori->id)
@@ -68,10 +67,7 @@
                             @endphp
                         @endforeach
 
-                        @php
-                            $x = array($real)
-                        @endphp
-                        {{array_sum($x)}}
+                        {{array_sum($real)}}
                         
                     </td>
                 </tr>
