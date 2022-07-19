@@ -56,6 +56,7 @@
             @foreach ($data_jenis->kategori as $key => $kategori)
                 @php
                     $real = [];
+                    $y = '';
                     foreach ($item->karyawan as $value) {
                         # code...
                         $val = App\Models\Penilaian::where('karyawan_id', $value->id)
