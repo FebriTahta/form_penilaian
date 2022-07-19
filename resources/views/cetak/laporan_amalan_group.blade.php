@@ -162,6 +162,10 @@
                     </td>
                     <td>
                         @if ($x !== 0)
+                            @php
+                                $nilai_akhir[] = round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $karyawan->count()));
+                                $x2 = round(array_sum($nilai_akhir) / 10)
+                            @endphp
                             {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $karyawan->count()))}} %
                         @endif
                     </td>
@@ -186,7 +190,11 @@
                     </td>
                 </tr>
             @endforeach
-
+            <tr>
+                <td>*</td>
+                <td colspan="6">Nilai Akhir</td>
+                <td>{{$x2}} / dari 100</td>
+            </tr>
         </tbody>
     </table>
     
