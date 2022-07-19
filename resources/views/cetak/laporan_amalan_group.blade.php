@@ -107,8 +107,8 @@
                 </tr>
             @endforeach
             <tr>
-                <td>{{$x2}}</td>
-                <td>{{$x2}}</td>
+                <td colspan="7">Nilai Akhir</td>
+                <td>{{$x2}} / dari 100</td>
             </tr>
         </tbody>
     </table>
