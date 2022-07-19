@@ -49,20 +49,26 @@
         </thead>
         <tbody>
             <tr></tr>
-            @foreach ($data_jenis->kategori as $key => $kategori)
             @php
-                $real = [];
-                foreach ($item->karyawan as $value) {
-                    # code...
-                    $val = App\Models\Penilaian::where('karyawan_id', $value->id)
-                                                    ->where('kategori_id', $kategori->id)
-                                                    ->whereMonth('tanggal', $bulan) 
-                                                    ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');    
-                    $real[] = $val;
-                    $x = array_sum($real);
-                }
+                $nilai_akhir = [];
+                $y = '';
             @endphp
+            @foreach ($data_jenis->kategori as $key => $kategori)
+                @php
+                    $real = [];
+                    foreach ($item->karyawan as $value) {
+                        # code...
+                        $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                                                        ->where('kategori_id', $kategori->id)
+                                                        ->whereMonth('tanggal', $bulan) 
+                                                        ->whereYear('tanggal', $data_tahun)
+                                                        ->sum('nilai');    
+                        $real[] = $val;
+                        $x = array_sum($real);
+                        $nilai_akhir[]  = round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))
+                        $y = array_sum($nilai_akhir);
+                    }
+                @endphp
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
@@ -73,6 +79,7 @@
                     </td>
                     <td>
                         @if ($x !== 0)
+                            
                             {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))}} %
                         @endif
                     </td>
@@ -97,6 +104,9 @@
                     </td>
                 </tr>
             @endforeach
+            <tr>
+                <td>{{$y}}</td>
+            </tr>
         </tbody>
     </table>
     @endforeach
@@ -124,20 +134,20 @@
         <tbody>
             <tr></tr>
             @foreach ($data_jenis->kategori as $key => $kategori)
-            @php
-                $real = [];
-                $karyawan = App\Models\Karyawan::all();
-                foreach ($karyawan as $value) {
-                    # code...
-                    $val = App\Models\Penilaian::where('karyawan_id', $value->id)
-                                                    ->where('kategori_id', $kategori->id)
-                                                    ->whereMonth('tanggal', $bulan) 
-                                                    ->whereYear('tanggal', $data_tahun)
-                                                    ->sum('nilai');    
-                    $real[] = $val;
-                    $x = array_sum($real);
-                }
-            @endphp
+                @php
+                    $real = [];
+                    $karyawan = App\Models\Karyawan::all();
+                    foreach ($karyawan as $value) {
+                        # code...
+                        $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                                                        ->where('kategori_id', $kategori->id)
+                                                        ->whereMonth('tanggal', $bulan) 
+                                                        ->whereYear('tanggal', $data_tahun)
+                                                        ->sum('nilai');    
+                        $real[] = $val;
+                        $x = array_sum($real);
+                    }
+                @endphp
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$kategori->nama_kategori}}</td>
@@ -172,6 +182,7 @@
                     </td>
                 </tr>
             @endforeach
+
         </tbody>
     </table>
     
