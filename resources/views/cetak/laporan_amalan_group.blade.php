@@ -100,6 +100,80 @@
         </tbody>
     </table>
     @endforeach
+
+
+    <table>
+        <thead style="font-weight: bold; text-transform: uppercase">
+            <tr>
+                <th rowspan="2" colspan="6"> SATU LEMBAGA (NURUL FALAH)</th>
+            </tr>
+        </thead>
+    </table>
+    <table style="border: solid">
+        <thead>
+            <tr>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Amalan</th>
+                <th rowspan="2">Target Perorangan</th>
+                <th rowspan="2">Target Pergroup</th>
+                <th rowspan="2">Real</th>
+                <th rowspan="2">%</th>
+                <th rowspan="2">PREDIKAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            @foreach ($data_jenis->kategori as $key => $kategori)
+            @php
+                $real = [];
+                $karyawan = Karyawan::all();
+                foreach ($karyawan as $value) {
+                    # code...
+                    $val = App\Models\Penilaian::where('karyawan_id', $value->id)
+                                                    ->where('kategori_id', $kategori->id)
+                                                    ->whereMonth('tanggal', $bulan) 
+                                                    ->whereYear('tanggal', $data_tahun)
+                                                    ->sum('nilai');    
+                    $real[] = $val;
+                    $x = array_sum($real);
+                }
+            @endphp
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{$kategori->nama_kategori}}</td>
+                    <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari)}}</td>
+                    <td>{{($kategori->poin->max('besar_poin') * $jumlah_hari) * $item->karyawan->count()}}</td>
+                    <td>
+                        {{$x}}
+                    </td>
+                    <td>
+                        @if ($x !== 0)
+                            {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))}} %
+                        @endif
+                    </td>
+                    <td>
+                        @if ($x !== 0)
+                            
+                            @if (round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 59)
+                                Kurang
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 59 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 70)
+                                Cukup
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 69 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 80)
+                                Baik
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 79 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) < 90)
+                                Sangat Baik
+                            @elseif(round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) > 89 && round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count())) <= 100)
+                                Istimewa
+                            @endif
+
+                        @else
+                            Kosong / Belum diisi
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
     
 </body>
 </html>
