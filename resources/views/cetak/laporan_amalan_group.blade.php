@@ -126,7 +126,7 @@
             @foreach ($data_jenis->kategori as $key => $kategori)
             @php
                 $real = [];
-                $karyawan = Karyawan::all();
+                $karyawan = App\Models\Karyawan::all();
                 foreach ($karyawan as $value) {
                     # code...
                     $val = App\Models\Penilaian::where('karyawan_id', $value->id)
