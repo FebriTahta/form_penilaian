@@ -108,6 +108,7 @@
             @endforeach
             <tr>
                 <td>{{$x2}}</td>
+                <td>{{$x2}}</td>
             </tr>
         </tbody>
     </table>
