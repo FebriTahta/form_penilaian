@@ -56,7 +56,7 @@
             @foreach ($data_jenis->kategori as $key => $kategori)
                 @php
                     $real = [];
-                    $y = '';
+                    $pw = '';
                     foreach ($item->karyawan as $value) {
                         # code...
                         $val = App\Models\Penilaian::where('karyawan_id', $value->id)
@@ -65,9 +65,9 @@
                                                         ->whereYear('tanggal', $data_tahun)
                                                         ->sum('nilai');    
                         $real[] = $val;
-                        $x = array_sum($real);
+                        $x  = array_sum($real);
                         $nilai_akhir[]  = round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))
-                        $y = array_sum($nilai_akhir);
+                        $x2  = array_sum($real);
                     }
                 @endphp
                 <tr>
@@ -106,7 +106,7 @@
                 </tr>
             @endforeach
             <tr>
-                <td>{{$y}}</td>
+                <td>{{$x2}}</td>
             </tr>
         </tbody>
     </table>
