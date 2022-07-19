@@ -51,7 +51,7 @@
             <tr></tr>
             @php
                 $nilai_akhir = [];
-                $y = '';
+                $x2 = '';
             @endphp
             @foreach ($data_jenis->kategori as $key => $kategori)
                 @php
@@ -66,8 +66,6 @@
                                                         ->sum('nilai');    
                         $real[] = $val;
                         $x  = array_sum($real);
-                        $nilai_akhir[]  = round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))
-                        $x2  = array_sum($real);
                     }
                 @endphp
                 <tr>
@@ -80,7 +78,10 @@
                     </td>
                     <td>
                         @if ($x !== 0)
-                            
+                            @php
+                                $nilai_akhir[] = round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()));
+                                $x2 = array_sum($nilai_akhir)
+                            @endphp
                             {{round(($x * 100) / ($kategori->poin->max('besar_poin') * $jumlah_hari * $item->karyawan->count()))}} %
                         @endif
                     </td>
