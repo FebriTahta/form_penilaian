@@ -41,7 +41,7 @@ class DailyMessage extends Command
     {
         // return 0;
         // Karyawan::update(['blass','0']);
-        $reset_   = Karyawan::where('blass','0')->orwhere('blass', null)->orwhere('blass','1')->update(['blass'=>'0']);
+        // $reset_   = Karyawan::where('blass','0')->orwhere('blass', null)->orwhere('blass','1')->update(['blass'=>'0']);
         $karyawan = Karyawan::where('telp_karyawan', '!=', null)->where('blass','0')->get();
 
         foreach ($karyawan as $key => $value) {
