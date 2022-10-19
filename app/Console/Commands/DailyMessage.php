@@ -61,7 +61,7 @@ class DailyMessage extends Command
                     "data" => [
                         [
                             'phone' =>  $value->telp_karyawan,
-                            'message' => 'Mengingatkan<br>Yth, '.$jenkel.' - '.$value->nama_karyawan.'<br>*Dimohon untuk mengisi amalan harian pada* <br><br>*https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf*',
+                            'message' => 'Mengingatkan<br>Yth, '.$jenkel.' - '.$value->nama_karyawan.'<br>*Dimohon untuk mengisi amalan harian dan melengkapi laporan amalan harian yang belum diisi pada* <br><br>*https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf*',
 
                             'secret' => false, // or true
                             'retry' => false, // or true
