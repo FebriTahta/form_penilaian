@@ -42,7 +42,7 @@ class DailyMessage extends Command
         // return 0;
         // Karyawan::update(['blass','0']);
         $reset_   = Karyawan::where('blass','0')->orwhere('blass', null)->orwhere('blass','1')->update(['blass'=>'0']);
-        $karyawan = Karyawan::where('telp_karyawan', '081329146514')->where('blass','0')->get();
+        $karyawan = Karyawan::where('telp_karyawan', '!=', null)->where('blass','0')->get();
 
         foreach ($karyawan as $key => $value) {
             # code...
@@ -61,7 +61,7 @@ class DailyMessage extends Command
                     "data" => [
                         [
                             'phone' =>  $value->telp_karyawan,
-                            'message' => 'Reminder<br>Yth, '.$jenkel.' - '.$value->nama_karyawan.'<br>*Dimohon untuk mengisi amalan harian pada* <br><br>*https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf*',
+                            'message' => 'Mengingatkan<br>Yth, '.$jenkel.' - '.$value->nama_karyawan.'<br>*Dimohon untuk mengisi amalan harian pada* <br><br>*https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf*',
 
                             'secret' => false, // or true
                             'retry' => false, // or true
