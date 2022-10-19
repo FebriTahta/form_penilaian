@@ -54,7 +54,7 @@ class DailyMessage extends Command
                     # code...
                     $jenkel = 'Saudari';
                 }
-                // set_time_limit(0);
+                set_time_limit(0);
                 $curl = curl_init();
                 $token = "ErPMCdWGNfhhYPrrGsTdTb1vLwUbIt35CQ2KlhffDobwUw8pgYX4TN5rDT4smiIc";
                 $payload = [
@@ -89,8 +89,8 @@ class DailyMessage extends Command
                 curl_close($curl);
 
                 Karyawan::where('id', $value->id)->update(['blass'=>'1']);
-                // jeda 15 detik
-                sleep(15);
+                // jeda 3 detik gagal
+                // sleep(3);
         }
 
         $this->info('Mengirim pesan kepada seluruh karyawan');  
