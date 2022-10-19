@@ -10,7 +10,7 @@ class Jenis extends Model
     use HasFactory;
 
     protected $fillable=[
-        'nama_jenis','slug_jenis','img_jenis','img_thumbnail_jenis'
+        'nama_jenis','slug_jenis','img_jenis','img_thumbnail_jenis','tipe'
     ];
 
     public function kategori()

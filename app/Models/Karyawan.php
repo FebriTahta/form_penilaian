@@ -10,7 +10,7 @@ class Karyawan extends Model
     use HasFactory;
 
     protected $fillable=[
-        'nama_karyawan','telp_karyawan','slug_karyawan','tempatlahir_karyawan','tanggallahir_karyawan','alamat_karyawan','user_id','jabatan_id','jenkel'
+        'nama_karyawan','telp_karyawan','slug_karyawan','tempatlahir_karyawan','tanggallahir_karyawan','alamat_karyawan','user_id','jabatan_id','jenkel','blass'
     ];
 
     public function user()

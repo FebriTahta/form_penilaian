@@ -41,7 +41,8 @@ class FormJenisCont extends Controller
                     'nama_jenis'            => $request->nama_jenis,
                     'img_jenis'             => asset('img/img_jenis/'.$filename1),
                     'img_thumbnail_jenis'   => asset('img/img_thumbnail_jenis/'.$filename2),
-                    'slug_jenis'            => Str::slug($request->nama_jenis)
+                    'slug_jenis'            => Str::slug($request->nama_jenis),
+                    'tipe'                  => $request->tipe,
                 ]
             );
         }
@@ -73,7 +74,8 @@ class FormJenisCont extends Controller
                     'nama_jenis'            => $request->nama_jenis,
                     'img_jenis'             => asset('img/img_jenis/'.$filename1),
                     'img_thumbnail_jenis'   => asset('img/img_thumbnail_jenis/'.$filename2),
-                    'slug_jenis'            => Str::slug($request->nama_jenis)
+                    'slug_jenis'            => Str::slug($request->nama_jenis),
+                    'tipe'                  => $request->tipe,
                 ]
             );
         }
@@ -93,7 +95,8 @@ class FormJenisCont extends Controller
                 [
                     'nama_jenis'            => $request->nama_jenis,
                     'img_jenis'             => asset('img/img_jenis/'.$filename1),
-                    'slug_jenis'            => Str::slug($request->nama_jenis)
+                    'slug_jenis'            => Str::slug($request->nama_jenis),
+                    'tipe'                  => $request->tipe,
                 ]
             );
         }
@@ -113,7 +116,8 @@ class FormJenisCont extends Controller
                 [
                     'nama_jenis'            => $request->nama_jenis,
                     'img_thumbnail_jenis'   => asset('img/img_thumbnail_jenis/'.$filename2),
-                    'slug_jenis'            => Str::slug($request->nama_jenis)
+                    'slug_jenis'            => Str::slug($request->nama_jenis),
+                    'tipe'                  => $request->tipe,
                 ]
             );
         }
@@ -126,7 +130,8 @@ class FormJenisCont extends Controller
                 ],
                 [
                     'nama_jenis'            => $request->nama_jenis,
-                    'slug_jenis'            => Str::slug($request->nama_jenis)
+                    'slug_jenis'            => Str::slug($request->nama_jenis),
+                    'tipe'                  => $request->tipe,
                 ]
             );
         }

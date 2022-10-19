@@ -85,7 +85,7 @@
                                     <a href="/kategori-form-penilaian/{{$item->slug_jenis}}" class="btn btn-outline-success btn-xs">Selengkapnya</a>
                                     <a href="#" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-id="{{$item->id}}" data-nama_jenis="{{$item->nama_jenis}}" 
                                         data-img_jenis="{{$item->img_jenis}}" data-img_thumbnail_jenis="{{$item->img_thumbnail_jenis}}"
-                                        data-target="#modaledit">Update</a>
+                                        data-tipe="{{$item->tipe}}" data-target="#modaledit">Update</a>
                                     <a href="#" class="btn btn-outline-danger btn-xs">Hapus</a>
                                 </div>
                             </div>
@@ -199,6 +199,14 @@
                     <div class="form-group">
                         <img  src=""  id="preview2_e" class="img-thumbnail">
                     </div>
+                    <div class="form-group">
+                        <select name="tipe" id="tipe" class="form-control">
+                            <option value="">-</option>
+                            <option value="kuisioner">kuisioner</option>
+                            <option value="penilaian">penilaian</option>
+                            <option value="survey">survey</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn btn-primary l-s-1 s-12 text-uppercase" value="UPDATE DATA" id="btnedit" required>
@@ -270,9 +278,11 @@
             var nama_jenis = button.data('nama_jenis')
             var img_jenis = button.data('img_jenis')
             var img_thumbnail_jenis = button.data('img_thumbnail_jenis')
+            var tipe = button.data('tipe')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #nama_jenis').val(nama_jenis);
+            modal.find('.modal-body #tipe').val(tipe);
             modal.find('.modal-body #preview_e').attr("src", img_jenis);
             modal.find('.modal-body #preview2_e').attr("src", img_thumbnail_jenis);
             console.log(img_thumbnail_jenis);

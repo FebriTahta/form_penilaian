@@ -9,6 +9,7 @@ use App\Http\Controllers\LaporanCont;
 use App\Http\Controllers\GroupCont;
 use App\Http\Controllers\FormKaryawanCont;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\DaerahController;
 use App\Models\Poin;
 use App\Models\Kategori;
 use App\Models\Jenis;
@@ -96,6 +97,18 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/group-list-anggota-group/{group_id}',[GroupCont::class,'data_anggota']);
     Route::post('/group-add-karyawan',[GroupCont::class,'add_karyawan_group'])->name('be_store_karyawan_group');
     Route::post('/group-kick-karyawan-from-group',[GroupCont::class,'kick_karyawan'])->name('be_kick_karyawan_group');
+
+    //backend daerah indonesia
+    Route::get('/provinsi',[DaerahController::class,'index_provinsi'])->name('be.provinsi.page');
+    Route::post('/provinsi-import',[DaerahController::class,'import_provinsi'])->name('be.provinsi.import');
+    Route::get('/kabupaten',[DaerahController::class,'index_kabupaten'])->name('be.kabupaten.page');
+    Route::post('/kabupaten-import',[DaerahController::class,'import_kabupaten'])->name('be.kabupaten.import');
+    Route::get('/kecamatan',[DaerahController::class,'index_kecamatan'])->name('be.kecamatan.page');
+    Route::post('/kecamatan-import',[DaerahController::class,'import_kecamatan'])->name('be.kecamatan.import');
+    Route::get('/kelurahan',[DaerahController::class,'index_kelurahan'])->name('be.kelurahan.page');
+    Route::post('/kelurahan-import',[DaerahController::class,'import_kelurahan'])->name('be.kelurahan.import');
+
+
     
     //backend export laporan amalan harian
     Route::get('/export-laporan-amalan/{karyawan_id}/{jenis}/{bulan}/{tahun}',[LaporanCont::class,'export_laporan_amalan']);

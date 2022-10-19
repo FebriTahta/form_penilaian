@@ -8,10 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Provinsi extends Model
 {
     use HasFactory;
-    protected $connection = 'mysql2';
-    protected $table = 'provinsi';
 
-   
+    protected $fillable  = ['id','nama_provinsi'];
 
     public function kabupaten()
     {

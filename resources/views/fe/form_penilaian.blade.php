@@ -145,7 +145,7 @@
                     <div id="progressbar"></div>
                 </div>
                 <input type="hidden" id="tipe" value="{{$jenis->tipe}}">
-                @if ($jenis->tipe !== 'kuisioner')
+                @if ($jenis->tipe !== 'survey')
                     <form action="{{ route('form_penilaian') }}" id="wrapped" method="POST">@csrf
                         <input id="website" name="website" type="text" value="">
                         <!-- Leave input above for security protection, read docs for details -->
@@ -332,7 +332,7 @@
                             </div>
                         </div>
                         <!-- /middle-wizard -->
-                        @if ($jenis->tipe == 'kuisioner')
+                        @if ($jenis->tipe == 'survey')
                         <div id="bottom-wizard">
                             <button type="button" name="backward" class="backward btn_1">Kembali</button>
                             <button type="button" name="forward" id="next" class="forward btn_2">Lanjutkan</button>
@@ -382,7 +382,7 @@
     <script>
         $(document).ready(function(){
             var tipes = document.getElementById('tipe');
-            if (tipes.value == 'kuisioner') {
+            if (tipes.value == 'survey') {
                     $('#cabang_id').select2({
                 ajax: {
                     url: "{{ route('find_cabang') }}",

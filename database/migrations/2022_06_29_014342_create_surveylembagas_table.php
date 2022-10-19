@@ -13,11 +13,13 @@ class CreateSurveylembagasTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql2')->create('surveylembagas', function (Blueprint $table) {
+        Schema::connection('mysql')->create('surveylembagas', function (Blueprint $table) {
             $table->id();
             $table->longText('nama_lembaga')->nullable();
-            $table->unsignedBigInteger('cabang_id')->nullable();
-            // $table->unsignedBigInteger('kecamatan_id')->nullable();
+            $table->unsignedBigInteger('provinsi_id')->nullable();
+            $table->unsignedBigInteger('kabupaten_id')->nullable();
+            $table->unsignedBigInteger('kecamatan_id')->nullable();
+            $table->unsignedBigInteger('kelurahan_id')->nullable();
             $table->longText('alamat_lembaga')->nullable();
             $table->timestamps();
         });

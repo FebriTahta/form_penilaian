@@ -199,6 +199,30 @@
                         </ul>
                     </li>
 
+                    <li class="treeview ">
+                        <a href="#">
+                            <i class="icon icon-bubble_chart pink-text s-18 "></i> <span>&nbsp;Geografis Indonesia</span>
+                            <i class="icon icon-angle-left s-18 pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            
+                            <li><a href="{{route('be.provinsi.page')}}"><i
+                                class="icon icon-bubble_chart pink-text"></i>Provinsi</a>
+                            </li>
+
+                            <li><a href="{{route('be.kabupaten.page')}}"><i
+                                        class="icon icon-bubble_chart pink-text"></i>Kabupaten / Kota</a>
+                            </li>
+                            
+                            <li><a href="{{route('be.kecamatan.page')}}"><i
+                                        class="icon  icon-bubble_chart pink-text"></i>Kecamatan</a>
+                            </li>
+                            <li><a href="{{route('be.kelurahan.page')}}"><i
+                                        class="icon  icon-bubble_chart pink-text"></i>Kelurahan / Desa</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="treeview"><a href="#">
                             <i class="icon icon-bar-chart2 pink-text s-18"></i>
                             <span>Laporan</span>

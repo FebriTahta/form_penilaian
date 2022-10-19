@@ -13,16 +13,15 @@ class CreateDetailsurveylembagasTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql2')->create('detailsurveylembagas', function (Blueprint $table) {
+        Schema::connection('mysql')->create('detailsurveylembagas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('surveylembaga_id')->nullable();
             $table->string('nama_santri')->nullable();
             $table->string('tempatlahir_santri')->nullable();
             $table->string('tanggallahir_santri')->nullable();
-            $table->string('nama_ayah')->nullable();
-            $table->string('nama_ibu')->nullable();
-            $table->string('hp_ayah')->nullable();
-            $table->string('hp_ibu')->nullable();
+            $table->string('orangtua_santri')->nullable();
+            $table->string('status_orang_tua_santri')->nullable();
+            $table->string('phone_orangtua')->nullable();
             $table->timestamps();
         });
     }
