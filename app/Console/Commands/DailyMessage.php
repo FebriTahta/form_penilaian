@@ -41,7 +41,7 @@ class DailyMessage extends Command
     public function handle()
     {
 
-        if (date('H') < 15) {
+        if (date('H') < 19) {
             exit();
         }
 
