@@ -15,10 +15,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('message:daily')
-        // ->everyMinute();
-        ->dailyAt('17:00');
+        // pesan otomatis untuk mengisi amalan harian
+        if (date('H') < 19) {
+            # code...
+            exit();
+        }else {
+            # code...
+            $schedule->command('message:daily')->everyMinute();
+        }
+
+        // reset status pesan amalan harian
+        if (date('H') == 23) {
+            # code...
+            $schedule->command('message:reset')->daily();
+        }
     }
 
     /**
