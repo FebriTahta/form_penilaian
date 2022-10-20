@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('message:daily')
         // ->everyMinute();
-        ->dailyAt('08:30');
+        ->dailyAt('17:00');
     }
 
     /**

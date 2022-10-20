@@ -40,9 +40,8 @@ class DailyMessage extends Command
     public function handle()
     {
         // return 0;
-        // Karyawan::update(['blass','0']);
-        // $reset_   = Karyawan::where('blass','0')->orwhere('blass', null)->orwhere('blass','1')->update(['blass'=>'0']);
-        $karyawan = Karyawan::where('telp_karyawan', '!=', null)->get();
+        // $karyawan = Karyawan::where('telp_karyawan', '!=', null)->get();
+        $karyawan = Karyawan::where('telp_karyawan', '081329146514')->get();
 
         foreach ($karyawan as $key => $value) {
             # code...
@@ -61,7 +60,23 @@ class DailyMessage extends Command
                     "data" => [
                         [
                             'phone' =>  $value->telp_karyawan,
-                            'message' => 'Mengingatkan<br>Yth, '.$jenkel.' - '.$value->nama_karyawan.'<br>*Dimohon untuk mengisi amalan harian dan melengkapi laporan amalan harian yang belum diisi pada* <br><br>*https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf*',
+                            'message' => ''.$jenkel.' - '.$value->nama_karyawan.
+                            '<br>Mugi-Mugi mboten lali, hari ini habis sholat dhuha *(terus buka HP - pencet Laporan Amaliyah harian)*'.
+                            '<br><br>============'.
+                            '<br>Mengingatkan diri sendiri ttg.:'.
+                            '<br>============'.
+                            '<br><br>1. Keaktifan sholat berjamaah di Masjid (khusus Pria)'.
+                            "<br>2. Pentingnya baca *Do'a tolak balak*".
+                            "<br>3. Sholat sunnah *Qobliyah maupun Ba'diyah*".
+                            "<br>4. Qiyamullail *(Tahajjud)* = agar tubuh sll sehat & urusan lancar".
+                            "<br>5. Mendoakan *Pimpinan dan Karyawan Nf*".
+                            "<br>6. Sholat *Dhuha & do'a nya*".
+                            "<br>7. Istiqomah baca *Qs. Al Waqi'ah bakda Maghrib & Shubuh*".
+                            "<br>8. Baca Alquran dg target *Khotam 30 juz*".
+                            "<br>9. Sujud Syukur *(telah di beri nikmat,lebih dari yg lain)*".
+                            "<br><br>Bismillah".
+                            "<br>*Niki dalane :*  https://form.tilawatipusat.com/form/amalan-harian-karyawan-pes-nf".
+                            "<br>Smoga di mudahkan Alloh SWT. Aamiin YRA",
 
                             'secret' => false, // or true
                             'retry' => false, // or true
