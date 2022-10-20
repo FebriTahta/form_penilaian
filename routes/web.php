@@ -10,6 +10,7 @@ use App\Http\Controllers\GroupCont;
 use App\Http\Controllers\FormKaryawanCont;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\DaerahController;
+use App\Http\Controllers\whatsappController;
 use App\Models\Poin;
 use App\Models\Kategori;
 use App\Models\Jenis;
@@ -50,7 +51,7 @@ Route::post('/submit-form-berhalangan',[FormJenisCont::class,'submit_berhalangan
 // SURVEY DB 2 FE
 Route::get('/survey-lembaga',[SurveyController::class,'index_survey'])->name('fe_index_survey');
 Route::post('/form-survey',[SurveyController::class,'form_survey'])->name('form_survey');
-
+Route::get('/tes123',[whatsappController::class,'tes'])->name('tes123');
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
 

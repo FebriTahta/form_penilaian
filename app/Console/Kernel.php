@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Console;
-
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,20 +14,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // pesan otomatis untuk mengisi amalan harian
-        if (date('H') < 19) {
-            # code...
-            exit();
-        }else {
-            # code...
-            $schedule->command('message:daily')->everyMinute();
-        }
+        // // pesan otomatis untuk mengisi amalan harian
+        // if (date('H') > 19) {
+        //     # pukul kurang dari jam 7 malam (exit) code...
+        //     exit();
+        // }else {
+        //     # run auto message code...
+        //     $schedule->command('message:daily')->everyMinute();
+        // }
 
-        // reset status pesan amalan harian
-        if (date('H') == 23) {
-            # code...
-            $schedule->command('message:reset')->daily();
-        }
+        $schedule->command('message:daily')->everyMinute();
+
+        $schedule->command('message:reset')->dailyAt('08:00');
+        // // reset status pesan amalan harian
+        // if (date('H') == 23) {
+        //     # tiap pukul 11 malam mengembalikan status pengiriman pesan code...
+        //     $schedule->command('message:reset')->daily();
+        // }
     }
 
     /**

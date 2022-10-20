@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 use App\Models\Karyawan;
+use App\Models\Mengisi;
 use Illuminate\Console\Command;
 
 class DailyMessage extends Command
@@ -39,11 +40,29 @@ class DailyMessage extends Command
      */
     public function handle()
     {
-        // $karyawan = Karyawan::where('telp_karyawan', '081329146514')->get();
-        // return 0;
-        $karyawan   = Karyawan::where('telp_karyawan', '!=', null)->where('blass', '0')->get();
-        $value      = $karyawan->first();
+
+        if (date('H') < 15) {
+            exit();
+        }
+
+        // pegawai yang sudah mengisi daily task
+        $mengisi    = Mengisi::whereDate('created_at', date('Y-m-d'))->get();
+        // temporary for karyawan id
+        $sudah_mengisi_id = [];
+        foreach ($mengisi as $key => $value) {
+            # code...
+            $sudah_mengisi_id[] = $value->karyawan_id;
+        }
+        // array karyawan id
+        $karyawan_sudah_mengisi = implode(',',$sudah_mengisi_id);
         
+        $karyawan   = Karyawan::where('telp_karyawan', '!=', null)
+                                ->where('blass', '0')
+                                ->whereNotIn('id', [$karyawan_sudah_mengisi])->get();
+        // (cron job setiap menit not at the same time)
+        // mengambil karyawan pertama dalam baris yang akan di kirimi pesan 
+        $value      = $karyawan->first();
+               
         // penyebutan
         $jenkel;
         if ($value->jenkel == 'L') {
@@ -54,6 +73,7 @@ class DailyMessage extends Command
             $jenkel = 'Saudari';
         }
 
+        // do progress send message
         set_time_limit(0);
         $curl = curl_init();
         $token = "ErPMCdWGNfhhYPrrGsTdTb1vLwUbIt35CQ2KlhffDobwUw8pgYX4TN5rDT4smiIc";
@@ -94,6 +114,7 @@ class DailyMessage extends Command
         
         // update status pesan sudah terkirim
         $value->update(['blass'=>'1']);
+        $value->save();
         $this->info('Mengirim pesan kepada seluruh karyawan');  
 
     }
