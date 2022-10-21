@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('message:daily')->everyMinute();
 
-        $schedule->command('message:reset')->dailyAt('08:00');
+        $schedule->command('message:reset')->dailyAt('03:00');
         // // reset status pesan amalan harian
         // if (date('H') == 23) {
         //     # tiap pukul 11 malam mengembalikan status pengiriman pesan code...
