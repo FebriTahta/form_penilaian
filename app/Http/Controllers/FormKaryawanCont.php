@@ -154,6 +154,8 @@ class FormKaryawanCont extends Controller
     {
         $karyawan = Karyawan::where('id', $request->id)->first();
         $groupkaryawan = GroupKaryawan::where('karyawan_id', $request->id)->first();
+        
+        
 
         if ($groupkaryawan !== null) {
             # code...
@@ -166,6 +168,7 @@ class FormKaryawanCont extends Controller
             }
 
             $karyawan->group()->detach();
+            User::where('id', $karyawan->user_id)->delete();
             $karyawan->delete();
             return response()->json(
                 [
@@ -184,6 +187,9 @@ class FormKaryawanCont extends Controller
                 Penilaian::where('karyawan_id', $request->id)->delete();
             }
 
+            //hapus user
+            User::where('id', $karyawan->user_id)->delete();
+            //hapus karyawan
             $karyawan->delete();
             return response()->json(
                 [
