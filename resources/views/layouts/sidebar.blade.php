@@ -11,6 +11,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     <link href="{{ asset('select2-develop/dist/css/select2.css') }}" rel="stylesheet" />
+
+    @yield('style')
     <style>
         .loader {
             position: fixed;
@@ -30,6 +32,7 @@
         }
 
     </style>
+    
     <!-- Js -->
     <!--
     --- Head Part - Use Jquery anywhere at page.

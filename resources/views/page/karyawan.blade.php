@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('style')
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+@endsection
+
 @section('content')
     <div class="page has-sidebar-left height-full">
         <header class="blue accent-3 relative nav-sticky">
@@ -322,10 +326,20 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#table-data').DataTable({
                 //karena memakai yajra dan template maka di destroy dulu biar ga dobel initialization
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
                 destroy: true,
                 processing: true,
                 serverSide: true,
