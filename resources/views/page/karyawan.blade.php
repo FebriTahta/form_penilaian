@@ -342,7 +342,7 @@
                 ],
                 destroy: true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: {
                     url: '{{ route('be_index_karyawan') }}',
                     // data: {
